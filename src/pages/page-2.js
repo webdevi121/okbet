@@ -7,7 +7,12 @@ import Seo from "../components/seo"
 const SecondPage = () => (
   <Layout>
     <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+      voluptas? Mollitia deserunt ipsam eaque assumenda nostrum doloremque
+      distinctio hic culpa rem vero doloribus minus excepturi, blanditiis
+      impedit nobis provident fugiat?
+    </p>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
