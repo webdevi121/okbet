@@ -31,6 +31,29 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  ////////////// Sub Category //////////////
+  // const subCategoryTemplate = path.resolve(`src/templates/subCategory.js`)
+  // const resultSubCategory = await graphql(`
+  //   query {
+  //     allWpCategory {
+  //       edges {
+  //         node {
+  //           link
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+  // resultSubCategory.data.allWpCategory.edges.forEach(edge => {
+  //   createPage({
+  //     path: `${edge.node.link}`,
+  //     component: subCategoryTemplate,
+  //     context: {
+  //       link: edge.node.link,
+  //     },
+  //   })
+  // })
+
   ////////////// Category //////////////
   const categoryTemplate = path.resolve(`src/templates/category.js`)
   const resultCategory = await graphql(`
@@ -38,8 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allWpCategory {
         edges {
           node {
-            slug
-            uri
+            link
           }
         }
       }
@@ -47,10 +69,10 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   resultCategory.data.allWpCategory.edges.forEach(edge => {
     createPage({
-      path: `${edge.node.uri}`,
+      path: `${edge.node.link}`,
       component: categoryTemplate,
       context: {
-        uri: edge.node.uri,
+        link: edge.node.link,
       },
     })
   })

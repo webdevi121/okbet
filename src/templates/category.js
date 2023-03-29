@@ -19,19 +19,35 @@ const CategoryPage = ({ data }) => {
             <div className="flex-none space-y-3">
               <h2 className="text-xl font-bold">Sub Categories</h2>
 
-              {category.wpChildren.nodes.map(item => (
-                <div className="rounded-lg border border-solid" key={item.id}>
-                  <div className="space-y-3">
-                    <Link
-                      to={`${item.uri}`}
-                      className="text-sir-secondary block p-3"
-                      alt={item.name}
-                    >
-                      <h2 className="text-xl font-bold">{item.name}</h2>
-                    </Link>
-                  </div>
-                </div>
-              ))}
+              {category.wpChildren.nodes.length === 0
+                ? category.wpParent.node.wpChildren.nodes.map(item => (
+                    <div key={item.id}>
+                      <div className="space-y-3">
+                        <Link
+                          to={`${item.link}`}
+                          className="text-sir-secondary block rounded-lg border border-solid p-3"
+                          alt={item.name}
+                          activeClassName="bg-theme-secondary text-white"
+                        >
+                          <h2 className="text-xl font-bold">{item.name}</h2>
+                        </Link>
+                      </div>
+                    </div>
+                  ))
+                : category.wpChildren.nodes.map(item => (
+                    <div key={item.id}>
+                      <div className="space-y-3">
+                        <Link
+                          to={`${item.link}`}
+                          className="text-sir-secondary block rounded-lg border border-solid p-3"
+                          alt={item.name}
+                          activeClassName="bg-theme-secondary text-white"
+                        >
+                          <h2 className="text-xl font-bold">{item.name}</h2>
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
             </div>
             <ul className="w-full space-y-3">
               {postItem.map(({ node }) => (
@@ -61,20 +77,30 @@ const CategoryPage = ({ data }) => {
 export default CategoryPage
 
 export const query = graphql`
-  query ($uri: String!) {
-    wpCategory(uri: { eq: $uri }) {
+  query ($link: String!) {
+    wpCategory(link: { eq: $link }) {
       name
       description
       wpChildren {
         nodes {
           id
           name
-          uri
+          link
+        }
+      }
+      wpParent {
+        node {
+          wpChildren {
+            nodes {
+              name
+              link
+            }
+          }
         }
       }
     }
     allWpPost(
-      filter: { categories: { nodes: { elemMatch: { uri: { eq: $uri } } } } }
+      filter: { categories: { nodes: { elemMatch: { link: { eq: $link } } } } }
     ) {
       edges {
         node {
