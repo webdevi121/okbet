@@ -1,0 +1,32 @@
+.zoho-overide-style {
+  #zsfeedbackwidgetdiv {
+    .dt-blue-btn {
+      @apply w-32 rounded-xl border-0 bg-theme-primary text-base hover:shadow-current;
+    }
+    .zsfeedbkrpanel {
+      @apply rounded-xl;
+    }
+    #advwebForm {
+      @apply w-full max-w-screen-xl;
+      input,
+      textarea {
+        &:focus {
+          @apply shadow-lg;
+          box-shadow: none;
+          border-color: var(--primary-color) !important;
+        }
+      }
+    }
+    .feedbtxtfield,
+    .fbtxtnf,
+    .fbfcaptchaDivinput {
+      @apply text-base;
+    }
+    .WF_NameEmailDiv {
+      @apply flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4;
+      > div {
+        @apply m-0;
+      }
+    }
+  }
+}

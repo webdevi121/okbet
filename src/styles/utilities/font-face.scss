@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Heebo", sans-serif;
+  font-weight: 300;
+  font-display: swap;
+  font-style: light;
+  src: url(/fonts/HeeboLight.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+  src: url(/fonts/HeeboRegular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Heebo", sans-serif;
+  font-weight: 500;
+  font-display: swap;
+  font-style: medium;
+  src: url(/fonts/HeeboMedium.woff2) format("woff2");
+}

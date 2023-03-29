@@ -1,0 +1,10 @@
+:root {
+    --swiper-pagination-color: #fff;
+}
+
+.swiper-button-disabled{
+    @apply opacity-30;
+}
+.swiper-wrapper{
+    @apply pb-10;
+}

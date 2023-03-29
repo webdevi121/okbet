@@ -1,0 +1,38 @@
+.accordion__button {
+  @apply relative w-full cursor-pointer rounded-lg border border-[#304457] p-4 pl-10 text-left font-medium hover:bg-[#222e39];
+  &[aria-expanded="true"] {
+    @apply rounded-b-none border-b-0 bg-[#222e39];
+  }
+}
+
+.accordion__button:before {
+  display: inline-block;
+  content: "";
+  height: 10px;
+  width: 10px;
+  margin-right: 12px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 22px;
+  left: 15px;
+}
+.accordion__button[aria-expanded="true"]::before,
+.accordion__button[aria-selected="true"]::before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+[hidden] {
+  display: none;
+}
+
+.accordion__panel {
+  @apply rounded-b-lg border-b border-l border-r border-[#304457] bg-[#222e39] p-4 text-base opacity-80;
+  ul {
+    list-style: circle;
+    list-style-position: inside;
+  }
+}

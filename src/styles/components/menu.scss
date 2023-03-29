@@ -1,0 +1,31 @@
+/* Menu Icon */
+.svg-menu {
+    cursor: pointer;
+    transition: transform 400ms;
+    user-select: none;
+    &.animate-menu {
+        @apply rotate-45;
+
+        .top {
+            stroke-dashoffset: -98px;
+        }
+
+        .bottom {
+            stroke-dashoffset: -138px;
+        }
+    }
+    .top {
+        stroke-dasharray: 40 139;
+    }
+
+    .bottom {
+        stroke-dasharray: 40 180;
+    }
+
+    .line {
+        fill: none;
+        transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+        stroke-width: 5.5;
+        stroke-linecap: round;
+    }
+}
