@@ -6,7 +6,9 @@ const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <Header />
-      {children}
+      <div className="bg-theme-light">
+        <div className="theme-container py-10">{children}</div>
+      </div>
       <Footer />
     </React.Fragment>
   )
