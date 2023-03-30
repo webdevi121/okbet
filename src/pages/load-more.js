@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Layout from "components/layout"
 
 const Page = () => {
   const data = useStaticQuery(graphql`
@@ -53,19 +54,28 @@ const Page = () => {
   }, [list]) //eslint-disable-line
 
   return (
-    <div>
-      <h1>Load more demo</h1>
+    <Layout>
       <div>
-        {list?.map(article => (
-          <div key={article.node.id}>{article.node.title}</div>
-        ))}
+        <h1 className="text-xl font-bold">All Post</h1>
+        <div>
+          {list?.map(article => (
+            <Link to={`${article.node.uri}`}>
+              <div key={article.node.id}>{article.node.title}</div>
+            </Link>
+          ))}
+        </div>
+        {hasMore ? (
+          <button
+            className="bg-theme-secondary text-white"
+            onClick={handleLoadMore}
+          >
+            Load More
+          </button>
+        ) : (
+          <p>No more results</p>
+        )}
       </div>
-      {hasMore ? (
-        <button onClick={handleLoadMore}>Load More</button>
-      ) : (
-        <p>No more results</p>
-      )}
-    </div>
+    </Layout>
   )
 }
 
