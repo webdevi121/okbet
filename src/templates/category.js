@@ -1,11 +1,47 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 
 const CategoryPage = ({ data }) => {
   const category = data.wpCategory
-  const postItem = data.allWpPost.edges
+
+  // Array of all post articles
+  const allPost = data.allWpPost.edges
+
+  // State for the list
+  const [list, setList] = useState([...allPost.slice(0, 3)])
+
+  // State to trigger oad more
+  const [loadMore, setLoadMore] = useState(false)
+
+  // State of whether there is more to load
+  const [hasMore, setHasMore] = useState(allPost.length > 3)
+
+  // Load more button click
+  const handleLoadMore = () => {
+    setLoadMore(true)
+  }
+
+  // Handle loading more articles
+  useEffect(() => {
+    if (loadMore && hasMore) {
+      const currentLength = list.length
+      const isMore = currentLength < allPost.length
+      const nextResults = isMore
+        ? allPost.slice(currentLength, currentLength + 3)
+        : []
+      setList([...list, ...nextResults])
+      setLoadMore(false)
+    }
+  }, [loadMore, hasMore]) //eslint-disable-line
+
+  //Check if there is more
+  useEffect(() => {
+    const isMore = list.length < allPost.length
+    setHasMore(isMore)
+  }, [list]) //eslint-disable-line
+
   return (
     <React.Fragment>
       <Layout>
@@ -49,24 +85,36 @@ const CategoryPage = ({ data }) => {
                     </div>
                   ))}
             </div>
-            <ul className="w-full space-y-3">
-              {postItem.map(({ node }) => (
-                <div
-                  key={node.id}
-                  className="rounded-lg border border-solid p-3"
-                >
-                  <div className="space-y-3">
-                    <Link
-                      to={`/${node.slug}`}
-                      className="text-sir-secondary"
-                      alt={node.title}
-                    >
-                      <h2 className="text-xl font-bold">{node.title}</h2>
-                    </Link>
+            <div className="w-full space-y-3">
+              <ul className="space-y-3">
+                {list?.map(article => (
+                  <div
+                    key={article.node.id}
+                    className="rounded-lg border border-solid p-3"
+                  >
+                    <div className="space-y-3">
+                      <Link
+                        to={`/${article.node.slug}`}
+                        className="text-sir-secondary"
+                        alt={article.node.title}
+                      >
+                        <h2 className="text-xl font-bold">
+                          {article.node.title}
+                        </h2>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </ul>
+                ))}
+              </ul>
+              {hasMore ? (
+                <button
+                  className="bg-theme-secondary text-white"
+                  onClick={handleLoadMore}
+                >
+                  Load More
+                </button>
+              ) : null}
+            </div>
           </div>
         </div>
       </Layout>
@@ -107,6 +155,7 @@ export const query = graphql`
           title
           id
           slug
+          uri
         }
       }
     }
