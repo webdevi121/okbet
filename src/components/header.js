@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
+import SearchBar from "./searchBar"
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -165,6 +166,7 @@ const Header = () => {
             </button>
           </div>
         </div>
+        <SearchBar />
       </nav>
     </>
   )
