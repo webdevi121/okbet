@@ -35,7 +35,10 @@ const DetailPage = ({ data }) => {
                 <FacebookShareButton url={postUrl}>
                   <FacebookIcon size={32} round={true} />
                 </FacebookShareButton>
-                <FacebookMessengerShareButton url={postUrl}>
+                <FacebookMessengerShareButton
+                  url={postUrl}
+                  appId="274266067164"
+                >
                   <FacebookMessengerIcon size={32} round={true} />
                 </FacebookMessengerShareButton>
                 <TwitterShareButton url={postUrl}>
