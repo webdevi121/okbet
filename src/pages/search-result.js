@@ -42,7 +42,7 @@ const SearchResult = () => {
       })
     }
     setSearchResult(matches)
-  }, [posts])
+  }, [searchParams.get("q")])
 
   return (
     <Layout>

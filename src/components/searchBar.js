@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 
 const SearchBar = () => {
   const [posts, setPosts] = useState([])
@@ -48,12 +48,15 @@ const SearchBar = () => {
   }
 
   const onClickHandler = () => {
-    window.location.replace(searchResultUrl)
+    setSearchQuery("")
+    navigate(searchResultUrl)
   }
 
   const onKeyDownHandler = e => {
     if (e.key === "Enter") {
-      window.location.replace(searchResultUrl)
+      setSearchResult([])
+      setSearchQuery("")
+      navigate(searchResultUrl)
     }
   }
 
