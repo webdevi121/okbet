@@ -5,7 +5,9 @@ import Layout from "components/layout"
 import {
   FacebookShareButton,
   TwitterShareButton,
+  WhatsappShareButton,
   FacebookIcon,
+  WhatsappIcon,
   FacebookMessengerIcon,
   TwitterIcon,
   FacebookMessengerShareButton,
@@ -39,6 +41,9 @@ const DetailPage = ({ data }) => {
                 <TwitterShareButton url={postUrl}>
                   <TwitterIcon size={32} round={true} />
                 </TwitterShareButton>
+                <WhatsappShareButton url={postUrl}>
+                  <WhatsappIcon size={32} round={true} />
+                </WhatsappShareButton>
               </div>
               <div dangerouslySetInnerHTML={{ __html: item.content }} />
             </div>
