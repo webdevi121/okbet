@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 import {
+  EmailShareButton,
   FacebookShareButton,
   TwitterShareButton,
   WhatsappShareButton,
@@ -10,6 +11,7 @@ import {
   WhatsappIcon,
   FacebookMessengerIcon,
   TwitterIcon,
+  EmailIcon,
   FacebookMessengerShareButton,
 } from "react-share"
 
@@ -47,6 +49,9 @@ const DetailPage = ({ data }) => {
                 <WhatsappShareButton url={postUrl}>
                   <WhatsappIcon size={32} round={true} />
                 </WhatsappShareButton>
+                <EmailShareButton url={postUrl} subject={item.title}>
+                  <EmailIcon size={32} round={true} />
+                </EmailShareButton>
               </div>
               <div dangerouslySetInnerHTML={{ __html: item.content }} />
             </div>
