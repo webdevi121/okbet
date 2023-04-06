@@ -115,13 +115,17 @@ const Footer = () => {
                 Copyright ©{currentDate} {siteName}. All rights reserved.
               </div>
               <div className="mr-auto ml-auto md:mr-0">
-                <Link to="https://infusion121.com" target="_blank">
+                <a
+                  href="https://infusion121.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img
                     src="https://admin.payinn.com.au/wp-content/uploads/2023/03/i121-logo.png"
                     alt=""
                     width="130"
                   />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
