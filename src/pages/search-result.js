@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useState, useEffect } from "react"
+import Seo from "components/seo"
+import Layout from "components/layout"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-const SearchBar = () => {
+const SearchResult = () => {
   const [posts, setPosts] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResult, setSearchResult] = useState([])
-  const [searchResultUrl, setSearchResutlUrl] = useState("")
+  const searchParams = new URLSearchParams(document.location.search)
 
   const {
     allWpPost: { edges },
@@ -32,48 +34,22 @@ const SearchBar = () => {
 
   useEffect(() => {
     setPosts(edges)
-  }, [])
-
-  const onChangeHandler = queryText => {
     let matches = []
-    if (queryText.length > 2) {
+    if (searchParams && searchParams.get("q")) {
       matches = edges.filter(edge => {
-        const regex = new RegExp(`${queryText}`, "gi")
+        const regex = new RegExp(`${searchParams.get("q")}`, "gi")
         return edge.node.title.match(regex)
       })
     }
     setSearchResult(matches)
-    setSearchQuery(queryText)
-    setSearchResutlUrl("/search-result?q=" + queryText)
-  }
-
-  const onClickHandler = () => {
-    window.location.replace(searchResultUrl)
-  }
-
-  const onKeyDownHandler = e => {
-    if (e.key === "Enter") {
-      window.location.replace(searchResultUrl)
-    }
-  }
+  }, [posts])
 
   return (
-    <div className="container">
-      <input
-        type="text"
-        className="input"
-        onChange={e => onChangeHandler(e.target.value)}
-        onKeyDown={e => onKeyDownHandler(e)}
-        value={searchQuery}
-        onBlur={() => {
-          setTimeout(() => {
-            setSearchResult([])
-          }, 200)
-        }}
-      />
-      {searchResult &&
-        searchResult.map((result, i) => {
-          if (i < 3)
+    <Layout>
+      <div className="relative py-10 lg:py-20">
+        <div>Search results for : {searchParams.get("q")}</div>
+        {searchResult &&
+          searchResult.map((result, i) => {
             return (
               <div
                 key={i}
@@ -87,21 +63,15 @@ const SearchBar = () => {
                 }}
               >
                 <Link to={result.node.link}>{result.node.title}</Link>
+                <Link to={result.node.link}>
+                  <p>READ MORE</p>
+                </Link>
               </div>
             )
-        })}
-      {searchResult.length > 0 && (
-        <input
-          type="button"
-          onClick={onClickHandler}
-          value="View all results"
-          style={{
-            color: "white",
-          }}
-        />
-      )}
-    </div>
+          })}
+      </div>
+    </Layout>
   )
 }
 
-export default SearchBar
+export default SearchResult
