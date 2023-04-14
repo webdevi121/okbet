@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #093672;
+  --primary-color: #1d4a86;
   --secondary-color: #02111d;
   --light-color: #f7f7f7;
   --accent-color-0: var(--primary-color);
@@ -37,6 +37,14 @@
 
 body {
   @apply font-heebo;
+}
+
+.flex-post {
+  @apply flex;
+  .img-placeholder {
+    @apply m-5 w-[150px] flex-none rounded-xl p-5 px-7;
+    order: 2;
+  }
 }
 
 .layout {
