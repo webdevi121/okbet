@@ -1,9 +1,10 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 import PageSection from "../components/pageSection"
 import FeaturedPost from "../components/featuredPost"
+import Banner from "../components/banner"
 
 const Homepage = ({ data }) => {
   return (
@@ -15,8 +16,32 @@ const Homepage = ({ data }) => {
           image={data.wpPage.acfSeoData.socialThumbnail?.sourceUrl}
           uri={data.wpPage.uri}
         />
-        <PageSection data={data} />
-        <FeaturedPost data={data.wpPage.acfHomepage.homepageFeaturedArticles} />
+        <div className="grid gap-10">
+          <Banner data={data.wpPage.acfHomepage.topBanner} />
+          <FeaturedPost
+            data={data.wpPage.acfHomepage.homepageFeaturedArticles}
+          />
+          <div className="grid grid-cols-3 gap-5">
+            <Link to="#">
+              <img
+                src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/racing.png"
+                alt="illustration"
+              />
+            </Link>
+            <Link to="#">
+              <img
+                src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/sports.png"
+                alt="illustration"
+              />
+            </Link>
+            <Link to="#">
+              <img
+                src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/novelty.png"
+                alt="illustration"
+              />
+            </Link>
+          </div>
+        </div>
       </Layout>
     </React.Fragment>
   )
@@ -36,6 +61,17 @@ export const query = graphql`
         }
       }
       acfHomepage {
+        topBanner {
+          link: bannerLink
+          image: bannerImage {
+            gatsbyImage(
+              quality: 100
+              width: 1280
+              height: 164
+              placeholder: BLURRED
+            )
+          }
+        }
         homepageFeaturedArticles {
           ... on WpPost {
             id

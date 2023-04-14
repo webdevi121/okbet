@@ -14,7 +14,7 @@ module.exports = {
       lg: "992px",
       // => @media (min-width: 992px) { ... }
 
-      xl: "1400px",
+      xl: "1280px",
       // => @media (min-width: 1200px) { ... }
     },
     fontFamily: {
