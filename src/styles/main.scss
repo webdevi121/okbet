@@ -1,7 +1,7 @@
 :root {
-  --primary-color: #06b2e5;
+  --primary-color: #093672;
   --secondary-color: #02111d;
-  --light-color: #f7f3f9;
+  --light-color: #f7f7f7;
   --accent-color-0: var(--primary-color);
   --accent-color-1: #ff4581;
   --accent-color-2: #ff9700;
@@ -28,7 +28,7 @@
   // remove button tap highlight color on mobile
   html {
     -webkit-tap-highlight-color: transparent;
-    background: var(--secondary-color);
+    background: var(--primary-color);
   }
   body {
     @apply text-base font-light md:text-lg;

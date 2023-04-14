@@ -40,7 +40,7 @@ const Footer = () => {
   return (
     <React.Fragment>
       <footer>
-        <div className="bg-theme-secondary py-20 text-sm text-white">
+        <div className="bg-theme-primary py-20 text-sm text-white">
           <div className="theme-container">
             <div className="grid gap-7 border-t border-white/10 py-10 md:grid-cols-3">
               <div>

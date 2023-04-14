@@ -32,7 +32,7 @@ const Header = () => {
           ></div>
         ) : null}
         <div
-          className={`main-navigation fixed top-0 z-50 mt-[77px] h-full w-10/12 bg-theme-secondary p-5 text-white transition lg:relative lg:mt-0 lg:h-auto lg:w-full lg:translate-x-0 lg:py-3 lg:px-0 lg:transition-none ${
+          className={`main-navigation fixed top-0 z-50 mt-[77px] h-full w-10/12 bg-theme-primary p-5 text-white transition lg:relative lg:mt-0 lg:h-auto lg:w-full lg:translate-x-0 lg:py-3 lg:px-0 lg:transition-none ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -90,7 +90,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="fixed top-0 z-40 w-full bg-theme-secondary lg:hidden">
+        <div className="fixed top-0 z-40 w-full bg-theme-primary lg:hidden">
           <div className="theme-container flex items-center py-4">
             <div>
               <Link to={`/`}>

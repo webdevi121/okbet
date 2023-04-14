@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 import PageSection from "../components/pageSection"
+import FeaturedPost from "../components/featuredPost"
 
 const Homepage = ({ data }) => {
   return (
@@ -15,6 +16,7 @@ const Homepage = ({ data }) => {
           uri={data.wpPage.uri}
         />
         <PageSection data={data} />
+        <FeaturedPost data={data.wpPage.acfHomepage.homepageFeaturedArticles} />
       </Layout>
     </React.Fragment>
   )
@@ -31,6 +33,21 @@ export const query = graphql`
         seoDescription
         socialThumbnail {
           sourceUrl
+        }
+      }
+      acfHomepage {
+        homepageFeaturedArticles {
+          ... on WpPost {
+            id
+            title
+            excerpt
+            date(formatString: "DD  MMMM, YYYY")
+            categories {
+              nodes {
+                name
+              }
+            }
+          }
         }
       }
     }

@@ -28,6 +28,7 @@ module.exports = {
         theme: {
           primary: {
             DEFAULT: "var(--primary-color)",
+            light: "#42B4E7",
           },
           secondary: {
             DEFAULT: "var(--secondary-color)",
@@ -35,6 +36,7 @@ module.exports = {
           light: {
             DEFAULT: "var(--light-color)",
           },
+          borderColor: "#EAEAEA",
           darkGray: "#666666",
           lightGray: "#fafafa",
           mediumGray: "#F8F8F8",
