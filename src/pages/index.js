@@ -4,6 +4,7 @@ import Seo from "components/seo"
 import Layout from "components/layout"
 import FeaturedPost from "../components/featuredPost"
 import Banner from "../components/banner"
+import HomepageSections from "../components/homepageSections"
 
 const Homepage = ({ data }) => {
   return (
@@ -40,6 +41,9 @@ const Homepage = ({ data }) => {
               />
             </Link>
           </div>
+          <HomepageSections
+            data={data.wpPage.acfHomepage.homepageCategorySections}
+          />
         </div>
       </Layout>
     </React.Fragment>
@@ -84,6 +88,35 @@ export const query = graphql`
                 uri
                 acfCategory {
                   categoryColor
+                }
+              }
+            }
+          }
+        }
+        homepageCategorySections {
+          ... on WpPage_Acfhomepage_HomepageCategorySections_CategorySection {
+            categoryFeaturedArticles {
+              ... on WpPost {
+                id
+                title
+                excerpt
+                uri
+                date(formatString: "DD  MMMM, YYYY")
+                categories {
+                  nodes {
+                    name
+                    uri
+                    acfCategory {
+                      categoryColor
+                    }
+                  }
+                }
+              }
+            }
+            taxCategory {
+              wpChildren {
+                nodes {
+                  name
                 }
               }
             }

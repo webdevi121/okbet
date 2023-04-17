@@ -60,14 +60,14 @@ const Header = () => {
             <a
               href="https://okebet.com.au/"
               target="_blank"
-              className="flex h-full items-center px-3"
+              className="flex h-full items-center px-5"
             >
               Login
             </a>
             <a
               href="https://okebet.com.au/registration/step-1"
               target="_blank"
-              className="flex h-full items-center px-3"
+              className="flex h-full items-center border-l border-white/10 px-5"
             >
               Join
             </a>
