@@ -76,10 +76,15 @@ export const query = graphql`
             id
             title
             excerpt
+            uri
             date(formatString: "DD  MMMM, YYYY")
             categories {
               nodes {
                 name
+                uri
+                acfCategory {
+                  categoryColor
+                }
               }
             }
           }

@@ -4,9 +4,9 @@
   --accent-color-4: #42b4e7;
   --light-color: #f7f7f7;
   --accent-color-0: var(--primary-color);
-  --accent-color-1: #ff4581;
+  --accent-color-1: #e25555;
   --accent-color-2: #ff9700;
-  --accent-color-3: #5dd400;
+  --accent-color-3: #48b946;
   --accent-color-5: var(--accent-color-3);
   --accent-color-6: var(--accent-color-4);
 }
@@ -39,10 +39,20 @@ body {
   @apply font-theme;
 }
 
+.theme-red {
+  @apply bg-[var(--accent-color-1)];
+}
+.theme-green {
+  @apply bg-[var(--accent-color-3)];
+}
+.theme-blue {
+  @apply bg-[var(--primary-color)];
+}
+
 .flex-post {
   @apply flex;
   .img-placeholder {
-    @apply m-5 w-[150px] flex-none rounded-xl p-5 px-7;
+    @apply m-5 w-[150px] flex-none rounded-xl;
     order: 2;
   }
 }

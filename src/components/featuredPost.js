@@ -12,30 +12,41 @@ const FeaturedPost = props => {
               index > 0 ? "flex-post" : "row-span-3"
             } `}
           >
-            <div className="img-placeholder items-center justify-center bg-theme-primary">
-              <div className="flex h-full items-center justify-center">
-                <img
-                  src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/tips-img.png"
-                  alt=""
-                  width="260"
-                />
-              </div>
+            <div
+              className={`img-placeholder items-center justify-center bg-theme-primary ${
+                index > 0 ? "" : "h-2/4"
+              } `}
+            >
+              <Link
+                to={item.uri}
+                className="flex h-full items-center justify-center p-5 px-7"
+              >
+                <div className="flex h-full items-center justify-center">
+                  <img
+                    src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/tips-img.png"
+                    alt=""
+                    width="260"
+                  />
+                </div>
+              </Link>
             </div>
             <div className="space-y-3 p-5">
-              <h2 className="text-xl font-semibold text-theme-primary line-clamp-1">
-                {item.title}
-              </h2>
+              <Link to={item.uri}>
+                <h2 className="text-xl font-semibold text-theme-primary line-clamp-1">
+                  {item.title}
+                </h2>
+              </Link>
               <div
                 dangerouslySetInnerHTML={{ __html: item.excerpt }}
                 className="line-clamp-2"
               />
-              <div className="text-sm opacity-80">{item.date}</div>
+              <div className="text-sm opacity-50">{item.date}</div>
               <ul className="flex space-x-3">
                 {item.categories.nodes.map(catItem => (
                   <li>
                     <Link
-                      to="/"
-                      className="rounded-full bg-theme-primary px-4 py-1 text-sm text-white"
+                      to={catItem.uri}
+                      className={`rounded-full px-4 py-1 text-sm text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
                     >
                       {catItem.name}
                     </Link>
