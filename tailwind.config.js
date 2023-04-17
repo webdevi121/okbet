@@ -18,7 +18,7 @@ module.exports = {
       // => @media (min-width: 1200px) { ... }
     },
     fontFamily: {
-      heebo: ["Heebo", "sans-serif"],
+      theme: ["poppins", "sans-serif"],
     },
     container: {
       center: true,
@@ -28,7 +28,7 @@ module.exports = {
         theme: {
           primary: {
             DEFAULT: "var(--primary-color)",
-            light: "#42B4E7",
+            light: "var(--accent-color-4)",
           },
           secondary: {
             DEFAULT: "var(--secondary-color)",

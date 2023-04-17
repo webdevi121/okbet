@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
-import PageSection from "../components/pageSection"
 import FeaturedPost from "../components/featuredPost"
 import Banner from "../components/banner"
 

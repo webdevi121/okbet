@@ -1,12 +1,12 @@
 :root {
   --primary-color: #1d4a86;
   --secondary-color: #02111d;
+  --accent-color-4: #42b4e7;
   --light-color: #f7f7f7;
   --accent-color-0: var(--primary-color);
   --accent-color-1: #ff4581;
   --accent-color-2: #ff9700;
   --accent-color-3: #5dd400;
-  --accent-color-4: #007ff4;
   --accent-color-5: var(--accent-color-3);
   --accent-color-6: var(--accent-color-4);
 }
@@ -31,12 +31,12 @@
     background: var(--primary-color);
   }
   body {
-    @apply text-base font-light md:text-lg;
+    @apply font-normal;
   }
 }
 
 body {
-  @apply font-heebo;
+  @apply font-theme;
 }
 
 .flex-post {

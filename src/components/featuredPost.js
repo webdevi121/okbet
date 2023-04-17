@@ -22,7 +22,7 @@ const FeaturedPost = props => {
               </div>
             </div>
             <div className="space-y-3 p-5">
-              <h2 className="text-xl font-medium text-theme-primary line-clamp-1">
+              <h2 className="text-xl font-semibold text-theme-primary line-clamp-1">
                 {item.title}
               </h2>
               <div
@@ -35,7 +35,7 @@ const FeaturedPost = props => {
                   <li>
                     <Link
                       to="/"
-                      className="rounded-full bg-theme-primary px-4 py-1 text-sm font-medium text-white"
+                      className="rounded-full bg-theme-primary px-4 py-1 text-sm text-white"
                     >
                       {catItem.name}
                     </Link>
