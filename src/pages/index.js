@@ -5,6 +5,7 @@ import Layout from "components/layout"
 import FeaturedPost from "../components/featuredPost"
 import Banner from "../components/banner"
 import HomepageSections from "../components/homepageSections"
+import FeaturedArticle from "../components/featuredArticle"
 
 const Homepage = ({ data }) => {
   return (
@@ -41,9 +42,17 @@ const Homepage = ({ data }) => {
               />
             </Link>
           </div>
-          <HomepageSections
-            data={data.wpPage.acfHomepage.homepageCategorySections}
-          />
+          {data.wpPage.acfHomepage.homepageCategorySections
+            ? data.wpPage.acfHomepage.homepageCategorySections.map(
+                (node, index) => (
+                  <div key={index} className="bg-white p-10">
+                    <div>
+                      <FeaturedArticle data={node.categoryFeaturedArticles} />
+                    </div>
+                  </div>
+                )
+              )
+            : null}
         </div>
       </Layout>
     </React.Fragment>
