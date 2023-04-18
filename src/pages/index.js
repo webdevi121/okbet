@@ -45,10 +45,13 @@ const Homepage = ({ data }) => {
           {data.wpPage.acfHomepage.homepageCategorySections
             ? data.wpPage.acfHomepage.homepageCategorySections.map(
                 (node, index) => (
-                  <div key={index} className="bg-white p-10">
-                    <div>
-                      <FeaturedArticle data={node.categoryFeaturedArticles} />
-                    </div>
+                  <div key={index} className="bg-white p-5">
+                    <FeaturedArticle
+                      data={node.categoryFeaturedArticles}
+                      sectionTitle={node.sectionCategoryName}
+                      icon={node.categoryIcon.gatsbyImage}
+                      subcategories={node.taxCategory.wpChildren.nodes}
+                    />
                   </div>
                 )
               )
@@ -104,6 +107,15 @@ export const query = graphql`
         }
         homepageCategorySections {
           ... on WpPage_Acfhomepage_HomepageCategorySections_CategorySection {
+            sectionCategoryName
+            categoryIcon {
+              gatsbyImage(
+                quality: 10
+                width: 60
+                height: 45
+                placeholder: BLURRED
+              )
+            }
             categoryFeaturedArticles {
               ... on WpPost {
                 id
@@ -126,6 +138,7 @@ export const query = graphql`
               wpChildren {
                 nodes {
                   name
+                  uri
                 }
               }
             }
