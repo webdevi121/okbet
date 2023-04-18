@@ -23,24 +23,24 @@ const Homepage = ({ data }) => {
             data={data.wpPage.acfHomepage.homepageFeaturedArticles}
           />
           <div className="grid grid-cols-3 gap-5">
-            <Link to="#">
+            <a href="/category/racing">
               <img
                 src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/racing.png"
                 alt="illustration"
               />
-            </Link>
-            <Link to="#">
+            </a>
+            <a href="/category/sports">
               <img
                 src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/sports.png"
                 alt="illustration"
               />
-            </Link>
-            <Link to="#">
+            </a>
+            <a href="/category/novelty">
               <img
                 src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/novelty.png"
                 alt="illustration"
               />
-            </Link>
+            </a>
           </div>
           {data.wpPage.acfHomepage.homepageCategorySections
             ? data.wpPage.acfHomepage.homepageCategorySections.map(
@@ -139,6 +139,15 @@ export const query = graphql`
                 nodes {
                   name
                   uri
+                  acfCategory {
+                    categoryIcon {
+                      gatsbyImage(
+                        placeholder: BLURRED
+                        height: 25
+                        layout: FIXED
+                      )
+                    }
+                  }
                 }
               }
             }

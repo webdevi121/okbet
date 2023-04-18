@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
 import "swiper/css"
@@ -28,9 +29,16 @@ const SubcategoriesSlider = props => {
             <SwiperSlide key={index}>
               <Link
                 to={item.uri}
-                className="block rounded-lg bg-theme-light p-3 text-center"
+                className="flex justify-center space-x-3 rounded-lg bg-theme-light p-3 text-center"
               >
-                {item.name}
+                {item.acfCategory.categoryIcon ? (
+                  <GatsbyImage
+                    image={item.acfCategory.categoryIcon.gatsbyImage}
+                    alt="Illustration"
+                  />
+                ) : null}
+
+                <span>{item.name}</span>
               </Link>
             </SwiperSlide>
           ))}
