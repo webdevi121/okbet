@@ -1,10 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 import FeaturedPost from "../components/featuredPost"
 import Banner from "../components/banner"
-import HomepageSections from "../components/homepageSections"
 import FeaturedArticle from "../components/featuredArticle"
 
 const Homepage = ({ data }) => {
@@ -42,20 +41,22 @@ const Homepage = ({ data }) => {
               />
             </a>
           </div>
-          {data.wpPage.acfHomepage.homepageCategorySections
-            ? data.wpPage.acfHomepage.homepageCategorySections.map(
-                (node, index) => (
-                  <div key={index} className="bg-white p-5">
-                    <FeaturedArticle
-                      data={node.categoryFeaturedArticles}
-                      sectionTitle={node.sectionCategoryName}
-                      icon={node.categoryIcon.gatsbyImage}
-                      subcategories={node.taxCategory.wpChildren.nodes}
-                    />
-                  </div>
+          <div>
+            {data.wpPage.acfHomepage.homepageCategorySections
+              ? data.wpPage.acfHomepage.homepageCategorySections.map(
+                  (node, index) => (
+                    <div key={index} className="bg-white p-5">
+                      <FeaturedArticle
+                        data={node.categoryFeaturedArticles}
+                        sectionTitle={node.sectionCategoryName}
+                        icon={node.categoryIcon?.gatsbyImage}
+                        subcategories={node.taxCategory.wpChildren.nodes}
+                      />
+                    </div>
+                  )
                 )
-              )
-            : null}
+              : null}
+          </div>
         </div>
       </Layout>
     </React.Fragment>

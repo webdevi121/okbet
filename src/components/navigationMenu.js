@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 
 const NavigationMenu = () => {

@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 import SubcategoriesSlider from "./subcategoriesSlider"
 
 const FeaturedArticle = props => {
@@ -23,7 +23,7 @@ const FeaturedArticle = props => {
               } `}
             >
               <div
-                className={`img-placeholder items-center justify-center bg-theme-primary ${
+                className={`img-placeholder items-center justify-center bg-theme-primary-light200 ${
                   index > 0 ? "" : "h-2/4"
                 } `}
               >
@@ -52,8 +52,8 @@ const FeaturedArticle = props => {
                 />
                 <div className="text-sm opacity-50">{item.date}</div>
                 <ul className="flex space-x-3">
-                  {item.categories.nodes.map(catItem => (
-                    <li>
+                  {item.categories.nodes.map((catItem, index) => (
+                    <li key={index}>
                       <Link
                         to={catItem.uri}
                         className={`rounded-full px-4 py-1 text-sm text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}

@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper"
+import { Navigation } from "swiper"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
 import "swiper/css"
 import "swiper/css/pagination"
@@ -11,7 +11,7 @@ const Banner = props => {
     <React.Fragment>
       <div className="relative overflow-hidden rounded-2xl">
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          modules={[Navigation]}
           slidesPerView={1}
           navigation={{
             nextEl: ".swiper-button-next",

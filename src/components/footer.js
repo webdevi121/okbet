@@ -1,130 +1,145 @@
 import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import FooterLogos from "./footerLogo"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Footer = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      wpMenu(locations: { eq: PRIMARY }) {
-        menuItems {
-          nodes {
-            label
-            uri
-            id
-          }
-        }
-      }
-      wp {
-        acfOptionsGlobalOptions {
-          acfOptions {
-            footerAddress
-            shortDescription
-            footerEmail
-          }
-        }
-      }
-      file {
-        ctime(formatString: "Y")
-      }
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
-  const options = data.wp.acfOptionsGlobalOptions.acfOptions
-  const currentDate = data.file.ctime
-  const siteName = data.site.siteMetadata.title
-
   return (
     <React.Fragment>
       <footer>
-        <div className="bg-theme-primary py-20 text-sm text-white">
-          <div className="theme-container">
-            <div className="grid gap-7 border-t border-white/10 py-10 md:grid-cols-3">
-              <div>
-                <div className="mb-5">
-                  <Link to={`/`}>
-                    <svg
-                      width="180"
-                      height="auto"
-                      fill="none"
-                      viewBox="0 0 347 63"
-                    >
-                      <g clipPath="url(#A)">
-                        <path
-                          d="M176.62 59.72l1.12-5.48a9 9 0 0 0 .11-1.28c.88-.09.51-.76.56-1.23.07-1.56.73-3 .83-4.57.94-.18.48-.91.55-1.43a44.89 44.89 0 0 1 1.16-5.88c.058-.29.092-.584.1-.88.94-.23.75-.7.26-1.23a54.04 54.04 0 0 0 1.54-7.34c1-.16.43-.94.56-1.43.18-1.77.74-3.46 1-5.2.54-.26.38-.74.36-1.17l1.36-6.78a61.61 61.61 0 0 0 1.3-6.16c.25-1.47.8-2.86 1.06-4.33.318-1.188.569-2.393.75-3.61 0-.59.19-.9.88-.9h33.25c.07.93.77.47 1.22.56h1.39a11 11 0 0 1 4.6 1.33c1.631.845 3.114 1.949 4.39 3.27a15.28 15.28 0 0 1 1.45 2.16 13.95 13.95 0 0 1 1.52 3.59 10.66 10.66 0 0 1 .24 1.42v5.42a9.57 9.57 0 0 1-1.37 4.46 19.07 19.07 0 0 1-2.25 3.22c-1.239 1.335-2.624 2.526-4.13 3.55a7.88 7.88 0 0 1-4 1.35c-.4 0-1.05-.22-1.09.28s.5.79 1.09.69a5.4 5.4 0 0 1 2.56 1.43 12.47 12.47 0 0 1 3.09 4c.657 1.324 1.048 2.765 1.15 4.24v4c-.51 8.09-7.17 14.16-14.41 15.4-.61.17-1.49-.5-1.82.57h-1-.5l-36.69.06c-.69 0-1.52.29-2-.14s-.01-1.29-.19-1.96zm44.79-40.32c.67 0 .57-.46.55-.86s.21-1-.55-1c-.2-2-2.43-3.51-4.06-3.56h-2.79-11.28c-.3 0-.81-.23-.86.36-.14 1.56-.78 3-.85 4.6-1 .16-.45.92-.56 1.43-.021 1.024-.211 2.037-.56 3-.43 1.19.13 1 .82 1h13.25c.977-.021 1.95-.121 2.91-.3a5 5 0 0 0 2.782-1.641c.72-.84 1.141-1.894 1.198-2.999v-.03zm-9.4 29.18c.71.25 1-.51 1.64-.61 1.61-.27 2.49-1.53 3.32-2.75s.5-2.4.43-3.63a4.62 4.62 0 0 0-4.14-4c-5 0-10 0-15-.06-.9 0-1.31.35-1.26 1.19.007.986-.177 1.964-.54 2.88-.571 1.969-1.012 3.973-1.32 6-.67 0-.58.5-.57.92 0 .57.45.49.79.49h15.78c.34-.05.75.06.87-.4v-.03z"
-                          fill="#3ab0e6"
-                        />
-                        <path
-                          d="M.29 39.38c-.5-2.51-.22-5-.21-7.57.73-.3.79-.68.18-1.21v-.4c.57-.26.37-.76.37-1.2a20.38 20.38 0 0 1 1.32-5.76c.415-1.294.937-2.552 1.56-3.76l2.77-4.47a31.77 31.77 0 0 1 3.46-4.35c.8-.8 1.72-1.53 2.57-2.28.866-.633 1.681-1.332 2.44-2.09.34-.41 1.06-.49 1.47-.87 1.12-1 2.67-1.27 3.86-2.13a11.25 11.25 0 0 1 3.73-1.4c.8-.23 1.51-.67 2.32-.84a37 37 0 0 1 7.47-1h4.64a38.7 38.7 0 0 1 5.37.49c.61.06 1.15.45 1.79.38.14 1 .91.44 1.41.57a13 13 0 0 1 4 1.29 18.15 18.15 0 0 1 3.52 1.78c1.48 1.23 3.33 2 4.49 3.67.49.71 1.38 1.13 1.95 1.85a28.15 28.15 0 0 1 3.26 4.94c.57 1.13.91 2.35 1.47 3.43a13.63 13.63 0 0 1 1.21 4.86c.356 1.847.474 3.733.35 5.61-.168 2.4-.502 4.786-1 7.14l-1.48 4.7a19.88 19.88 0 0 1-1.91 4.28 37.52 37.52 0 0 1-2.87 4.31 43.74 43.74 0 0 1-3.74 4.17l-3.22 2.66c-1.1.86-2.33 1.42-3.41 2.27a8.1 8.1 0 0 1-2.84 1.26c-1 .26-1.81 1-2.94 1.22-1.58.25-3.06 1-4.67 1.36a43.08 43.08 0 0 1-11.82.61c-2.028-.133-4.038-.468-6-1a26.28 26.28 0 0 1-4.64-1.64c-1.28-.62-2.79-.94-3.88-2.12-.4-.43-1.32-.69-1.87-1.13l-2.76-2.27a41.44 41.44 0 0 1-2.81-3.27 31.56 31.56 0 0 1-2.7-4.32 13.36 13.36 0 0 1-1.41-4.14 6.28 6.28 0 0 1-.44-2.18c-.07-.51.26-1.11-.36-1.45zm16.56-10.15c.07 1.79-.53 3.51-.43 5.31a14.57 14.57 0 0 0 1.31 5.9c.425.936.93 1.832 1.51 2.68a12.05 12.05 0 0 0 1.64 1.93c.58.52 1.31.84 1.84 1.33A7.13 7.13 0 0 0 26.39 48c0 .8.6.55 1 .55.623.187 1.263.311 1.91.37 2.66 0 5.32.4 7.92-.84a23.37 23.37 0 0 0 4.12-1.86c1.036-.646 2.01-1.386 2.91-2.21a21.76 21.76 0 0 0 2.76-3.39 19.71 19.71 0 0 0 2.05-3.8 19.87 19.87 0 0 0 1.32-6.81c.18 0 .46 0 .5-.19a6 6 0 0 0 0-2c0-.23-.32-.17-.5-.2a12.46 12.46 0 0 0-1.1-5.14 13.13 13.13 0 0 0-4.47-5.58c-.31-.22-.4-.59-.88-.74a20.58 20.58 0 0 1-3.18-1.24 6.75 6.75 0 0 0-2.79-.79c-2.91-.06-5.85-.53-8.69.85-1.6.613-3.14 1.373-4.6 2.27a22.6 22.6 0 0 0-6 7.12 21.17 21.17 0 0 0-1.3 3.66c-.86.06-.49.69-.52 1.2z"
-                          fill="#fcfcfc"
-                        />
-                        <path
-                          d="M126.24 47.57l1.4-7c.56-.27.4-.76.38-1.21l1.09-5.51c.23-1.84 1.2-3.55 1.18-5.44 0-.56.48-1 .37-1.61 1-.33.46-1.18.59-1.8l1.1-5.6c.076-.385.116-.777.12-1.17.84 0 .51-.63.54-1a50.12 50.12 0 0 1 1.17-6.06 6.52 6.52 0 0 0 .1-1.08c1-.16.43-.93.56-1.43l1-5.19c.57-.26.37-.76.38-1.2.16-1.39.16-1.39 1.56-1.39h42.09 1.09v1l-1.11 5.49c-.51 1.777-.891 3.588-1.14 5.42-.11 1.31-.38 1.56-1.66 1.56h-26.62c-.8 0-1.24 0-1.36 1.06-.21 1.83-.72 3.62-1.1 5.43-.87.17-.71.66-.38 1.21-.6 2-.54 2.09 1.49 2.09h24.91c1.34 0 1.27 0 1.2 1.28 0 .9-.47 1.71-.46 2.6-1 .16-.46.92-.57 1.42-.06 1.69-.75 3.28-.85 5-1 .16-.42.93-.55 1.43a6.9 6.9 0 0 1-.05.8c.003.15-.028.299-.09.435a.99.99 0 0 1-.27.353c-.115.096-.25.165-.396.201a1 1 0 0 1-.444.01h-25.87c-1.49 0-1.6.12-1.84 1.56a29.57 29.57 0 0 1-1.12 4.78c-.35 1.254-.591 2.535-.72 3.83-.1.7.14.82.78.82h17.57 9.19c1 0 1.22.32 1 1.19-.267 1.474-.624 2.93-1.07 4.36a1.32 1.32 0 0 0-.296.59c-.048.219-.039.446.026.66-.35 1.57-.32 3.23-1.17 4.67a.32.32 0 0 0-.05.19c0 .62 0 1.42-.38 1.75s-1.27.13-1.93.13h-41.62c-.9 0-1.13-.28-.81-1.1.297-1.03.521-2.079.67-3.14.163-1.217.4-2.422.71-3.61.548-1.713.929-3.474 1.14-5.26 1.01-.24.42-1.03.52-1.52z"
-                          fill="#fbfbfb"
-                        />
-                        <path
-                          d="M235.14 55.72c.266-1.846.637-3.676 1.11-5.48.081-.422.121-.851.12-1.28 1-.16.45-.92.57-1.42.265-1.876.635-3.736 1.11-5.57.095-.518.146-1.043.15-1.57.85 0 .5-.63.53-1.06.236-2.022.685-4.013 1.34-5.94.208-.579.329-1.186.36-1.8.17-1.83.82-3.57.94-5.4.87-.1.51-.76.56-1.23.262-1.947.639-3.877 1.13-5.78a4.54 4.54 0 0 0 .1-1c1-.17.45-.93.57-1.43l.83-4.57c.94-.23.76-.7.27-1.23.659-2.417 1.173-4.872 1.54-7.35 1-.15.43-.93.56-1.42.12-1.58-.06-1.39 1.46-1.39h42.21c.87 0 1.45-.08 1.11 1.19-.55 2.07-.65 4.28-1.31 6.3-.57 1.7-.71 3.48-1.22 5.18-.21.73-.48.84-1.13.84H262.3h-.9c-1.5 0-1.62 0-1.79 1.45-.259 1.051-.43 2.121-.51 3.2 0 .64-.46 1.17-.39 1.82-.94.18-.48.91-.56 1.43-.1 1.86-.1 1.86 1.78 1.86h24.87c1 0 1.17.28 1.13 1.2s-.54 1.76-.48 2.7c-.83 0-.51.62-.53 1a59.37 59.37 0 0 1-1.15 6.06c-.07.36-.07.72-.11 1.08-.8 0-.52.62-.53 1-.08.67-.61.39-.93.39h-15.06-11a1.34 1.34 0 0 0-.585.019c-.191.049-.369.14-.521.267s-.274.284-.358.463a1.34 1.34 0 0 0-.126.571c-.239 1.787-.63 3.55-1.17 5.27a1.34 1.34 0 0 0-.268.565 1.35 1.35 0 0 0 .018.625l-.46 2.41s.12.85.77.84h7.39 19.27c1.24 0 1.42.18 1.08 1.36-.238 1.421-.572 2.824-1 4.2a1.28 1.28 0 0 0-.25 1.18l-1.22 6.32c0 .066-.015.13-.043.19s-.069.112-.12.154-.109.072-.173.089-.129.019-.194.008h-.89-42.41c-1.14 0-1.37-.32-1-1.42a15.73 15.73 0 0 0 .73-3.52c.97-.06.4-.84.53-1.37z"
-                          fill="#3aafe4"
-                        />
-                        <path
-                          d="M75.94 14.01a52.87 52.87 0 0 1 1.14-5.57c.074-.392.107-.791.1-1.19 1-.15.44-.92.57-1.42l.83-4.68c.1-.52.54-.29.81-.29h7.88 6.28c.82 0 1.18.16 1 1-.77.25-.6.86-.56 1.43l-1.24 6.62c0 .26-.51.36-.31.73a1.36 1.36 0 0 0-.25 1.23c-.29 1.9-.86 3.73-1.31 5.6-.4 1.69-.63 3.43-.94 5.15-.64.44-.37 1.08-.35 1.65a.18.18 0 0 0 .143.165.18.18 0 0 0 .197-.095c.1-.27.5-.35.43-.71l5.19-5.37 3.46-3.6 2.12-2.12 2.89-3a17.95 17.95 0 0 1 2.14-2.23c.833-.774 1.624-1.592 2.37-2.45.29-.3.63-.54.89-.81l2.64-2.75a.83.83 0 0 1 .73-.39h19c.24 0 .55-.12.71.16s-.26.53-.4.65a19.25 19.25 0 0 0-2.67 2.49c-.85 1-2 1.61-2.82 2.66A28.29 28.29 0 0 1 124.39 9l-2.91 2.82-2.45 2.35c-1.559 1.18-2.958 2.558-4.16 4.1-.23.34-.66.48-1 .75-1.58 1.32-2.87 3-4.4 4.31l-5.05 4.7c-.39.36-.58 1-1.22 1.06-.38 0-.63 0-.63.51s.26.47.57.47l2.76 5.14 2.37 4.27 2.62 4.94c.488 1.23 1.185 2.367 2.06 3.36.39.4.43 1.11.74 1.62l2.15 4c.8 1.26 1.43 2.92 2.37 4.27a28.46 28.46 0 0 1 2.06 3.6c.2.39.33.94-.56.94h-17.07c-.54 0-.76-.16-.93-.75-.421-.962-.895-1.9-1.42-2.81l-2.63-5.68a27.01 27.01 0 0 0-2-4c-.49-.67-.63-1.6-1.07-2.32-.8-1.32-1.13-2.84-1.88-4.15l-1.88-3.32c-.34-.5-.57-.14-.8.09l-4.59 4.5c-.7.65-.28 1.57-.71 2.32a2 2 0 0 0-.42 1.3 1.29 1.29 0 0 0-.27 1.25l-1.12 5.59a28 28 0 0 0-1.13 5.37c0 .56-.45 1-.39 1.6-.58 0-.79.66-1.51.65l-14.43-.05v-1c1-.15.44-.93.56-1.43l1.07-5.56s.94-3.54 1.19-5.37c.21-1.56.62-3.09 1-4.64.57-.26.37-.76.38-1.2.53-1.85.49-3.84 1.35-5.62a5.36 5.36 0 0 0 .34-1.78c.19-1.75.76-3.42.94-5.16.91-.19.52-.9.57-1.43l1-5.71c.33-1.9 1-3.51 1.25-5.34a12.32 12.32 0 0 0 .37-2.1c.76-.22.4-.92.46-1.45z"
-                          fill="#fcfcfc"
-                        />
-                        <path
-                          d="M316.68 59.38c-.056.675-.17 1.344-.34 2-.17.65-.42.73-1 .73h-13.92c-.91 0-1.22-.34-.83-1.09a10.26 10.26 0 0 0 .59-2.64l1.36-6c.449-1.699.763-3.431.94-5.18.94-.17.49-.9.57-1.42.212-1.684.526-3.354.94-5l1.35-6.32a22.3 22.3 0 0 1 1.19-4.66c.222-.814.363-1.648.42-2.49.301-1.159.538-2.335.71-3.52.55-.26.4-.73.38-1.17a35.36 35.36 0 0 1 1.39-6c.057-.256.074-.519.05-.78.62-.21.38-.72.32-1.1s-.52-.31-.82-.32h-14.67c-1 0-1.41-.24-1.25-1.23.08-1.56.77-3 .83-4.57.94-.18.49-.91.57-1.43l1.21-6.09c0-.21.14-.28.32-.28h48.57c1.1 0 1.28.25 1 1.25a18.71 18.71 0 0 0-.74 3.72c-1 .15-.43.93-.56 1.43l-1.11 5.48c-.076.423-.116.851-.12 1.28a4.27 4.27 0 0 1-2.56.42h-14c-.4 0-.94-.14-.84.59-.437 1.295-.716 2.638-.83 4-.84 0-.52.62-.53 1.05-.24 2-.74 3.95-1.14 5.92s-.86 3.64-1.18 5.48a20.5 20.5 0 0 1-1 4.31c-.285.86-.476 1.749-.57 2.65l-.53 2.78c-.91.16-.66.68-.37 1.21l-1.45 7.13-1 4.63-.76 3.8c-.97.19-.51.92-.59 1.43z"
-                          fill="#3ab0e6"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="A">
-                          <path fill="#fff" d="M0 0h346.67v63H0z" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </Link>
+        <div>
+          <div className="bg-theme-primary py-5 text-white">
+            <div className="footer-container">
+              <div className="grid grid-cols-5">
+                <div>It's not too late!</div>
+                <div>
+                  <span className="font-semibold">Step 1:</span> Join OKEBET
                 </div>
-                <div>{options.shortDescription}</div>
-              </div>
-              <div>
-                <h2 className="mb-3 text-lg font-bold">Contact Us</h2>
-                <div className="space-y-3">
-                  <div>{options.footerAddress}</div>
-                  <div>
-                    <a href={`mailto:${options.footerEmail}`}>
-                      {options.footerEmail}
-                    </a>
-                  </div>
+                <div>
+                  <span className="font-semibold">Step 2:</span> Make a Deposit
                 </div>
-              </div>
-              <div>
-                <h2 className="mb-3 text-lg font-bold">Links</h2>
-                <div className="flex flex-col space-y-2">
-                  {data.wpMenu.menuItems.nodes.map(item => (
-                    <Link key={item.id} to={item.uri}>
-                      {item.label}
-                    </Link>
-                  ))}
+                <div>
+                  <span className="font-semibold">Step 3:</span> 'Get in the
+                  Game'
+                </div>
+                <div>
+                  <a
+                    href="https://www.okebet.com.au/registration/step-1"
+                    className="flex justify-center space-x-2"
+                  >
+                    <span>[]</span>
+                    <span>Get Started</span>
+                  </a>
                 </div>
               </div>
             </div>
-            <div className="grid items-center space-y-3 border-t border-white/10 py-5 md:grid-flow-col md:space-y-0">
-              <div className="text-center md:text-left">
-                Copyright ©{currentDate} {siteName}. All rights reserved.
+          </div>
+          <div className="bg-theme-primary-light100 py-5">
+            <div className="footer-container grid grid-flow-row gap-7">
+              <div className="grid grid-cols-3 text-center text-white">
+                <div>
+                  <h2 className="mb-2 font-semibold uppercase">Company</h2>
+                  <ul className="text-sm">
+                    <li>
+                      <a href="https://www.okebet.com.au/content/contact">
+                        Contact Us
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.okebet.com.au/content/about-us">
+                        About Us
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2 className="mb-2 font-semibold uppercase">Legal</h2>
+                  <ul className="text-sm">
+                    <li>
+                      <a href="https://www.okebet.com.au/content/privacy">
+                        Privacy Policy
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.okebet.com.au/content/code">
+                        Responsible Gambling Code of Conduct
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2 className="mb-2 font-semibold uppercase">Information</h2>
+                  <ul className="text-sm">
+                    <li>
+                      <a href="https://www.okebet.com.au/content/terms">
+                        Terms & Conditions
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.okebet.com.au/content/htp">
+                        Banking FAQ
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.okebet.com.au/content/verification">
+                        Account Verification
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div></div>
+                <div></div>
               </div>
-              <div className="mr-auto ml-auto md:mr-0">
-                <a
-                  href="https://infusion121.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img
-                    src="https://admin.payinn.com.au/wp-content/uploads/2023/03/i121-logo.png"
-                    alt=""
-                    width="130"
+              <FooterLogos />
+              <div>
+                <div className="m-auto flex max-w-[60%] items-center space-x-3">
+                  <div>
+                    <span className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-4 border-theme-error bg-white text-sm font-semibold">
+                      18+
+                    </span>
+                  </div>
+                  <div className=" text-white">
+                    <div className="text-sm font-semibold">Must Be 18+</div>
+                    <p className="text-[.70rem]">
+                      Think About Your Choices Call Gambling Help 1800 858 858
+                      Responsible Gambling. OkeBet is committed to responsible
+                      gambling and ensuring that a range of tools are available
+                      to our customers to manage their gambling. STAY IN
+                      CONTROL. LEAVE BEFORE YOU LOSE IT, GAMBLE RESPONSIBLY.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="m-auto flex space-x-3">
+                <a href="https://apps.apple.com/au/app/okebet/id1613091869">
+                  <StaticImage
+                    src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/apple-store.png"
+                    alt="illustration"
+                    quality={100}
+                    width={130}
                   />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.betmakers.okebet">
+                  <StaticImage
+                    src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/google-play.png"
+                    alt="illustration"
+                    quality={100}
+                    width={130}
+                  />
+                </a>
+              </div>
+              <div className="text-center text-[.70rem] text-white">
+                <p>© 2023 OKEBET. All Rights Reserved.</p>
+              </div>
+              <div className="text-center text-[.70rem] text-white">
+                <p>
+                  For SA customers, our operations are governed by the SA Code.
+                </p>
+                <a
+                  href="https://www.cbs.sa.gov.au/sites/default/files/resource-files/authorised_betting_operations_gambling_code_of_practice.pdf?timestamp=1647305330731"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Gambling Codes Practice
                 </a>
               </div>
             </div>

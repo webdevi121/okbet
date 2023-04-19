@@ -1,5 +1,7 @@
 :root {
-  --primary-color: #1d4a86;
+  --primary-color: #002763;
+  --primary-color-light100: #093672;
+  --primary-color-light200: #1d4a86;
   --secondary-color: #02111d;
   --accent-color-4: #42b4e7;
   --light-color: #f7f7f7;
@@ -211,5 +213,33 @@ body {
     opacity: 1 !important;
     -webkit-transform: none !important;
     transform: none !important;
+  }
+}
+
+.logos-container {
+  @apply grid grid-cols-6 gap-2;
+  .logo-item {
+    @apply rounded-md bg-white p-1;
+    svg,
+    img {
+      @apply m-auto h-[27px] w-[54px];
+    }
+    .masterCard {
+      .a {
+        opacity: 0;
+      }
+      .b {
+        fill: #fff;
+      }
+      .c {
+        fill: #ff5f00;
+      }
+      .d {
+        fill: #eb001b;
+      }
+      .e {
+        fill: #f79e1b;
+      }
+    }
   }
 }
