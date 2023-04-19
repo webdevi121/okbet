@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <div className="theme-container">
-        <div className="flex h-[60px] items-center">
+        <div className="flex h-[55px] items-center">
           <a href={`/`}>
             <svg width="180" fill="none" viewBox="0 0 347 63">
               <g clipPath="url(#A)">
@@ -45,7 +45,7 @@ const Header = () => {
             <a
               href="https://okebet.com.au/"
               target="_blank"
-              className="flex h-full items-center px-5"
+              className="flex h-full items-center px-5 font-semibold"
               rel="noreferrer"
             >
               Login
@@ -53,7 +53,7 @@ const Header = () => {
             <a
               href="https://okebet.com.au/registration/step-1"
               target="_blank"
-              className="flex h-full items-center border-l border-white/10 px-5"
+              className="flex h-full items-center border-l border-white/10 px-5 font-semibold"
               rel="noreferrer"
             >
               Join

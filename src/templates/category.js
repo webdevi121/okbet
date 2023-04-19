@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
+import SubCategoryMenu from "../components/subCategoryMenu"
 
 const CategoryPage = ({ data }) => {
   const category = data.wpCategory
@@ -49,47 +50,14 @@ const CategoryPage = ({ data }) => {
         <div className="sir-container">
           <div className="mb-10">
             <h1 className="text-3xl font-bold">Category {category.name}</h1>
-            <div dangerouslySetInnerHTML={{ __html: category.description }} />
           </div>
           <div className="flex space-x-10">
-            <div className="flex-none space-y-3">
-              <h2 className="text-xl font-bold">Sub Categories</h2>
-
-              {category.wpChildren.nodes.length === 0
-                ? category.wpParent.node.wpChildren.nodes.map(item => (
-                    <div key={item.id}>
-                      <div className="space-y-3">
-                        <Link
-                          to={`${item.link}`}
-                          className="text-sir-secondary block rounded-lg border border-solid p-3"
-                          alt={item.name}
-                          activeClassName="bg-theme-secondary text-white"
-                        >
-                          <h2 className="text-xl font-bold">{item.name}</h2>
-                        </Link>
-                      </div>
-                    </div>
-                  ))
-                : category.wpChildren.nodes.map(item => (
-                    <div key={item.id}>
-                      <div className="space-y-3">
-                        <Link
-                          to={`${item.link}`}
-                          className="text-sir-secondary block rounded-lg border border-solid p-3"
-                          alt={item.name}
-                          activeClassName="bg-theme-secondary text-white"
-                        >
-                          <h2 className="text-xl font-bold">{item.name}</h2>
-                        </Link>
-                      </div>
-                    </div>
-                  ))}
-            </div>
+            <SubCategoryMenu data={category} />
             <div className="w-full space-y-3">
               <ul className="space-y-3">
-                {list?.map(article => (
+                {list?.map((article, index) => (
                   <div
-                    key={article.node.id}
+                    key={index}
                     className="rounded-lg border border-solid p-3"
                   >
                     <div className="space-y-3">

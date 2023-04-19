@@ -30,7 +30,7 @@
   // remove button tap highlight color on mobile
   html {
     -webkit-tap-highlight-color: transparent;
-    background: var(--primary-color);
+    background: var(--primary-color-light100);
   }
   body {
     @apply font-normal;
