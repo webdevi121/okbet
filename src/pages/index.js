@@ -111,7 +111,6 @@ export const query = graphql`
               node {
                 publicUrl
                 sourceUrl
-                gatsbyImage(placeholder: BLURRED, quality: 100)
               }
             }
             categories {
@@ -148,7 +147,6 @@ export const query = graphql`
                   node {
                     publicUrl
                     sourceUrl
-                    gatsbyImage(placeholder: BLURRED, quality: 100)
                   }
                 }
                 categories {
