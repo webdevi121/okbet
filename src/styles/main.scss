@@ -215,31 +215,3 @@ body {
     transform: none !important;
   }
 }
-
-.logos-container {
-  @apply grid grid-cols-6 gap-2;
-  .logo-item {
-    @apply rounded-md bg-white p-1;
-    svg,
-    img {
-      @apply m-auto h-[27px] w-[54px];
-    }
-    .masterCard {
-      .a {
-        opacity: 0;
-      }
-      .b {
-        fill: #fff;
-      }
-      .c {
-        fill: #ff5f00;
-      }
-      .d {
-        fill: #eb001b;
-      }
-      .e {
-        fill: #f79e1b;
-      }
-    }
-  }
-}

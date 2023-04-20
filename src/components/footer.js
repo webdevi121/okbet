@@ -1,5 +1,5 @@
 import React from "react"
-// import FooterLogos from "./footerLogo"
+import FooterLogos from "./footerLogo"
 import { StaticImage } from "gatsby-plugin-image"
 import BackToTopButton from "./backToTop"
 
@@ -104,7 +104,7 @@ const Footer = () => {
                 <div></div>
                 <div></div>
               </div>
-              {/* <FooterLogos /> */}
+              <FooterLogos />
               <div>
                 <div className="m-auto flex max-w-[60%] items-center space-x-3">
                   <div>
@@ -150,7 +150,7 @@ const Footer = () => {
                   >
                     <svg viewBox="0 0 15 15" width="15" height="15" fill="#fff">
                       <g>
-                        <g>
+                        <g id="Layer_1-2">
                           <path d="M2.3,15V8.16H0V5.49H2.3V5.31c0-.7,0-1.4,0-2.1A3.34,3.34,0,0,1,3.19,1,3.13,3.13,0,0,1,4.84.09,6.26,6.26,0,0,1,6.4,0L7.67.09l.1,0V2.49H7.62c-.52,0-1,0-1.57,0a.93.93,0,0,0-1,1c0,.65,0,1.29,0,1.93l0,0H7.69L7.34,8.15H5.06c0,.06,0,.1,0,.14V14.9s0,.07,0,.1Z" />
                         </g>
                       </g>
