@@ -14,8 +14,8 @@ const Banner = props => {
           modules={[Navigation]}
           slidesPerView={1}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: `.swiper-button-next-${props.id}`,
+            prevEl: `.swiper-button-prev-${props.id}`,
           }}
           breakpoints={{
             320: {
@@ -44,10 +44,14 @@ const Banner = props => {
           ))}
         </Swiper>
         <div>
-          <button className="swiper-button-prev absolute top-0 bottom-0 left-0 z-10 m-auto h-[60px] rounded-r-lg bg-white/60 px-1">
+          <button
+            className={`swiper-button-prev-${props.id} absolute top-0 bottom-0 left-0 z-10 m-auto h-[60px] rounded-r-lg bg-white/60 px-1`}
+          >
             <ChevronLeftIcon className="inline-block h-6 w-6 rounded-md stroke-1" />
           </button>
-          <button className="swiper-button-next absolute top-0 bottom-0 right-0 z-10 m-auto h-[60px] rounded-l-lg bg-white/60 px-1">
+          <button
+            className={`swiper-button-next-${props.id} absolute top-0 bottom-0 right-0 z-10 m-auto h-[60px] rounded-l-lg bg-white/60 px-1`}
+          >
             <ChevronRightIcon className="inline-block h-6 w-6 rounded-md stroke-1" />
           </button>
         </div>

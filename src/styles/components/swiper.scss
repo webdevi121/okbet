@@ -5,3 +5,7 @@
 .swiper-button-disabled {
   @apply opacity-20;
 }
+.swiper-slide,
+.swiper-slide {
+  width: auto !important;
+}

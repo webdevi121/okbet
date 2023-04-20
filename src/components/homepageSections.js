@@ -9,7 +9,10 @@ const HomepageSections = props => {
         ? data.map((node, index) => (
             <div key={index} className="bg-white p-10">
               <div>
-                <FeaturedArticle data={node.taxCategory.wpChildren.nodes} />
+                <FeaturedArticle
+                  data={node.taxCategory.wpChildren.nodes}
+                  id={index}
+                />
               </div>
             </div>
           ))

@@ -2,17 +2,27 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import SubcategoriesSlider from "./subcategoriesSlider"
+import { ArrowRightIcon } from "@heroicons/react/solid"
 
 const FeaturedArticle = props => {
   return (
     <>
-      <div>
-        <div className="mb-5 flex items-center space-x-3">
-          <GatsbyImage image={props.icon} alt="Illustration" />
-          <h2 className="text-2xl">{props.sectionTitle}</h2>
+      <div className="bg-white p-5">
+        <div className="mb-5 flex items-center">
+          <div className="flex items-center space-x-3">
+            <GatsbyImage image={props.icon} alt="Illustration" />
+            <h2 className="text-2xl">{props.sectionTitle}</h2>
+          </div>
+          <Link
+            to={props.slug}
+            className="ml-auto flex items-center space-x-3 rounded-full bg-theme-light py-3 px-5"
+          >
+            <span>View More</span>
+            <ArrowRightIcon className="h-5 w-5" />
+          </Link>
         </div>
         <div className="mb-5">
-          <SubcategoriesSlider data={props.subcategories} />
+          <SubcategoriesSlider data={props.subcategories} id={props.id} />
         </div>
         <div className="grid grid-flow-col grid-rows-3 gap-4">
           {props.data.map((item, index) => (
@@ -32,19 +42,20 @@ const FeaturedArticle = props => {
                   className="flex h-full items-center justify-center p-5 px-7"
                 >
                   <div className="flex h-full items-center justify-center">
-                    <img
-                      src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/tips-img.png"
-                      alt=""
-                      width="260"
+                    <GatsbyImage
+                      image={item.featuredImage?.node.gatsbyImage}
+                      alt="Illustration"
+                      width={92}
+                      height={52}
                     />
                   </div>
                 </Link>
               </div>
               <div className="space-y-2 p-5">
                 <Link to={item.uri}>
-                  <h2 className="text-xl font-semibold text-theme-primary line-clamp-1">
+                  <h3 className="text-xl font-semibold text-theme-primary line-clamp-1">
                     {item.title}
-                  </h2>
+                  </h3>
                 </Link>
                 <div
                   dangerouslySetInnerHTML={{ __html: item.excerpt }}

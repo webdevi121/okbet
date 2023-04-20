@@ -45,13 +45,25 @@ const Homepage = ({ data }) => {
             {data.wpPage.acfHomepage.homepageCategorySections
               ? data.wpPage.acfHomepage.homepageCategorySections.map(
                   (node, index) => (
-                    <div key={index} className="bg-white p-5">
-                      <FeaturedArticle
-                        data={node.categoryFeaturedArticles}
-                        sectionTitle={node.sectionCategoryName}
-                        icon={node.categoryIcon?.gatsbyImage}
-                        subcategories={node.taxCategory.wpChildren.nodes}
-                      />
+                    <div key={index}>
+                      {node.categoryFeaturedArticles ? (
+                        <FeaturedArticle
+                          id={"id-" + index}
+                          slug={node.taxCategory.link}
+                          data={node.categoryFeaturedArticles}
+                          sectionTitle={node.sectionCategoryName}
+                          icon={node.categoryIcon?.gatsbyImage}
+                          subcategories={node.taxCategory.wpChildren.nodes}
+                        />
+                      ) : null}
+                      {node.bannerSliderRepeater ? (
+                        <div className="py-10">
+                          <Banner
+                            id={"banner-" + index}
+                            data={node.bannerSliderRepeater}
+                          />
+                        </div>
+                      ) : null}
                     </div>
                   )
                 )
@@ -109,6 +121,7 @@ export const query = graphql`
         homepageCategorySections {
           ... on WpPage_Acfhomepage_HomepageCategorySections_CategorySection {
             sectionCategoryName
+            fieldGroupName
             categoryIcon {
               gatsbyImage(
                 quality: 10
@@ -124,6 +137,11 @@ export const query = graphql`
                 excerpt
                 uri
                 date(formatString: "DD  MMMM, YYYY")
+                featuredImage {
+                  node {
+                    gatsbyImage(placeholder: BLURRED, quality: 100)
+                  }
+                }
                 categories {
                   nodes {
                     name
@@ -136,6 +154,7 @@ export const query = graphql`
               }
             }
             taxCategory {
+              link
               wpChildren {
                 nodes {
                   name
@@ -150,6 +169,20 @@ export const query = graphql`
                     }
                   }
                 }
+              }
+            }
+          }
+          ... on WpPage_Acfhomepage_HomepageCategorySections_BannerSlider {
+            bannerSliderRepeater {
+              fieldGroupName
+              link: bannerLink01
+              image: bannerImage01 {
+                gatsbyImage(
+                  quality: 100
+                  width: 1280
+                  height: 164
+                  placeholder: BLURRED
+                )
               }
             }
           }
