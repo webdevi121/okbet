@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 import SubCategoryMenu from "../components/subCategoryMenu"
