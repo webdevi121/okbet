@@ -18,9 +18,11 @@ const Homepage = ({ data }) => {
         />
         <div className="grid gap-10">
           <Banner data={data.wpPage.acfHomepage.topBanner} />
-          <FeaturedPost
-            data={data.wpPage.acfHomepage.homepageFeaturedArticles}
-          />
+          <div className="featured-layout grid grid-flow-col grid-rows-3 gap-4">
+            <FeaturedPost
+              data={data.wpPage.acfHomepage.homepageFeaturedArticles}
+            />
+          </div>
           <div className="grid grid-cols-3 gap-5">
             <a href="/category/racing">
               <img
@@ -41,7 +43,7 @@ const Homepage = ({ data }) => {
               />
             </a>
           </div>
-          <div>
+          <div className="grid grid-flow-row gap-10">
             {data.wpPage.acfHomepage.homepageCategorySections
               ? data.wpPage.acfHomepage.homepageCategorySections.map(
                   (node, index) => (
@@ -57,12 +59,10 @@ const Homepage = ({ data }) => {
                         />
                       ) : null}
                       {node.bannerSliderRepeater ? (
-                        <div className="py-10">
-                          <Banner
-                            id={"banner-" + index}
-                            data={node.bannerSliderRepeater}
-                          />
-                        </div>
+                        <Banner
+                          id={"banner-" + index}
+                          data={node.bannerSliderRepeater}
+                        />
                       ) : null}
                     </div>
                   )
@@ -107,6 +107,13 @@ export const query = graphql`
             excerpt
             uri
             date(formatString: "DD  MMMM, YYYY")
+            featuredImage {
+              node {
+                publicUrl
+                sourceUrl
+                gatsbyImage(placeholder: BLURRED, quality: 100)
+              }
+            }
             categories {
               nodes {
                 name
@@ -139,6 +146,8 @@ export const query = graphql`
                 date(formatString: "DD  MMMM, YYYY")
                 featuredImage {
                   node {
+                    publicUrl
+                    sourceUrl
                     gatsbyImage(placeholder: BLURRED, quality: 100)
                   }
                 }

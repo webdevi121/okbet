@@ -3,12 +3,13 @@ import { graphql, Link } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 import SubCategoryMenu from "../components/subCategoryMenu"
+import FeaturedPost from "../components/featuredPost"
 
 const CategoryPage = ({ data }) => {
   const category = data.wpCategory
 
   // Array of all post articles
-  const allPost = data.allWpPost.edges
+  const allPost = data.allWpPost.nodes
 
   // State for the list
   const [list, setList] = useState([...allPost.slice(0, 3)])
@@ -49,31 +50,14 @@ const CategoryPage = ({ data }) => {
         <Seo title="title" description="description" />
         <div className="sir-container">
           <div className="mb-10">
-            <h1 className="text-3xl font-bold">Category {category.name}</h1>
+            <h1 className="text-3xl font-bold">Latest: {category.name}</h1>
           </div>
           <div className="flex space-x-10">
             <SubCategoryMenu data={category} />
             <div className="w-full space-y-3">
-              <ul className="space-y-3">
-                {list?.map((article, index) => (
-                  <div
-                    key={index}
-                    className="rounded-lg border border-solid p-3"
-                  >
-                    <div className="space-y-3">
-                      <Link
-                        to={`/${article.node.slug}`}
-                        className="text-sir-secondary"
-                        alt={article.node.title}
-                      >
-                        <h2 className="text-xl font-bold">
-                          {article.node.title}
-                        </h2>
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </ul>
+              <div className="category-layout grid grid-cols-3 gap-5">
+                <FeaturedPost data={list} />
+              </div>
               {hasMore ? (
                 <button
                   className="bg-theme-secondary text-white"
@@ -118,12 +102,32 @@ export const query = graphql`
     allWpPost(
       filter: { categories: { nodes: { elemMatch: { link: { eq: $link } } } } }
     ) {
-      edges {
-        node {
-          title
-          id
-          slug
-          uri
+      nodes {
+        id
+        title
+        excerpt
+        uri
+        date(formatString: "DD  MMMM, YYYY")
+        featuredImage {
+          node {
+            publicUrl
+            sourceUrl
+            gatsbyImage(
+              placeholder: BLURRED
+              quality: 100
+              width: 100
+              height: 100
+            )
+          }
+        }
+        categories {
+          nodes {
+            name
+            uri
+            acfCategory {
+              categoryColor
+            }
+          }
         }
       }
     }

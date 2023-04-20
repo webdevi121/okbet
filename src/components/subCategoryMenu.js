@@ -6,8 +6,6 @@ const SubCategoryMenu = props => {
   return (
     <div>
       <div className="flex-none space-y-3">
-        <h2 className="text-xl font-bold">Sub Categories</h2>
-
         {data.wpChildren.nodes.length === 0
           ? //   display child category
             data.wpParent?.node.wpChildren.nodes.map(item => (
