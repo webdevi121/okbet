@@ -36,7 +36,6 @@ const NavigationMenu = () => {
           </ul>
         </div>
       </nav>
-      <SearchBar />
     </>
   )
 }
