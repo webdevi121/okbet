@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 import SubCategoryMenu from "../components/subCategoryMenu"
-import FeaturedPost from "../components/featuredPost"
+// import FeaturedPost from "../components/featuredPost"
 
 const CategoryPage = ({ data }) => {
   const category = data.wpCategory
@@ -56,7 +56,7 @@ const CategoryPage = ({ data }) => {
             <SubCategoryMenu data={category} />
             <div className="w-full space-y-3">
               <div className="category-layout grid grid-cols-3 gap-5">
-                <FeaturedPost data={list} />
+                {/* <FeaturedPost data={list} /> */}
               </div>
               {hasMore ? (
                 <button
