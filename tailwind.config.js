@@ -14,11 +14,22 @@ module.exports = {
       lg: "992px",
       // => @media (min-width: 992px) { ... }
 
-      xl: "1400px",
+      xl: "1280px",
       // => @media (min-width: 1200px) { ... }
     },
     fontFamily: {
-      heebo: ["Heebo", "sans-serif"],
+      theme: [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica",
+        "Arial",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+      ],
     },
     container: {
       center: true,
@@ -28,6 +39,9 @@ module.exports = {
         theme: {
           primary: {
             DEFAULT: "var(--primary-color)",
+            light: "var(--accent-color-4)",
+            light100: "var(--primary-color-light100)",
+            light200: "var(--primary-color-light200)",
           },
           secondary: {
             DEFAULT: "var(--secondary-color)",
@@ -35,10 +49,11 @@ module.exports = {
           light: {
             DEFAULT: "var(--light-color)",
           },
+          borderColor: "#EAEAEA",
           darkGray: "#666666",
           lightGray: "#fafafa",
           mediumGray: "#F8F8F8",
-          error: "#f61010",
+          error: "var(--accent-color-1)",
         },
       },
     },

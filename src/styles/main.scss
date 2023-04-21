@@ -1,12 +1,14 @@
 :root {
-  --primary-color: #06b2e5;
+  --primary-color: #002763;
+  --primary-color-light100: #093672;
+  --primary-color-light200: #1d4a86;
   --secondary-color: #02111d;
-  --light-color: #f7f3f9;
+  --accent-color-4: #42b4e7;
+  --light-color: #f7f7f7;
   --accent-color-0: var(--primary-color);
-  --accent-color-1: #ff4581;
+  --accent-color-1: #e25555;
   --accent-color-2: #ff9700;
-  --accent-color-3: #5dd400;
-  --accent-color-4: #007ff4;
+  --accent-color-3: #48b946;
   --accent-color-5: var(--accent-color-3);
   --accent-color-6: var(--accent-color-4);
 }
@@ -28,15 +30,25 @@
   // remove button tap highlight color on mobile
   html {
     -webkit-tap-highlight-color: transparent;
-    background: var(--secondary-color);
+    background: var(--primary-color-light100);
   }
   body {
-    @apply text-base font-light md:text-lg;
+    @apply font-normal;
   }
 }
 
 body {
-  @apply font-heebo;
+  @apply font-theme;
+}
+
+.theme-red {
+  @apply bg-[var(--accent-color-1)];
+}
+.theme-green {
+  @apply bg-[var(--accent-color-3)];
+}
+.theme-blue {
+  @apply bg-[var(--primary-color)];
 }
 
 .layout {
@@ -193,5 +205,33 @@ body {
     opacity: 1 !important;
     -webkit-transform: none !important;
     transform: none !important;
+  }
+}
+
+.featured-layout {
+  > div {
+    &:first-child {
+      @apply row-span-3;
+      .img-placeholder {
+        @apply h-2/4;
+      }
+    }
+  }
+  > div:not(:first-child) {
+    @apply flex;
+    .img-placeholder {
+      @apply m-5 w-[150px] flex-none rounded-xl;
+      order: 2;
+    }
+  }
+}
+.category-layout {
+  > div {
+    .img-placeholder {
+      @apply h-40;
+      img {
+        @apply h-[80px] w-auto;
+      }
+    }
   }
 }

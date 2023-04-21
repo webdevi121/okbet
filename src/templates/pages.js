@@ -1,8 +1,6 @@
 import React from "react"
-import { graphql } from "gatsby"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import PageSection from "../components/pageSection"
 
 const Pages = ({ data }) => {
   return (
@@ -14,7 +12,6 @@ const Pages = ({ data }) => {
           image={data.wpPage.acfSeoData.socialThumbnail?.sourceUrl}
           uri={data.wpPage.uri}
         />
-        <PageSection data={data} />
       </Layout>
     </React.Fragment>
   )
@@ -22,17 +19,17 @@ const Pages = ({ data }) => {
 
 export default Pages
 
-export const query = graphql`
-  query ($slug: String!) {
-    wpPage(slug: { eq: $slug }) {
-      uri
-      acfSeoData {
-        seoTitle
-        seoDescription
-        socialThumbnail {
-          sourceUrl
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query ($slug: String!) {
+//     wpPage(slug: { eq: $slug }) {
+//       uri
+//       acfSeoData {
+//         seoTitle
+//         seoDescription
+//         socialThumbnail {
+//           sourceUrl
+//         }
+//       }
+//     }
+//   }
+// `

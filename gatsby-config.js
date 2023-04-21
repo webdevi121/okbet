@@ -6,7 +6,6 @@ require("dotenv").config({
 
 const path = require(`path`)
 const tailwindConfig = require("./tailwind.config.js")
-const siteUrl = process.env.URL || `https://tips.okebet.com.au`
 
 module.exports = {
   //configuration object
@@ -15,7 +14,7 @@ module.exports = {
     title: `OKEBET`,
     description: `OKEBET is the partnership of father and son bookmakers Norm and Gary Oke and M.B. Opie and S.C. McKay. Norm was first licensed as a Victorian bookmaker in 1998 and has worked at Victorian city and country race meetings. Norm currently works at all Melbourne metro tracks and several Victorian provincial tracks.`,
     author: `@okebet`,
-    siteUrl: `https://tips.okebet.com.au`,
+    siteUrl: `https://okbet.gatsbyjs.io`,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
