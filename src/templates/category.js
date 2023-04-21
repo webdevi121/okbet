@@ -3,46 +3,13 @@ import { graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 import SubCategoryMenu from "../components/subCategoryMenu"
-// import FeaturedPost from "../components/featuredPost"
+import FeaturedPost from "../components/featuredPost"
 
 const CategoryPage = ({ data }) => {
   const category = data.wpCategory
 
   // Array of all post articles
-  const allPost = data.allWpPost.nodes
-
-  // State for the list
-  const [list, setList] = useState([...allPost.slice(0, 3)])
-
-  // State to trigger oad more
-  const [loadMore, setLoadMore] = useState(false)
-
-  // State of whether there is more to load
-  const [hasMore, setHasMore] = useState(allPost.length > 3)
-
-  // Load more button click
-  const handleLoadMore = () => {
-    setLoadMore(true)
-  }
-
-  // Handle loading more articles
-  useEffect(() => {
-    if (loadMore && hasMore) {
-      const currentLength = list.length
-      const isMore = currentLength < allPost.length
-      const nextResults = isMore
-        ? allPost.slice(currentLength, currentLength + 3)
-        : []
-      setList([...list, ...nextResults])
-      setLoadMore(false)
-    }
-  }, [loadMore, hasMore]) //eslint-disable-line
-
-  //Check if there is more
-  useEffect(() => {
-    const isMore = list.length < allPost.length
-    setHasMore(isMore)
-  }, [list]) //eslint-disable-line
+  const list = data.allWpPost.nodes
 
   return (
     <React.Fragment>
@@ -56,16 +23,8 @@ const CategoryPage = ({ data }) => {
             <SubCategoryMenu data={category} />
             <div className="w-full space-y-3">
               <div className="category-layout grid grid-cols-3 gap-5">
-                {/* <FeaturedPost data={list} /> */}
+                <FeaturedPost data={list} />
               </div>
-              {hasMore ? (
-                <button
-                  className="bg-theme-secondary text-white"
-                  onClick={handleLoadMore}
-                >
-                  Load More
-                </button>
-              ) : null}
             </div>
           </div>
         </div>
