@@ -4,27 +4,19 @@ export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     <link
       rel="preload"
-      href="/fonts/HeeboLight.woff2"
+      href="/fonts/poppins-regular-webfont.woff2"
       as="font"
       type="font/woff2"
       crossOrigin="anonymous"
-      key="HeeboLight"
+      key="poppinsRegular"
     />,
     <link
       rel="preload"
-      href="/fonts/HeeboMedium.woff2"
+      href="/fonts/poppins-semibold-webfont.woff2"
       as="font"
       type="font/woff2"
       crossOrigin="anonymous"
-      key="HeeboMedium"
-    />,
-    <link
-      rel="preload"
-      href="/fonts/HeeboRegular.woff2"
-      as="font"
-      type="font/woff2"
-      crossOrigin="anonymous"
-      key="HeeboRegular"
+      key="poppinsSemiBold"
     />,
   ])
 }
