@@ -16,7 +16,7 @@ const SubCategoryMenu = props => {
                     to={`${item.link}`}
                     className="block whitespace-pre rounded-lg border border-solid p-3"
                     alt={item.name}
-                    activeClassName="bg-theme-secondary text-white"
+                    activeClassName="bg-theme-primary text-white"
                   >
                     <div className="font-bold">{item.name}</div>
                   </Link>

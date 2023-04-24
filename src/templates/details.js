@@ -31,12 +31,18 @@ const DetailPage = ({ data }) => {
                         Home
                       </a>
                     </li>
-                    <li className="flex items-center">
-                      <ChevronRightIcon className="mx-2 w-5" />
-                      <a href="" className="p-2">
-                        Racing
-                      </a>
-                    </li>
+                    {item.terms.nodes
+                      .slice(0)
+                      .reverse()
+                      .map((terms, index) => (
+                        <li
+                          key={index}
+                          className="flex items-center last:opacity-50"
+                        >
+                          <ChevronRightIcon className="mx-2 w-5 flex-none" />
+                          <Link to={terms.uri}>{terms.name}</Link>
+                        </li>
+                      ))}
                     <li className="flex items-center last:opacity-50">
                       <ChevronRightIcon className="mx-2 w-5 flex-none" />
                       <div className="line-clamp-1">{item.title}</div>
@@ -66,16 +72,19 @@ const DetailPage = ({ data }) => {
                     {item.title}
                   </h1>
                   <ul className="flex space-x-3">
-                    {item.categories.nodes.map((catItem, index) => (
-                      <li key={index}>
-                        <Link
-                          to={catItem.uri}
-                          className={`rounded-full px-4 py-1 text-sm text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
-                        >
-                          {catItem.name}
-                        </Link>
-                      </li>
-                    ))}
+                    {item.categories.nodes
+                      .slice(0)
+                      .reverse()
+                      .map((catItem, index) => (
+                        <li key={index}>
+                          <Link
+                            to={catItem.uri}
+                            className={`rounded-full px-4 py-1 text-sm text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
+                          >
+                            {catItem.name}
+                          </Link>
+                        </li>
+                      ))}
                   </ul>
                   <div className="text-sm opacity-50">{item.date}</div>
                 </div>
@@ -151,6 +160,12 @@ export const query = graphql`
         node {
           publicUrl
           sourceUrl
+        }
+      }
+      terms {
+        nodes {
+          name
+          uri
         }
       }
       acfSeoData {

@@ -38,16 +38,19 @@ const FeaturedPost = props => {
             />
             <div className="text-sm opacity-50">{item.date}</div>
             <ul className="flex space-x-3">
-              {item.categories.nodes.map((catItem, index) => (
-                <li key={index}>
-                  <Link
-                    to={catItem.uri}
-                    className={`rounded-full px-4 py-1 text-sm text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
-                  >
-                    {catItem.name}
-                  </Link>
-                </li>
-              ))}
+              {item.categories.nodes
+                .slice(0)
+                .reverse()
+                .map((catItem, index) => (
+                  <li key={index}>
+                    <Link
+                      to={catItem.uri}
+                      className={`rounded-full px-4 py-1 text-sm text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
+                    >
+                      {catItem.name}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
