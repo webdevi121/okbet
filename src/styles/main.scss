@@ -55,6 +55,9 @@ body {
   p {
     @apply mb-7;
   }
+  figure {
+    @apply mb-5;
+  }
 }
 .journey-container {
   @apply relative;

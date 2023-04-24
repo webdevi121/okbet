@@ -4,41 +4,47 @@ import { Link } from "gatsby"
 const SubCategoryMenu = props => {
   const data = props.data
   return (
-    <div>
-      <div className="flex-none space-y-3">
-        {data.wpChildren.nodes.length === 0
-          ? //   display child category
-            data.wpParent?.node.wpChildren.nodes.map(item => (
+    <>
+      {data.wpChildren.nodes.length === 0 ? (
+        //   display child category
+        data.wpParent?.node.wpChildren ? (
+          <div className="w-[250px] flex-none space-y-3">
+            {data.wpParent?.node.wpChildren.nodes.map(item => (
               <div key={item.id}>
                 <div className="space-y-3">
                   <Link
                     to={`${item.link}`}
-                    className="text-sir-secondary block rounded-lg border border-solid p-3"
+                    className="block whitespace-pre rounded-lg border border-solid p-3"
                     alt={item.name}
                     activeClassName="bg-theme-secondary text-white"
                   >
-                    <h2 className="text-xl font-bold">{item.name}</h2>
-                  </Link>
-                </div>
-              </div>
-            ))
-          : //   display main category
-            data.wpChildren.nodes.map(item => (
-              <div key={item.id}>
-                <div className="space-y-3">
-                  <Link
-                    to={`${item.link}`}
-                    className="text-sir-secondary block rounded-lg border border-solid p-3"
-                    alt={item.name}
-                    activeClassName="bg-theme-secondary text-white"
-                  >
-                    <h2 className="text-xl font-bold">{item.name}</h2>
+                    <div className="font-bold">{item.name}</div>
                   </Link>
                 </div>
               </div>
             ))}
-      </div>
-    </div>
+          </div>
+        ) : null
+      ) : (
+        //   display main category
+        <div className="w-[250px] flex-none space-y-3">
+          {data.wpChildren.nodes.map(item => (
+            <div key={item.id}>
+              <div className="space-y-3">
+                <Link
+                  to={`${item.link}`}
+                  className="block whitespace-pre rounded-lg border border-solid p-3"
+                  alt={item.name}
+                  activeClassName="bg-theme-secondary text-white"
+                >
+                  <div className="font-bold">{item.name}</div>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </>
   )
 }
 
