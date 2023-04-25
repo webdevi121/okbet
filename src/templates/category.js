@@ -81,6 +81,7 @@ export const query = graphql`
       }
     }
     allWpPost(
+      sort: { date: DESC }
       filter: { categories: { nodes: { elemMatch: { link: { eq: $link } } } } }
     ) {
       nodes {
