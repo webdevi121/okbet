@@ -28,7 +28,7 @@
     "gatsby-source-wordpress": "^7.3.2",
     "gatsby-theme-headless-wordpress": "^0.1.13",
     "gatsby-transformer-json": "^5.8.0",
-    "gatsby-transformer-sharp": "^5.3.1",
+    "gatsby-transformer-sharp": "^5.8.0",
     "heroicons": "^2.0.16",
     "lodash": "^4.17.20",
     "postcss": "^8.4.14",

@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
+import SearchBar from "./searchBar"
 
 const NavigationMenu = () => {
   const data = useStaticQuery(graphql`
