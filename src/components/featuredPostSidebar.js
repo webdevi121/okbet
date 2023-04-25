@@ -32,16 +32,19 @@ const FeaturedPostSidebar = props => {
               </Link>
               <div className="text-sm opacity-50">{item.date}</div>
               <ul className="flex flex-wrap">
-                {item.categories.nodes.map((catItem, index) => (
-                  <li key={index} className="mr-1 mb-1">
-                    <Link
-                      to={catItem.uri}
-                      className={`rounded-full px-4 py-1 text-xs text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
-                    >
-                      {catItem.name}
-                    </Link>
-                  </li>
-                ))}
+                {item.categories.nodes
+                  .slice(0)
+                  .reverse()
+                  .map((catItem, index) => (
+                    <li key={index} className="mr-1 mb-1">
+                      <Link
+                        to={catItem.uri}
+                        className={`rounded-full px-4 py-1 text-xs text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
+                      >
+                        {catItem.name}
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </div>
           </div>

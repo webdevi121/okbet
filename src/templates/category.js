@@ -19,7 +19,7 @@ const CategoryPage = ({ data }) => {
         <div className="mb-5 w-full">
           <ul className="flex">
             <li className="flex items-center">
-              <a href="" className="p-2">
+              <a href="/" className="p-2">
                 Home
               </a>
             </li>

@@ -38,7 +38,7 @@ const FeaturedPost = props => {
             />
             <div className="text-sm opacity-50">{item.date}</div>
             <ul className="flex space-x-3">
-              {item.categories.nodes
+              {item.categories?.nodes
                 .slice(0)
                 .reverse()
                 .map((catItem, index) => (

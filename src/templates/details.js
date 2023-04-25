@@ -5,7 +5,6 @@ import Layout from "components/layout"
 import FeaturedPostSidebar from "../components/featuredPostSidebar"
 import ShareIcons from "../components/shareIcons"
 import { ChevronRightIcon } from "@heroicons/react/solid"
-import SubCategoryMenu from "../components/subCategoryMenu"
 
 const DetailPage = ({ data }) => {
   const item = data.wpPost
@@ -27,7 +26,7 @@ const DetailPage = ({ data }) => {
                 <div className="mb-5 w-full">
                   <ul className="flex">
                     <li className="flex items-center">
-                      <a href="" className="p-2">
+                      <a href="/" className="p-2">
                         Home
                       </a>
                     </li>
