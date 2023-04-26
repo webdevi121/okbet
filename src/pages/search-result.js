@@ -3,10 +3,10 @@ import Layout from "components/layout"
 import { useStaticQuery, graphql } from "gatsby"
 import FeaturedPost from "../components/featuredPost"
 
-const SearchResult = () => {
+const SearchResult = ({ location }) => {
   const [posts, setPosts] = useState([])
   const [searchResult, setSearchResult] = useState([])
-  const searchParams = new URLSearchParams(document.location.search)
+  const searchParams = location.search ? location.search.split("=")[1] : ""
 
   const {
     allWpPost: { nodes },
@@ -42,20 +42,20 @@ const SearchResult = () => {
   useEffect(() => {
     setPosts(nodes)
     let matches = []
-    if (searchParams && searchParams.get("q")) {
+    if (searchParams && searchParams !== "") {
       matches = nodes.filter(edge => {
-        const regex = new RegExp(`${searchParams.get("q")}`, "gi")
+        const regex = new RegExp(`${searchParams}`, "gi")
         return edge.title.match(regex)
       })
     }
     setSearchResult(matches)
-  }, [searchParams.get("q")])
+  }, [searchParams])
 
   return (
     <Layout>
       <div className="">
         <div className="mb-5 text-3xl font-semibold">
-          Search results for : {searchParams.get("q")}
+          Search results for : {searchParams}
         </div>
         <div className="category-layout grid grid-cols-3 gap-5">
           {searchResult.length > 0 && <FeaturedPost data={searchResult} />}
