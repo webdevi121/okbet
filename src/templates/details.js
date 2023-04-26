@@ -2,19 +2,9 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  TwitterShareButton,
-  WhatsappShareButton,
-  FacebookIcon,
-  WhatsappIcon,
-  FacebookMessengerIcon,
-  TwitterIcon,
-  EmailIcon,
-  FacebookMessengerShareButton,
-} from "react-share"
-import FeaturedPost from "../components/featuredPost"
+import FeaturedPostSidebar from "../components/featuredPostSidebar"
+import ShareIcons from "../components/shareIcons"
+import { ChevronRightIcon } from "@heroicons/react/solid"
 
 const DetailPage = ({ data }) => {
   const item = data.wpPost
@@ -29,39 +19,81 @@ const DetailPage = ({ data }) => {
           image={item.acfSeoData.socialThumbnail?.sourceUrl}
           uri={item.link}
         />
-        <div className="theme-container flex space-x-10">
+        <div className="flex space-x-10">
           <div>
             <div className="flex space-x-3">
               <div className="space-y-5 text-left">
-                <h1 className="text-primary text-3xl font-bold">
-                  {item.title}
-                </h1>
-                <div>
-                  <h2 className="text-3xl font-bold">Share:</h2>
-                  <FacebookShareButton url={postUrl}>
-                    <FacebookIcon size={32} round={true} />
-                  </FacebookShareButton>
-                  <FacebookMessengerShareButton
-                    url={postUrl}
-                    appId="274266067164"
-                  >
-                    <FacebookMessengerIcon size={32} round={true} />
-                  </FacebookMessengerShareButton>
-                  <TwitterShareButton url={postUrl}>
-                    <TwitterIcon size={32} round={true} />
-                  </TwitterShareButton>
-                  <WhatsappShareButton url={postUrl}>
-                    <WhatsappIcon size={32} round={true} />
-                  </WhatsappShareButton>
-                  <EmailShareButton url={postUrl} subject={item.title}>
-                    <EmailIcon size={32} round={true} />
-                  </EmailShareButton>
+                <div className="mb-5 w-full">
+                  <ul className="flex">
+                    <li className="flex items-center">
+                      <a href="/" className="p-2">
+                        Home
+                      </a>
+                    </li>
+                    {item.terms.nodes
+                      .slice(0)
+                      .reverse()
+                      .map((terms, index) => (
+                        <li
+                          key={index}
+                          className="flex items-center last:opacity-50"
+                        >
+                          <ChevronRightIcon className="mx-2 w-5 flex-none" />
+                          <Link to={terms.uri}>{terms.name}</Link>
+                        </li>
+                      ))}
+                    <li className="flex items-center last:opacity-50">
+                      <ChevronRightIcon className="mx-2 w-5 flex-none" />
+                      <div className="line-clamp-1">{item.title}</div>
+                    </li>
+                  </ul>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: item.content }} />
+                <div className="space-y-5">
+                  <div className="flex w-full items-center rounded-2xl bg-theme-primary-light200 p-8">
+                    <div className="flex h-full items-center justify-center">
+                      {item.featuredImage ? (
+                        <img
+                          src={item.featuredImage.node.publicUrl}
+                          alt="Illustration"
+                          width="100"
+                          height="100"
+                        />
+                      ) : null}
+                    </div>
+                    <div className="ml-auto">
+                      <div className="mb-1 text-xs font-bold text-white">
+                        Share Tips:
+                      </div>
+                      <ShareIcons title={item.title} postUrl={postUrl} />
+                    </div>
+                  </div>
+                  <h1 className="text-primary text-3xl font-bold">
+                    {item.title}
+                  </h1>
+                  <ul className="flex space-x-3">
+                    {item.categories.nodes
+                      .slice(0)
+                      .reverse()
+                      .map((catItem, index) => (
+                        <li key={index}>
+                          <Link
+                            to={catItem.uri}
+                            className={`rounded-full px-4 py-1 text-sm text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
+                          >
+                            {catItem.name}
+                          </Link>
+                        </li>
+                      ))}
+                  </ul>
+                  <div className="text-sm opacity-50">{item.date}</div>
+                </div>
+                <div className="layout">
+                  <div dangerouslySetInnerHTML={{ __html: item.content }} />
+                </div>
               </div>
             </div>
             {item.acfPosts.postRepeater?.map(node => (
-              <div className="mt-5 rounded-2xl bg-white p-7">
+              <div className="mb-5 rounded-2xl bg-white p-7">
                 <h2 className="mb-2 text-xl font-semibold">
                   {node.postSectionTitle}
                 </h2>
@@ -84,14 +116,28 @@ const DetailPage = ({ data }) => {
               </div>
             ))}
           </div>
-          {item.acfPosts.featuredPostsItems ? (
-            <div className="w-[390px] flex-none">
+          <div className="w-[390px] flex-none space-y-5">
+            {item.acfPosts.featuredPostsItems ? (
               <div className="rounded-2xl bg-white p-7">
-                <h2 className="text-xl font-semibold">Featured Post</h2>
-                <FeaturedPost data={item.acfPosts.featuredPostsItems} />
+                <h2 className="mb-5 text-2xl font-semibold">Featured Post</h2>
+                <FeaturedPostSidebar data={item.acfPosts.featuredPostsItems} />
+              </div>
+            ) : null}
+
+            <div className="rounded-2xl bg-white p-7">
+              <h2 className="mb-5 text-2xl font-semibold">Categories</h2>
+              <div className="flex flex-col space-y-2">
+                {data.allWpCategory.edges.map(cat => (
+                  <Link
+                    to={cat.node.uri}
+                    className="rounded-xl border border-theme-borderColor p-2 px-3 font-semibold"
+                  >
+                    {cat.node.name}
+                  </Link>
+                ))}
               </div>
             </div>
-          ) : null}
+          </div>
         </div>
       </Layout>
     </React.Fragment>
@@ -108,11 +154,33 @@ export const query = graphql`
       id
       link
       content
+      date(formatString: "DD  MMMM, YYYY")
+      featuredImage {
+        node {
+          publicUrl
+          sourceUrl
+        }
+      }
+      terms {
+        nodes {
+          name
+          uri
+        }
+      }
       acfSeoData {
         seoDescription
         seoTitle
         socialThumbnail {
           sourceUrl
+        }
+      }
+      categories {
+        nodes {
+          name
+          uri
+          acfCategory {
+            categoryColor
+          }
         }
       }
       acfPosts {
@@ -150,13 +218,11 @@ export const query = graphql`
         }
       }
     }
-    allWpCategory(filter: { count: { gt: 0 } }) {
+    allWpCategory {
       edges {
         node {
           uri
           name
-          slug
-          id
         }
       }
     }

@@ -99,4 +99,11 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  ////////////// Search Result Landing Page //////////////
+  const searchResultTemplate = path.resolve(`src/pages/search-result.js`)
+  createPage({
+    path: "/search-result",
+    component: searchResultTemplate,
+  })
 }
