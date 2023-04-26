@@ -2,7 +2,7 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import SubcategoriesSlider from "./subcategoriesSlider"
-import { ArrowRightIcon } from "@heroicons/react/solid"
+import { ArrowRightIcon } from "@heroicons/react/24/solid"
 import FeaturedPost from "./featuredPost"
 
 const FeaturedArticle = props => {

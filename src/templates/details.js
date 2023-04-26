@@ -4,7 +4,7 @@ import Seo from "components/seo"
 import Layout from "components/layout"
 import FeaturedPostSidebar from "../components/featuredPostSidebar"
 import ShareIcons from "../components/shareIcons"
-import { ChevronRightIcon } from "@heroicons/react/solid"
+import { ChevronRightIcon } from "@heroicons/react/24/solid"
 
 const DetailPage = ({ data }) => {
   const item = data.wpPost
@@ -184,6 +184,7 @@ export const query = graphql`
         }
       }
       acfPosts {
+        videoTick
         postRepeater {
           postSectionTitle
           postSectionDescription
@@ -213,6 +214,9 @@ export const query = graphql`
                   categoryColor
                 }
               }
+            }
+            acfPosts {
+              videoTick
             }
           }
         }

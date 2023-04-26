@@ -4,7 +4,7 @@ import Seo from "components/seo"
 import Layout from "components/layout"
 import SubCategoryMenu from "../components/subCategoryMenu"
 import FeaturedPost from "../components/featuredPost"
-import { ChevronRightIcon } from "@heroicons/react/solid"
+import { ChevronRightIcon } from "@heroicons/react/24/solid"
 
 const CategoryPage = ({ data }) => {
   const category = data.wpCategory
@@ -104,6 +104,9 @@ export const query = graphql`
               categoryColor
             }
           }
+        }
+        acfPosts {
+          videoTick
         }
       }
     }

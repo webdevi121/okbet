@@ -34,6 +34,9 @@ const SearchResult = () => {
               }
             }
           }
+          acfPosts {
+            videoTick
+          }
         }
       }
     }

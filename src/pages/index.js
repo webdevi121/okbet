@@ -122,6 +122,9 @@ export const query = graphql`
                 }
               }
             }
+            acfPosts {
+              videoTick
+            }
           }
         }
         homepageCategorySections {
@@ -157,6 +160,9 @@ export const query = graphql`
                       categoryColor
                     }
                   }
+                }
+                acfPosts {
+                  videoTick
                 }
               }
             }

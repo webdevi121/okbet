@@ -32,6 +32,9 @@ const SearchBar = () => {
               }
             }
           }
+          acfPosts {
+            videoTick
+          }
         }
       }
     }

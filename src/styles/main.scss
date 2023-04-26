@@ -202,6 +202,9 @@ body {
       @apply row-span-3;
       .img-placeholder {
         @apply h-2/4;
+        .video-icon {
+          @apply pointer-events-none absolute top-5 right-6 h-10 w-10 text-white;
+        }
       }
     }
   }
@@ -210,6 +213,9 @@ body {
     .img-placeholder {
       @apply m-5 w-[150px] flex-none rounded-xl;
       order: 2;
+      .video-icon {
+        @apply pointer-events-none absolute top-2 right-2 h-6 w-6 text-white;
+      }
     }
   }
 }
@@ -219,6 +225,9 @@ body {
       @apply h-40;
       img {
         @apply h-[80px] w-auto;
+      }
+      .video-icon {
+        @apply pointer-events-none absolute top-3 right-3 h-6 w-6 text-white;
       }
     }
   }

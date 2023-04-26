@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { PlayCircleIcon } from "@heroicons/react/24/outline"
 
 const FeaturedPost = props => {
   return (
@@ -9,7 +10,10 @@ const FeaturedPost = props => {
           key={index}
           className="overflow-hidden rounded-2xl border border-theme-borderColor bg-white"
         >
-          <div className="img-placeholder items-center justify-center bg-theme-primary-light200">
+          <div className="img-placeholder relative items-center justify-center bg-theme-primary-light200">
+            {item.acfPosts.videoTick ? (
+              <PlayCircleIcon className="video-icon" />
+            ) : null}
             <Link
               to={item.uri}
               className="flex h-full items-center justify-center p-5 px-7"

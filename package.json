@@ -15,7 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.6",
+    "@heroicons/react": "^2.0.17",
     "gatsby": "~5.3.2",
     "gatsby-plugin-exclude": "^1.0.2",
     "gatsby-plugin-image": "^3.8.0",
@@ -29,7 +29,6 @@
     "gatsby-theme-headless-wordpress": "^0.1.13",
     "gatsby-transformer-json": "^5.8.0",
     "gatsby-transformer-sharp": "^5.8.0",
-    "heroicons": "^2.0.16",
     "lodash": "^4.17.20",
     "postcss": "^8.4.14",
     "prop-types": "^15.8.1",

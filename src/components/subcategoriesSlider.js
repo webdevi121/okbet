@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Navigation } from "swiper"
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline"
 import "swiper/css"
 
 const SubcategoriesSlider = props => {

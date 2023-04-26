@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper"
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline"
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline"
 import "swiper/css"
 import "swiper/css/pagination"
 const Banner = props => {
