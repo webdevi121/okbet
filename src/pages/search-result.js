@@ -58,7 +58,7 @@ const SearchResult = () => {
           Search results for : {searchParams.get("q")}
         </div>
         <div className="category-layout grid grid-cols-3 gap-5">
-          <FeaturedPost data={searchResult} />
+          {searchResult.length > 0 && <FeaturedPost data={searchResult} />}
         </div>
       </div>
     </Layout>
