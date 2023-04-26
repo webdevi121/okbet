@@ -53,7 +53,10 @@ body {
 
 .layout {
   p {
-    @apply mb-7;
+    @apply mb-7 leading-7;
+  }
+  figure {
+    @apply mb-5;
   }
 }
 .journey-container {

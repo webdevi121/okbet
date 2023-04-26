@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
 import SubCategoryMenu from "../components/subCategoryMenu"
@@ -19,16 +19,18 @@ const CategoryPage = ({ data }) => {
         <div className="mb-5 w-full">
           <ul className="flex">
             <li className="flex items-center">
-              <a href="" className="p-2">
+              <a href="/" className="p-2">
                 Home
               </a>
             </li>
-            <li className="flex items-center">
-              <ChevronRightIcon className="mx-2 w-5" />
-              <a href="" className="p-2">
-                Racing
-              </a>
-            </li>
+            {category.wpParent ? (
+              <li className="flex items-center">
+                <ChevronRightIcon className="mx-2 w-5" />
+                <Link to={category.wpParent.node.link}>
+                  {category.wpParent.node.name}
+                </Link>
+              </li>
+            ) : null}
             <li className="flex items-center last:opacity-50">
               <ChevronRightIcon className="mx-2 w-5" />
               {category.name}
@@ -67,6 +69,8 @@ export const query = graphql`
       }
       wpParent {
         node {
+          name
+          link
           wpChildren {
             nodes {
               name
@@ -77,6 +81,7 @@ export const query = graphql`
       }
     }
     allWpPost(
+      sort: { date: DESC }
       filter: { categories: { nodes: { elemMatch: { link: { eq: $link } } } } }
     ) {
       nodes {

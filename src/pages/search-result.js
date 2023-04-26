@@ -1,29 +1,36 @@
 import React, { useState, useEffect } from "react"
-import Seo from "components/seo"
 import Layout from "components/layout"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import FeaturedPost from "../components/featuredPost"
 
 const SearchResult = () => {
   const [posts, setPosts] = useState([])
-  const [searchQuery, setSearchQuery] = useState("")
   const [searchResult, setSearchResult] = useState([])
   const searchParams = new URLSearchParams(document.location.search)
 
   const {
-    allWpPost: { edges },
+    allWpPost: { nodes },
   } = useStaticQuery(graphql`
     query {
       allWpPost {
-        edges {
-          node {
-            id
-            title
-            link
-            featuredImage {
-              node {
-                uri
-                title
-                publicUrl
+        nodes {
+          id
+          title
+          excerpt
+          uri
+          date(formatString: "DD  MMMM, YYYY")
+          featuredImage {
+            node {
+              publicUrl
+              sourceUrl
+            }
+          }
+          categories {
+            nodes {
+              name
+              uri
+              acfCategory {
+                categoryColor
               }
             }
           }
@@ -33,12 +40,12 @@ const SearchResult = () => {
   `)
 
   useEffect(() => {
-    setPosts(edges)
+    setPosts(nodes)
     let matches = []
     if (searchParams && searchParams.get("q")) {
-      matches = edges.filter(edge => {
+      matches = nodes.filter(edge => {
         const regex = new RegExp(`${searchParams.get("q")}`, "gi")
-        return edge.node.title.match(regex)
+        return edge.title.match(regex)
       })
     }
     setSearchResult(matches)
@@ -46,29 +53,13 @@ const SearchResult = () => {
 
   return (
     <Layout>
-      <div className="relative py-10 lg:py-20">
-        <div>Search results for : {searchParams.get("q")}</div>
-        {searchResult &&
-          searchResult.map((result, i) => {
-            return (
-              <div
-                key={i}
-                style={{
-                  background: "#3253b5",
-                  color: "white",
-                  cursor: "pointer",
-                  borderRight: "1px solid black",
-                  borderLeft: "1px solid black",
-                  borderBottom: "1px solid black",
-                }}
-              >
-                <Link to={result.node.link}>{result.node.title}</Link>
-                <Link to={result.node.link}>
-                  <p>READ MORE</p>
-                </Link>
-              </div>
-            )
-          })}
+      <div className="">
+        <div className="mb-5 text-3xl font-semibold">
+          Search results for : {searchParams.get("q")}
+        </div>
+        <div className="category-layout grid grid-cols-3 gap-5">
+          {searchResult.length > 0 && <FeaturedPost data={searchResult} />}
+        </div>
       </div>
     </Layout>
   )
