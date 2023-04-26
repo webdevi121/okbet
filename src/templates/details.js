@@ -93,7 +93,7 @@ const DetailPage = ({ data }) => {
               </div>
             </div>
             {item.acfPosts.postRepeater?.map(node => (
-              <div className="mb-5 rounded-2xl bg-white p-7">
+              <div className="mb-5 rounded-2xl bg-white p-7 drop-shadow-sm">
                 <h2 className="mb-2 text-xl font-semibold">
                   {node.postSectionTitle}
                 </h2>
@@ -118,13 +118,13 @@ const DetailPage = ({ data }) => {
           </div>
           <div className="w-[390px] flex-none space-y-5">
             {item.acfPosts.featuredPostsItems ? (
-              <div className="rounded-2xl bg-white p-7">
+              <div className="rounded-2xl bg-white p-7 drop-shadow-sm">
                 <h2 className="mb-5 text-2xl font-semibold">Featured Post</h2>
                 <FeaturedPostSidebar data={item.acfPosts.featuredPostsItems} />
               </div>
             ) : null}
 
-            <div className="rounded-2xl bg-white p-7">
+            <div className="rounded-2xl bg-white p-7 drop-shadow-sm">
               <h2 className="mb-5 text-2xl font-semibold">Categories</h2>
               <div className="flex flex-col space-y-2">
                 {data.allWpCategory.edges.map(cat => (
