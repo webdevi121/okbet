@@ -15,7 +15,12 @@ const CategoryPage = ({ data }) => {
   return (
     <React.Fragment>
       <Layout>
-        <Seo title="title" description="description" />
+        <Seo
+          title={category.acfSeoData.seoTitle}
+          description={category.acfSeoData.seoDescription}
+          image={category.acfSeoData.socialThumbnail?.sourceUrl}
+          uri={category.link}
+        />
         <div className="mb-5 w-full">
           <ul className="flex">
             <li className="flex items-center">
@@ -60,6 +65,14 @@ export const query = graphql`
     wpCategory(link: { eq: $link }) {
       name
       description
+      link
+      acfSeoData {
+        seoDescription
+        seoTitle
+        socialThumbnail {
+          sourceUrl
+        }
+      }
       wpChildren {
         nodes {
           id
