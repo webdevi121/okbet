@@ -14,8 +14,14 @@ const DetailPage = ({ data }) => {
     <React.Fragment>
       <Layout>
         <Seo
-          title={item.acfSeoData.seoTitle}
-          description={item.acfSeoData.seoDescription}
+          title={
+            item.acfSeoData.seoTitle ? item.acfSeoData.seoTitle : item.title
+          }
+          description={
+            item.acfSeoData.seoDescription
+              ? item.acfSeoData.seoDescription
+              : item.excerpt
+          }
           image={item.acfSeoData.socialThumbnail?.sourceUrl}
           uri={item.link}
         />
@@ -154,6 +160,7 @@ export const query = graphql`
       id
       link
       content
+      excerpt
       date(formatString: "DD  MMMM, YYYY")
       featuredImage {
         node {
