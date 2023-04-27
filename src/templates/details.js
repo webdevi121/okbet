@@ -28,7 +28,7 @@ const DetailPage = ({ data }) => {
         <div className="flex space-x-10">
           <div>
             <div className="flex space-x-3">
-              <div className="space-y-5 text-left">
+              <div className="w-full space-y-5 text-left">
                 <div className="mb-5 w-full">
                   <ul className="flex">
                     <li className="flex items-center">

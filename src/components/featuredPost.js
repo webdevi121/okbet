@@ -5,7 +5,7 @@ import { PlayCircleIcon } from "@heroicons/react/24/outline"
 const FeaturedPost = props => {
   return (
     <>
-      {props.data.map((item, index) => (
+      {props.data?.map((item, index) => (
         <div
           key={index}
           className="overflow-hidden rounded-2xl border border-theme-borderColor bg-white"
