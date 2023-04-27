@@ -4,7 +4,7 @@ import Seo from "components/seo"
 import Layout from "components/layout"
 import FeaturedPostSidebar from "../components/featuredPostSidebar"
 import ShareIcons from "../components/shareIcons"
-import { ChevronRightIcon } from "@heroicons/react/24/solid"
+import { LinkIcon, ChevronRightIcon } from "@heroicons/react/24/solid"
 
 const DetailPage = ({ data }) => {
   const item = data.wpPost
@@ -100,11 +100,26 @@ const DetailPage = ({ data }) => {
             </div>
             {item.acfPosts.postRepeater?.map(node => (
               <div className="mb-5 overflow-hidden rounded-2xl bg-white drop-shadow-sm">
-                <div className="flex w-full items-center bg-theme-primary-light200 py-3 px-7 text-xl font-semibold text-white">
-                  <h2>{node.sectionHeadingGroup.groupSectionTitle}</h2>
-                  <div className="ml-auto">
-                    {node.sectionHeadingGroup.groupSectionRightText}
-                  </div>
+                <div className="flex w-full items-center bg-theme-primary-light200 py-3 px-7 text-xl text-white">
+                  <h2 className="font-semibold">
+                    {node.sectionHeadingGroup.groupSectionTitle}
+                  </h2>
+                  {node.sectionHeadingGroup.suggestedLink ? (
+                    <Link
+                      to={node.sectionHeadingGroup.suggestedLink}
+                      className="ml-auto flex items-center space-x-2 text-base underline"
+                      target="_blank"
+                    >
+                      <LinkIcon className="h-4 w-4 text-white" />
+                      <span>
+                        {node.sectionHeadingGroup.groupSectionRightText}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div className="ml-auto">
+                      {node.sectionHeadingGroup.groupSectionRightText}
+                    </div>
+                  )}
                 </div>
                 <div className="layout p-7">
                   <div
@@ -200,6 +215,7 @@ export const query = graphql`
           sectionHeadingGroup {
             groupSectionTitle
             groupSectionRightText
+            suggestedLink
           }
           ctaButton {
             buttonCtaTitle
