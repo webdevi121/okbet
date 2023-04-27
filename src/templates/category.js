@@ -78,6 +78,11 @@ export const query = graphql`
           id
           name
           link
+          acfCategory {
+            categoryIcon {
+              gatsbyImage(placeholder: BLURRED, height: 18, layout: FIXED)
+            }
+          }
         }
       }
       wpParent {
@@ -88,6 +93,11 @@ export const query = graphql`
             nodes {
               name
               link
+              acfCategory {
+                categoryIcon {
+                  gatsbyImage(placeholder: BLURRED, height: 18, layout: FIXED)
+                }
+              }
             }
           }
         }
