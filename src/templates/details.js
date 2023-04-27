@@ -101,8 +101,10 @@ const DetailPage = ({ data }) => {
             {item.acfPosts.postRepeater?.map(node => (
               <div className="mb-5 overflow-hidden rounded-2xl bg-white drop-shadow-sm">
                 <div className="flex w-full items-center bg-theme-primary-light200 py-3 px-7 text-xl font-semibold text-white">
-                  <h2>{node.postSectionTitle}</h2>
-                  <div className="ml-auto">Lorem Ipsum</div>
+                  <h2>{node.sectionHeadingGroup.groupSectionTitle}</h2>
+                  <div className="ml-auto">
+                    {node.sectionHeadingGroup.groupSectionRightText}
+                  </div>
                 </div>
                 <div className="layout p-7">
                   <div
@@ -194,8 +196,11 @@ export const query = graphql`
       acfPosts {
         videoTick
         postRepeater {
-          postSectionTitle
           postSectionDescription
+          sectionHeadingGroup {
+            groupSectionTitle
+            groupSectionRightText
+          }
           ctaButton {
             buttonCtaTitle
             buttonCtaLink
