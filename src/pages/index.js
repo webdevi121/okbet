@@ -176,7 +176,7 @@ export const query = graphql`
                     categoryIcon {
                       gatsbyImage(
                         placeholder: BLURRED
-                        height: 25
+                        height: 18
                         layout: FIXED
                       )
                     }

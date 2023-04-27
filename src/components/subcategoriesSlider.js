@@ -25,7 +25,7 @@ const SubcategoriesSlider = props => {
                 <div>
                   <Link
                     to={item.uri}
-                    className="flex justify-center space-x-3 rounded-lg bg-theme-light p-3 text-center"
+                    className="flex items-center justify-center space-x-2 rounded-lg bg-theme-light p-3 text-center"
                   >
                     {item.acfCategory.categoryIcon ? (
                       <GatsbyImage
