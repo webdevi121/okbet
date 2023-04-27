@@ -11,6 +11,7 @@ const NavigationMenu = () => {
           parentDatabaseId: { eq: null }
           slug: { ne: "uncategorized" }
         }
+        sort: { databaseId: ASC }
       ) {
         nodes {
           id

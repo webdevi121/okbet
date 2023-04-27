@@ -28,6 +28,7 @@ const Seo = ({ description, lang, meta, title, image, uri }) => {
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
   const pageUrl = site.siteMetadata.siteUrl + `${uri}`
+  const ogTitle = `${title} | ${defaultTitle}`
 
   return (
     <Helmet
@@ -43,7 +44,7 @@ const Seo = ({ description, lang, meta, title, image, uri }) => {
         },
         {
           property: `og:title`,
-          content: title,
+          content: ogTitle,
         },
         {
           property: `og:description`,
@@ -75,7 +76,7 @@ const Seo = ({ description, lang, meta, title, image, uri }) => {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: ogTitle,
         },
         {
           name: `twitter:description`,
