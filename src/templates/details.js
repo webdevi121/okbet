@@ -73,7 +73,7 @@ const DetailPage = ({ data }) => {
                       <ShareIcons title={item.title} postUrl={postUrl} />
                     </div>
                   </div>
-                  <h1 className="text-primary text-3xl font-bold">
+                  <h1 className="text-primary text-4xl font-bold">
                     {item.title}
                   </h1>
                   <ul className="flex space-x-3">
@@ -99,25 +99,26 @@ const DetailPage = ({ data }) => {
               </div>
             </div>
             {item.acfPosts.postRepeater?.map(node => (
-              <div className="mb-5 rounded-2xl bg-white p-7 drop-shadow-sm">
-                <h2 className="mb-2 text-xl font-semibold">
-                  {node.postSectionTitle}
-                </h2>
-                <div className="layout">
+              <div className="mb-5 overflow-hidden rounded-2xl bg-white drop-shadow-sm">
+                <div className="flex w-full items-center bg-theme-primary-light200 py-3 px-7 text-xl font-semibold text-white">
+                  <h2>{node.postSectionTitle}</h2>
+                  <div className="ml-auto">Lorem Ipsum</div>
+                </div>
+                <div className="layout p-7">
                   <div
                     dangerouslySetInnerHTML={{
                       __html: node.postSectionDescription,
                     }}
                   />
-                </div>
-                <div className="mt-5 flex w-full items-center justify-center">
-                  <Link
-                    to={node.ctaButton.buttonCtaLink}
-                    target="_blank"
-                    className="m-auto inline-block rounded-xl bg-theme-primary px-5 py-2 text-lg font-semibold text-white"
-                  >
-                    {node.ctaButton.buttonCtaTitle}
-                  </Link>
+                  <div className="mt-5 flex w-full items-center justify-center">
+                    <Link
+                      to={node.ctaButton.buttonCtaLink}
+                      target="_blank"
+                      className="m-auto inline-block rounded-lg bg-theme-primary-light200 px-5 py-2 text-lg font-semibold text-white"
+                    >
+                      {node.ctaButton.buttonCtaTitle}
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
