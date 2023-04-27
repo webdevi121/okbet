@@ -133,7 +133,7 @@ export const query = graphql`
             fieldGroupName
             categoryIcon {
               gatsbyImage(
-                quality: 10
+                quality: 100
                 width: 60
                 height: 45
                 placeholder: BLURRED
