@@ -8,7 +8,7 @@ const FeaturedPostSidebar = props => {
       <div className="space-y-5">
         {props.data.map((item, index) => (
           <div key={index} className="flex space-x-5 bg-white">
-            <div className="img-placeholder relative items-center justify-center rounded-xl bg-theme-primary-light200">
+            <div className="img-placeholder relative h-[90px] items-center justify-center rounded-xl bg-theme-primary-light200">
               {item.acfPosts.videoTick ? (
                 <PlayCircleIcon className="pointer-events-none absolute top-2 right-2 h-4 w-4 text-white" />
               ) : null}
