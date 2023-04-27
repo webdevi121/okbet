@@ -235,7 +235,10 @@ export const query = graphql`
         }
       }
     }
-    allWpCategory {
+    allWpCategory(
+      filter: { slug: { ne: "uncategorized" } }
+      sort: { databaseId: ASC }
+    ) {
       edges {
         node {
           uri
