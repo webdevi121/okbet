@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
           <div className="relative bg-theme-primary-light100 py-5">
             <div className="footer-container grid grid-flow-row gap-7 px-5 lg:px-0">
-              <div className="grid grid-cols-3 text-center text-white">
+              <div className="grid gap-5 text-center text-white sm:grid-cols-3 sm:gap-0">
                 <div>
                   <h2 className="mb-2 font-semibold uppercase">Company</h2>
                   <ul className="text-sm">
@@ -101,12 +101,10 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
-                <div></div>
-                <div></div>
               </div>
               <FooterLogos />
               <div>
-                <div className="m-auto flex max-w-[60%] items-center space-x-3">
+                <div className="m-auto flex items-center space-x-3 lg:max-w-[60%]">
                   <div>
                     <span className="flex h-[40px] w-[40px] items-center justify-center rounded-full border-4 border-theme-error bg-white text-sm font-semibold">
                       18+
@@ -191,7 +189,8 @@ const Footer = () => {
             <a
               href="https://infusion121.com.au"
               target="_blank"
-              className="absolute bottom-5 right-5"
+              className="bottom-5 right-5 m-auto mt-5 flex items-center justify-center lg:absolute lg:mt-0"
+              rel="noreferrer"
             >
               <StaticImage
                 src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/i121-footer-logo.png"

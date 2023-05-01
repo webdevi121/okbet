@@ -36,7 +36,7 @@ const FooterLogos = () => {
 
   return (
     <React.Fragment>
-      <div className="grid grid-cols-2 gap-5 lg:gap-16">
+      <div className="grid grid-flow-row gap-5 lg:grid-cols-2 lg:gap-16">
         <div>
           <h2 className="mb-3 text-center font-semibold text-white">
             Approved Wagering Providers

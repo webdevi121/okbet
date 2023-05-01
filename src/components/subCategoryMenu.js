@@ -8,7 +8,7 @@ const SubCategoryMenu = props => {
       {data.wpChildren.nodes.length === 0 ? (
         //   display child category
         data.wpParent?.node.wpChildren ? (
-          <div className="w-[250px] flex-none space-y-3">
+          <div className="hidden w-[250px] flex-none space-y-3 lg:block">
             {data.wpParent?.node.wpChildren.nodes.map(item => (
               <div key={item.id}>
                 <div className="space-y-3">
@@ -27,7 +27,7 @@ const SubCategoryMenu = props => {
         ) : null
       ) : (
         //   display main category
-        <div className="w-[250px] flex-none space-y-3">
+        <div className="hidden w-[250px] flex-none space-y-3 lg:block">
           {data.wpChildren.nodes.map(item => (
             <div key={item.id}>
               <div className="space-y-3">

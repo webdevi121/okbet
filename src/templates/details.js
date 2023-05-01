@@ -25,7 +25,7 @@ const DetailPage = ({ data }) => {
           image={item.acfSeoData.socialThumbnail?.sourceUrl}
           uri={item.link}
         />
-        <div className="flex space-x-10">
+        <div className="lg:flex lg:space-x-10">
           <div>
             <div className="flex space-x-3">
               <div className="w-full space-y-5 text-left">
@@ -140,7 +140,7 @@ const DetailPage = ({ data }) => {
               </div>
             ))}
           </div>
-          <div className="w-[390px] flex-none space-y-5">
+          <div className="flex-none space-y-5 lg:w-[390px]">
             {item.acfPosts.featuredPostsItems ? (
               <div className="rounded-2xl bg-white p-7 drop-shadow-sm">
                 <h2 className="mb-5 text-2xl font-semibold">Featured Post</h2>

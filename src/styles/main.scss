@@ -52,6 +52,9 @@ body {
 }
 
 .layout {
+  iframe {
+    @apply w-full;
+  }
   p {
     @apply mb-7 leading-7;
   }

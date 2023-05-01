@@ -9,7 +9,7 @@ import "swiper/css"
 const SubcategoriesSlider = props => {
   return (
     <React.Fragment>
-      {props.data.length ? (
+      {props.data?.length ? (
         <div className="theme-container relative">
           <div className="inline-grid w-full overflow-hidden">
             <div className="w-full overflow-hidden">

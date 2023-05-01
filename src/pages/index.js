@@ -2,9 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
-import FeaturedPost from "../components/featuredPost"
 import Banner from "../components/banner"
 import FeaturedArticle from "../components/featuredArticle"
+import MainCategories from "../components/mainCategory"
 
 const Homepage = ({ data }) => {
   return (
@@ -17,45 +17,23 @@ const Homepage = ({ data }) => {
           uri={data.wpPage.uri}
         />
         <div className="grid gap-7 md:gap-10">
-          <Banner data={data.wpPage.acfHomepage.topBanner} />
-          <div className="featured-layout grid gap-4 lg:grid-flow-col lg:grid-rows-3">
-            <FeaturedPost
-              data={data.wpPage.acfHomepage.homepageFeaturedArticles}
-            />
-          </div>
-          <div className="grid grid-cols-3 gap-5">
-            <a href="/category/racing">
-              <img
-                src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/racing.png"
-                alt="illustration"
-              />
-            </a>
-            <a href="/category/sports">
-              <img
-                src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/sports.png"
-                alt="illustration"
-              />
-            </a>
-            <a href="/category/novelty">
-              <img
-                src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/novelty.png"
-                alt="illustration"
-              />
-            </a>
-          </div>
           <div className="grid grid-flow-row gap-10">
             {data.wpPage.acfHomepage.homepageCategorySections
               ? data.wpPage.acfHomepage.homepageCategorySections.map(
                   (node, index) => (
                     <div key={index}>
+                      {node.mainCategoryRepeatear ? (
+                        <MainCategories data={node.mainCategoryRepeatear} />
+                      ) : null}
                       {node.categoryFeaturedArticles ? (
                         <FeaturedArticle
                           id={"id-" + index}
-                          slug={node.taxCategory.link}
+                          slug={node.taxCategory?.link}
                           data={node.categoryFeaturedArticles}
                           sectionTitle={node.sectionCategoryName}
                           icon={node.categoryIcon?.gatsbyImage}
-                          subcategories={node.taxCategory.wpChildren.nodes}
+                          subcategories={node.taxCategory?.wpChildren.nodes}
+                          type={node.featuredCategoryType}
                         />
                       ) : null}
                       {node.bannerSliderRepeater ? (
@@ -89,47 +67,17 @@ export const query = graphql`
         }
       }
       acfHomepage {
-        topBanner {
-          link: bannerLink
-          image: bannerImage {
-            sourceUrl
-            gatsbyImage(
-              quality: 100
-              width: 1200
-              height: 164
-              placeholder: BLURRED
-            )
-          }
-        }
-        homepageFeaturedArticles {
-          ... on WpPost {
-            id
-            title
-            excerpt
-            uri
-            date(formatString: "DD  MMMM, YYYY")
-            featuredImage {
-              node {
-                publicUrl
+        homepageCategorySections {
+          ... on WpPage_Acfhomepage_HomepageCategorySections_MainCategory {
+            mainCategoryRepeatear {
+              mainCategoryLink
+              mainCategoryImage {
                 sourceUrl
               }
             }
-            categories {
-              nodes {
-                name
-                uri
-                acfCategory {
-                  categoryColor
-                }
-              }
-            }
-            acfPosts {
-              videoTick
-            }
           }
-        }
-        homepageCategorySections {
           ... on WpPage_Acfhomepage_HomepageCategorySections_CategorySection {
+            featuredCategoryType
             sectionCategoryName
             fieldGroupName
             categoryIcon {

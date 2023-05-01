@@ -45,11 +45,11 @@ const CategoryPage = ({ data }) => {
         <div className="mb-10">
           <h1 className="text-3xl font-bold">Latest: {category.name}</h1>
         </div>
-        <div className="flex space-x-10">
+        <div className="flex lg:space-x-10">
           <SubCategoryMenu data={category} />
           <div className="w-full space-y-3">
             {list.length ? (
-              <div className="category-layout grid grid-cols-3 gap-5">
+              <div className="category-layout grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                 <FeaturedPost data={list} />
               </div>
             ) : (

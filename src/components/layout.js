@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     <React.Fragment>
       <Header />
       <div className="bg-theme-light">
-        <div className="theme-container py-10">{children}</div>
+        <div className="theme-container py-5 lg:py-10">{children}</div>
       </div>
       <Footer />
     </React.Fragment>

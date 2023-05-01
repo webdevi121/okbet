@@ -49,7 +49,7 @@ const NavigationMenu = () => {
 
         <div className="theme-container ">
           <div
-            className={`fixed top-[55px] left-0 z-20 h-full w-[70%] bg-[#f9f9f9] shadow transition lg:relative lg:top-0 lg:flex lg:w-full lg:translate-x-0 lg:items-center lg:bg-transparent lg:shadow-none lg:transition-none ${
+            className={`fixed top-[55px] left-0 z-20 h-full w-[70%] max-w-[300px] bg-[#f9f9f9] shadow transition lg:relative lg:top-0 lg:flex lg:w-full lg:max-w-[100%] lg:translate-x-0 lg:items-center lg:bg-transparent lg:shadow-none lg:transition-none ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
