@@ -25,7 +25,7 @@ const FeaturedArticle = props => {
         <div className="mb-5">
           <SubcategoriesSlider data={props.subcategories} id={props.id} />
         </div>
-        <div className="featured-layout grid grid-flow-col grid-rows-3 gap-4">
+        <div className="featured-layout grid gap-4 lg:grid-flow-col lg:grid-rows-3">
           <FeaturedPost data={props.data} />
         </div>
       </div>

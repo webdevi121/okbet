@@ -8,7 +8,7 @@ const Footer = () => {
     <React.Fragment>
       <footer>
         <div>
-          <div className="bg-theme-primary py-1 text-white">
+          <div className="hidden bg-theme-primary py-1 text-white lg:block">
             <div className="footer-container">
               <div className="grid grid-cols-5 items-center">
                 <div>It's not too late!</div>
@@ -48,8 +48,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="bg-theme-primary-light100 py-5">
-            <div className="footer-container grid grid-flow-row gap-7">
+          <div className="relative bg-theme-primary-light100 py-5">
+            <div className="footer-container grid grid-flow-row gap-7 px-5 lg:px-0">
               <div className="grid grid-cols-3 text-center text-white">
                 <div>
                   <h2 className="mb-2 font-semibold uppercase">Company</h2>
@@ -188,6 +188,18 @@ const Footer = () => {
               </div>
               <BackToTopButton />
             </div>
+            <a
+              href="https://infusion121.com.au"
+              target="_blank"
+              className="absolute bottom-5 right-5"
+            >
+              <StaticImage
+                src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/04/i121-footer-logo.png"
+                alt="illustration"
+                quality={100}
+                width={130}
+              />
+            </a>
           </div>
         </div>
       </footer>

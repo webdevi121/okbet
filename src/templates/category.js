@@ -48,9 +48,15 @@ const CategoryPage = ({ data }) => {
         <div className="flex space-x-10">
           <SubCategoryMenu data={category} />
           <div className="w-full space-y-3">
-            <div className="category-layout grid grid-cols-3 gap-5">
-              <FeaturedPost data={list} />
-            </div>
+            {list.length ? (
+              <div className="category-layout grid grid-cols-3 gap-5">
+                <FeaturedPost data={list} />
+              </div>
+            ) : (
+              <div className="flex h-full w-full flex-col items-center justify-center opacity-30">
+                <div>No posts found in this category</div>
+              </div>
+            )}
           </div>
         </div>
       </Layout>

@@ -10,13 +10,13 @@ const FeaturedPost = props => {
           key={index}
           className="overflow-hidden rounded-2xl border border-theme-borderColor bg-white"
         >
-          <div className="img-placeholder relative items-center justify-center bg-theme-primary-light200">
+          <div className="img-placeholder relative order-1 items-center justify-center bg-theme-primary-light200 lg:order-2">
             {item.acfPosts.videoTick ? (
               <PlayCircleIcon className="video-icon" />
             ) : null}
             <Link
               to={item.uri}
-              className="flex h-full items-center justify-center p-5 px-7"
+              className="flex h-full items-center justify-center p-5 px-4 sm:px-7"
             >
               <div className="flex h-full items-center justify-center">
                 {item.featuredImage ? (
@@ -30,7 +30,7 @@ const FeaturedPost = props => {
               </div>
             </Link>
           </div>
-          <div className="space-y-2 p-5">
+          <div className="order-2 space-y-2 p-3 pl-0 sm:p-5 lg:order-1 lg:pl-5">
             <Link to={item.uri}>
               <h3 className="text-xl font-semibold text-theme-primary line-clamp-1">
                 {item.title}
@@ -49,7 +49,7 @@ const FeaturedPost = props => {
                   <li key={index}>
                     <Link
                       to={catItem.uri}
-                      className={`rounded-full px-4 py-1 text-sm text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
+                      className={`rounded-full px-4 py-1 text-xs text-white hover:text-white sm:text-sm theme-${catItem.acfCategory.categoryColor}`}
                     >
                       {catItem.name}
                     </Link>

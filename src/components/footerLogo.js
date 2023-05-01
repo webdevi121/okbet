@@ -36,12 +36,12 @@ const FooterLogos = () => {
 
   return (
     <React.Fragment>
-      <div className="grid grid-cols-2 gap-16">
+      <div className="grid grid-cols-2 gap-5 lg:gap-16">
         <div>
           <h2 className="mb-3 text-center font-semibold text-white">
             Approved Wagering Providers
           </h2>
-          <div className="grid grid-cols-6 items-center justify-center gap-2">
+          <div className="grid grid-cols-3 items-center justify-center gap-2 lg:grid-cols-6">
             {data.wp.acfOptionsGlobalOptions.acfOptions.wageringProvidersLogosRepeater.map(
               (item, index) => (
                 <div key={index} className="rounded-md bg-white p-1">
@@ -59,7 +59,7 @@ const FooterLogos = () => {
           <h2 className="mb-3 text-center font-semibold text-white">
             Payment Methods
           </h2>
-          <div className="grid grid-cols-6 items-center justify-center gap-2">
+          <div className="grid grid-cols-3 items-center justify-center gap-2 lg:grid-cols-6">
             {data.wp.acfOptionsGlobalOptions.acfOptions.paymentMethodsRepeater.map(
               (item, index) => (
                 <div key={index} className="rounded-md bg-white p-1">

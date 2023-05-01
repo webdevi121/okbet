@@ -199,19 +199,19 @@ body {
 .featured-layout {
   > div {
     &:first-child {
-      @apply row-span-3;
+      @apply lg:row-span-3 lg:block;
       .img-placeholder {
-        @apply h-2/4;
+        @apply lg:m-0 lg:h-2/4 lg:w-full lg:rounded-b-none;
         .video-icon {
-          @apply pointer-events-none absolute top-5 right-6 h-10 w-10 text-white;
+          @apply lg:pointer-events-none lg:absolute lg:top-5 lg:right-6 lg:h-10 lg:w-10 lg:text-white;
         }
       }
     }
   }
-  > div:not(:first-child) {
+  > div {
     @apply flex;
     .img-placeholder {
-      @apply m-5 w-[150px] flex-none rounded-xl;
+      @apply m-3 w-[90px] flex-none rounded-xl sm:m-5 sm:w-[130px] lg:w-[150px];
       order: 2;
       .video-icon {
         @apply pointer-events-none absolute top-2 right-2 h-6 w-6 text-white;

@@ -16,9 +16,9 @@ const Homepage = ({ data }) => {
           image={data.wpPage.acfSeoData.socialThumbnail?.sourceUrl}
           uri={data.wpPage.uri}
         />
-        <div className="grid gap-10">
+        <div className="grid gap-7 md:gap-10">
           <Banner data={data.wpPage.acfHomepage.topBanner} />
-          <div className="featured-layout grid grid-flow-col grid-rows-3 gap-4">
+          <div className="featured-layout grid gap-4 lg:grid-flow-col lg:grid-rows-3">
             <FeaturedPost
               data={data.wpPage.acfHomepage.homepageFeaturedArticles}
             />
@@ -92,9 +92,10 @@ export const query = graphql`
         topBanner {
           link: bannerLink
           image: bannerImage {
+            sourceUrl
             gatsbyImage(
               quality: 100
-              width: 1280
+              width: 1200
               height: 164
               placeholder: BLURRED
             )
@@ -192,7 +193,7 @@ export const query = graphql`
               image: bannerImage01 {
                 gatsbyImage(
                   quality: 100
-                  width: 1280
+                  width: 1200
                   height: 164
                   placeholder: BLURRED
                 )

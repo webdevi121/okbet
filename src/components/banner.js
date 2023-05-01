@@ -34,10 +34,7 @@ const Banner = props => {
             <SwiperSlide key={index}>
               <div>
                 <Link to={item.link}>
-                  <GatsbyImage
-                    image={getImage(item.image)}
-                    alt="Illustration"
-                  />
+                  <img src={item.image.sourceUrl} alt="Illustration" />
                 </Link>
               </div>
             </SwiperSlide>
