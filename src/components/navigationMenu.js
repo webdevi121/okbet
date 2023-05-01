@@ -1,7 +1,11 @@
 import React, { useState } from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import SearchBar from "./searchBar"
-import { ChevronDownIcon, Bars3BottomLeftIcon } from "@heroicons/react/24/solid"
+import {
+  ChevronDownIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid"
 
 const NavigationMenu = () => {
   const data = useStaticQuery(graphql`
@@ -37,7 +41,7 @@ const NavigationMenu = () => {
       <nav className="lg:bg-white">
         {isOpen ? (
           <div
-            className="fixed top-0 left-0 z-20 h-full w-full bg-black opacity-40"
+            className="fixed top-0 left-0 top-[55px] z-20 h-full w-full bg-black opacity-40 lg:hidden"
             onClick={toggleNavigationHandler}
             aria-hidden="true"
           ></div>
@@ -45,30 +49,38 @@ const NavigationMenu = () => {
 
         <div className="theme-container ">
           <div
-            className={`fixed top-0 left-0 z-20 h-full w-[70%] bg-theme-primary text-white transition lg:relative lg:flex lg:w-full lg:translate-x-0 lg:items-center lg:bg-transparent lg:text-inherit lg:transition-none ${
+            className={`fixed top-[55px] left-0 z-20 h-full w-[70%] bg-[#f9f9f9] shadow transition lg:relative lg:top-0 lg:flex lg:w-full lg:translate-x-0 lg:items-center lg:bg-transparent lg:shadow-none lg:transition-none ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
-            <ul className="border-b border-solid border-slate-700 text-left lg:flex lg:border-0 ">
-              <li className="py-3 font-normal">
-                <a className="flex items-center rounded-lg py-2 px-5" href="/">
+            <ul className="border-b text-left lg:flex lg:border-0">
+              <li className="border-b border-theme-borderColor py-3 font-normal lg:border-none">
+                <a
+                  className="flex items-center rounded-lg py-2 px-5 font-semibold lg:font-normal"
+                  href="/"
+                >
                   Home
                 </a>
               </li>
               {data.allWpCategory.nodes.map(item => (
-                <li key={item.id} className="group relative py-3 font-normal">
+                <li
+                  key={item.id}
+                  className="group relative border-b border-theme-borderColor py-2 font-normal lg:border-none lg:py-3"
+                >
                   <Link
                     to={item.uri}
                     activeClassName="bg-theme-primary-light200 text-white"
                     className="flex items-center space-x-2 rounded-lg py-2 px-5"
                   >
-                    <div>{item.name}</div>
+                    <div className="w-full font-semibold lg:w-auto lg:font-normal">
+                      {item.name}
+                    </div>
                     {item.wpChildren.nodes.length ? (
                       <ChevronDownIcon className="h-4 w-4 stroke-2 opacity-70" />
                     ) : null}
                   </Link>
                   {item.wpChildren.nodes.length ? (
-                    <ul className="top-13 absolute left-0 z-10 hidden w-[200px] rounded-xl bg-white py-3 drop-shadow-sm group-hover:block">
+                    <ul className="top-13 left-0 z-10 hidden w-[200px] rounded-xl drop-shadow-sm group-hover:block lg:absolute lg:bg-white lg:py-3">
                       {item.wpChildren.nodes.map(subItem => (
                         <li>
                           <Link
@@ -91,10 +103,14 @@ const NavigationMenu = () => {
           </div>
         </div>
         <button
-          className="absolute top-0 right-0 ml-auto px-4 py-3 lg:hidden"
+          className="absolute top-0 left-0 ml-auto flex h-[55px] items-center justify-center bg-theme-primary px-2 lg:hidden"
           onClick={toggleNavigationHandler}
         >
-          <Bars3BottomLeftIcon className="h-8 w-8 text-white" />
+          {isOpen ? (
+            <XMarkIcon className="stroke-3 h-8 w-8 text-white" />
+          ) : (
+            <Bars3Icon className="stroke-3 h-8 w-8 text-white" />
+          )}
         </button>
       </nav>
     </>

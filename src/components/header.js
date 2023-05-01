@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <div className="theme-container">
-        <div className="flex h-[55px] items-center">
+        <div className="ml-[43px] flex h-[55px] items-center lg:ml-0">
           <a href={`/`}>
             <svg
               fill="none"
@@ -46,7 +46,7 @@ const Header = () => {
             </svg>
           </a>
 
-          <div className="ml-auto hidden h-full items-center bg-theme-primary-light text-white lg:flex">
+          <div className="-mr-5 ml-auto flex h-full items-center bg-theme-primary-light text-white lg:mr-0">
             <a
               href="https://okebet.com.au/"
               target="_blank"
