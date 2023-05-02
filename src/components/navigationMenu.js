@@ -85,7 +85,7 @@ const NavigationMenu = () => {
                         <li>
                           <Link
                             to={subItem.link}
-                            className="block w-full py-3 px-5 lg:p-2"
+                            className="block w-full py-3 px-5"
                             activeClassName="bg-theme-primary-light200 text-white"
                           >
                             {subItem.name}
