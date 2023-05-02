@@ -54,9 +54,9 @@ const NavigationMenu = () => {
             }`}
           >
             <ul className="border-b text-left lg:flex lg:border-0">
-              <li className="border-b border-theme-borderColor py-3 font-normal lg:border-none">
+              <li className="border-b border-theme-borderColor font-normal lg:border-none lg:py-3">
                 <a
-                  className="flex items-center rounded-lg py-2 px-5 font-semibold lg:font-normal"
+                  className="flex items-center rounded-lg py-3 px-5 font-semibold lg:py-2 lg:font-normal"
                   href="/"
                 >
                   Home
@@ -65,12 +65,12 @@ const NavigationMenu = () => {
               {data.allWpCategory.nodes.map(item => (
                 <li
                   key={item.id}
-                  className="group relative border-b border-theme-borderColor py-2 font-normal lg:border-none lg:py-3"
+                  className="group relative border-b border-theme-borderColor font-normal lg:border-none lg:py-3"
                 >
                   <Link
                     to={item.uri}
-                    activeClassName="bg-theme-primary-light200 text-white"
-                    className="flex items-center space-x-2 rounded-lg py-2 px-5"
+                    activeClassName="bg-theme-primary-light200 text-white active-menu"
+                    className="flex items-center space-x-2 py-3 px-5 lg:rounded-lg lg:py-2"
                   >
                     <div className="w-full font-semibold lg:w-auto lg:font-normal">
                       {item.name}
@@ -80,12 +80,12 @@ const NavigationMenu = () => {
                     ) : null}
                   </Link>
                   {item.wpChildren.nodes.length ? (
-                    <ul className="top-13 left-0 z-10 hidden w-[200px] rounded-xl drop-shadow-sm group-hover:block lg:absolute lg:bg-white lg:py-3">
+                    <ul className="top-13 left-0 z-10 hidden w-full px-5 drop-shadow-sm group-hover:block lg:absolute lg:w-[200px] lg:w-auto lg:rounded-xl lg:bg-white lg:px-0 lg:py-3">
                       {item.wpChildren.nodes.map(subItem => (
                         <li>
                           <Link
                             to={subItem.link}
-                            className="block w-full p-2 px-5"
+                            className="block w-full py-3 px-5 lg:p-2"
                             activeClassName="bg-theme-primary-light200 text-white"
                           >
                             {subItem.name}

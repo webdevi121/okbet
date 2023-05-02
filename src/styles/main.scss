@@ -236,3 +236,9 @@ body {
     }
   }
 }
+
+.active-menu {
+  ~ ul {
+    @apply block lg:hidden;
+  }
+}
