@@ -71,6 +71,12 @@ export const query = graphql`
               mainCategoryLink
               mainCategoryImage {
                 sourceUrl
+                gatsbyImage(
+                  quality: 100
+                  height: 158
+                  width: 405
+                  placeholder: BLURRED
+                )
               }
             }
           }
@@ -147,6 +153,12 @@ export const query = graphql`
               }
               imageMobile: mobileImage {
                 sourceUrl
+                gatsbyImage(
+                  quality: 100
+                  width: 585
+                  height: 220
+                  placeholder: BLURRED
+                )
               }
             }
           }

@@ -1,4 +1,5 @@
 import React from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper"
@@ -21,17 +22,15 @@ const Banner = props => {
             <SwiperSlide key={index}>
               <Link to={item.link}>
                 <div className="hidden sm:block">
-                  <img
-                    src={item.image.sourceUrl}
+                  <GatsbyImage
+                    image={item.image.gatsbyImage}
                     alt="Illustration"
-                    className="block"
                   />
                 </div>
                 <div className="overflow-hidden rounded-2xl sm:hidden">
-                  <img
-                    src={item.imageMobile.sourceUrl}
+                  <GatsbyImage
+                    image={item.imageMobile.gatsbyImage}
                     alt="Illustration"
-                    className="block"
                   />
                 </div>
               </Link>
