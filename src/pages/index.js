@@ -73,8 +73,8 @@ export const query = graphql`
                 sourceUrl
                 gatsbyImage(
                   quality: 100
-                  height: 158
-                  width: 405
+                  height: 150
+                  width: 386
                   placeholder: BLURRED
                 )
               }
@@ -103,6 +103,12 @@ export const query = graphql`
                   node {
                     publicUrl
                     sourceUrl
+                    gatsbyImage(
+                      quality: 100
+                      width: 200
+                      height: 116
+                      placeholder: BLURRED
+                    )
                   }
                 }
                 categories {

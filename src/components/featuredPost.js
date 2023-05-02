@@ -1,4 +1,5 @@
 import React from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { PlayCircleIcon } from "@heroicons/react/24/outline"
 
@@ -20,11 +21,9 @@ const FeaturedPost = props => {
             >
               <div className="flex h-full items-center justify-center">
                 {item.featuredImage ? (
-                  <img
-                    src={item.featuredImage.node.publicUrl}
+                  <GatsbyImage
+                    image={item.featuredImage.node.gatsbyImage}
                     alt="Illustration"
-                    width="200"
-                    height="200"
                   />
                 ) : null}
               </div>
