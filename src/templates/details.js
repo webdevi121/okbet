@@ -1,4 +1,5 @@
 import React from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Link, graphql } from "gatsby"
 import Seo from "components/seo"
 import Layout from "components/layout"
@@ -60,11 +61,9 @@ const DetailPage = ({ data }) => {
                   <div className="flex w-full items-center rounded-2xl bg-theme-primary-light200 p-4 sm:p-8">
                     <div className="flex h-full items-center justify-center">
                       {item.featuredImage ? (
-                        <img
-                          src={item.featuredImage.node.publicUrl}
+                        <GatsbyImage
+                          image={item.featuredImage.node.gatsbyImage}
                           alt="Illustration"
-                          width="100"
-                          height="100"
                         />
                       ) : null}
                     </div>
@@ -186,6 +185,12 @@ export const query = graphql`
         node {
           publicUrl
           sourceUrl
+          gatsbyImage(
+            quality: 100
+            width: 100
+            height: 58
+            placeholder: BLURRED
+          )
         }
       }
       terms {
@@ -235,6 +240,12 @@ export const query = graphql`
               node {
                 publicUrl
                 sourceUrl
+                gatsbyImage(
+                  quality: 100
+                  width: 200
+                  height: 116
+                  placeholder: BLURRED
+                )
               }
             }
             categories {

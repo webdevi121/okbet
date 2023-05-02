@@ -23,6 +23,12 @@ const SearchResult = ({ location }) => {
             node {
               publicUrl
               sourceUrl
+              gatsbyImage(
+                quality: 100
+                width: 200
+                height: 116
+                placeholder: BLURRED
+              )
             }
           }
           categories {
