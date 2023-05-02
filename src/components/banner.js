@@ -16,29 +16,29 @@ const Banner = props => {
             nextEl: `.swiper-button-next-${props.id}`,
             prevEl: `.swiper-button-prev-${props.id}`,
           }}
-          breakpoints={{
-            320: {
-              slidesPerView: "auto",
-              navigation: false,
-            },
-            768: {
-              slidesPerView: 1,
-            },
-            1024: {
-              slidesPerView: 1,
-            },
-          }}
         >
           {props.data?.map((item, index) => (
             <SwiperSlide key={index}>
-              <div>
-                <Link to={item.link}>
-                  <img src={item.image.sourceUrl} alt="Illustration" />
-                </Link>
-              </div>
+              <Link to={item.link}>
+                <div className="hidden sm:block">
+                  <img
+                    src={item.image.sourceUrl}
+                    alt="Illustration"
+                    className="block"
+                  />
+                </div>
+                <div className="sm:hidden">
+                  <img
+                    src={item.imageMobile.sourceUrl}
+                    alt="Illustration"
+                    className="block"
+                  />
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
+
         <div>
           <button
             className={`swiper-button-prev-${props.id} absolute top-0 bottom-0 left-0 z-10 m-auto h-[60px] rounded-r-lg bg-white/60 px-1`}

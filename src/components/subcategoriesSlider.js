@@ -23,7 +23,7 @@ const SubcategoriesSlider = props => {
                 }}
               >
                 {props.data.map((item, index) => (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide key={index} className="!w-auto">
                     <div>
                       <Link
                         to={item.uri}

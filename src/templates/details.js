@@ -45,7 +45,9 @@ const DetailPage = ({ data }) => {
                           className="flex items-center last:opacity-50"
                         >
                           <ChevronRightIcon className="mx-2 w-5 flex-none" />
-                          <Link to={terms.uri}>{terms.name}</Link>
+                          <Link to={terms.uri} className="whitespace-pre">
+                            {terms.name}
+                          </Link>
                         </li>
                       ))}
                     <li className="flex items-center last:opacity-50">
@@ -55,7 +57,7 @@ const DetailPage = ({ data }) => {
                   </ul>
                 </div>
                 <div className="space-y-5">
-                  <div className="flex w-full items-center rounded-2xl bg-theme-primary-light200 p-8">
+                  <div className="flex w-full items-center rounded-2xl bg-theme-primary-light200 p-4 sm:p-8">
                     <div className="flex h-full items-center justify-center">
                       {item.featuredImage ? (
                         <img
@@ -100,14 +102,14 @@ const DetailPage = ({ data }) => {
             </div>
             {item.acfPosts.postRepeater?.map(node => (
               <div className="mb-5 overflow-hidden rounded-2xl bg-white drop-shadow-sm">
-                <div className="flex w-full items-center bg-theme-primary-light200 py-3 px-7 text-xl text-white">
+                <div className="w-full items-center bg-theme-primary-light200 py-3 px-7 text-xl text-white sm:flex">
                   <h2 className="font-semibold">
                     {node.sectionHeadingGroup.groupSectionTitle}
                   </h2>
                   {node.sectionHeadingGroup.suggestedLink ? (
                     <Link
                       to={node.sectionHeadingGroup.suggestedLink}
-                      className="ml-auto flex items-center space-x-2 text-base underline"
+                      className="ml-auto mt-2 flex items-center space-x-2 text-base underline sm:mt-0"
                       target="_blank"
                     >
                       <LinkIcon className="h-4 w-4 text-white" />
@@ -116,7 +118,7 @@ const DetailPage = ({ data }) => {
                       </span>
                     </Link>
                   ) : (
-                    <div className="ml-auto">
+                    <div className="ml-auto mt-2 sm:mt-0">
                       {node.sectionHeadingGroup.groupSectionRightText}
                     </div>
                   )}

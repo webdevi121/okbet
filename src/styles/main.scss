@@ -224,10 +224,11 @@ body {
 }
 .category-layout {
   > div {
+    @apply flex sm:block;
     .img-placeholder {
-      @apply h-40;
+      @apply m-3 w-[90px] flex-none rounded-xl sm:m-0 sm:h-40 sm:w-full sm:rounded-none;
       img {
-        @apply h-[80px] w-auto;
+        @apply w-auto sm:h-[80px];
       }
       .video-icon {
         @apply pointer-events-none absolute top-3 right-3 h-6 w-6 text-white;
