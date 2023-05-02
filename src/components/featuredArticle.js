@@ -16,11 +16,13 @@ const FeaturedArticle = props => {
         <div className="shadow-xs rounded-2xl bg-white p-5">
           <div className="mb-5 flex items-center">
             <div className="flex items-center space-x-2 lg:space-x-3">
-              <GatsbyImage
-                image={props.icon}
-                alt="Illustration"
-                class="w-8 lg:w-10"
-              />
+              {props.icon ? (
+                <GatsbyImage
+                  image={props.icon}
+                  alt="Illustration"
+                  class="w-8 lg:w-10"
+                />
+              ) : null}
               <h2 className="text-2xl">{props.sectionTitle}</h2>
             </div>
             <Link

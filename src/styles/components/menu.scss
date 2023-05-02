@@ -1,31 +1,31 @@
 /* Menu Icon */
 .svg-menu {
-    cursor: pointer;
-    transition: transform 400ms;
-    user-select: none;
-    &.animate-menu {
-        @apply rotate-45;
+  cursor: pointer;
+  transition: transform 400ms;
+  user-select: none;
+  &.animate-menu {
+    @apply rotate-45;
 
-        .top {
-            stroke-dashoffset: -98px;
-        }
-
-        .bottom {
-            stroke-dashoffset: -138px;
-        }
-    }
     .top {
-        stroke-dasharray: 40 139;
+      stroke-dashoffset: -98px;
     }
 
     .bottom {
-        stroke-dasharray: 40 180;
+      stroke-dashoffset: -138px;
     }
+  }
+  .top {
+    stroke-dasharray: 40 139;
+  }
 
-    .line {
-        fill: none;
-        transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-        stroke-width: 5.5;
-        stroke-linecap: round;
-    }
+  .bottom {
+    stroke-dasharray: 40 180;
+  }
+
+  .line {
+    fill: none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    strokewidth: 5.5;
+    strokelinecap: round;
+  }
 }

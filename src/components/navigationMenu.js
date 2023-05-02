@@ -62,9 +62,9 @@ const NavigationMenu = () => {
                   Home
                 </a>
               </li>
-              {data.allWpCategory.nodes.map(item => (
+              {data.allWpCategory.nodes.map((item, index) => (
                 <li
-                  key={item.id}
+                  key={index}
                   className="group relative border-b border-theme-borderColor font-normal lg:border-none lg:py-3"
                 >
                   <Link
@@ -81,8 +81,8 @@ const NavigationMenu = () => {
                   </Link>
                   {item.wpChildren.nodes.length ? (
                     <ul className="top-13 left-0 z-10 hidden w-full px-5 drop-shadow-sm group-hover:block lg:absolute lg:w-[200px] lg:w-auto lg:rounded-xl lg:bg-white lg:px-0 lg:py-3">
-                      {item.wpChildren.nodes.map(subItem => (
-                        <li>
+                      {item.wpChildren.nodes.map((subItem, index) => (
+                        <li key={index}>
                           <Link
                             to={subItem.link}
                             className="block w-full py-3 px-5"
