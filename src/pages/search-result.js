@@ -60,7 +60,7 @@ const SearchResult = ({ location }) => {
         <div className="mb-5 text-3xl font-semibold">
           Search results for : {searchParams}
         </div>
-        <div className="category-layout grid grid-cols-3 gap-5">
+        <div className="category-layout grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {searchResult.length > 0 && <FeaturedPost data={searchResult} />}
         </div>
       </div>

@@ -27,7 +27,7 @@ const Banner = props => {
                     className="block"
                   />
                 </div>
-                <div className="sm:hidden">
+                <div className="overflow-hidden rounded-2xl sm:hidden">
                   <img
                     src={item.imageMobile.sourceUrl}
                     alt="Illustration"
