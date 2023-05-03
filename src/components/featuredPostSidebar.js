@@ -18,9 +18,9 @@ const FeaturedPostSidebar = props => {
                 className="flex h-full w-[120px] items-center justify-center px-5"
               >
                 <div className="flex h-full items-center justify-center">
-                  {item.featuredImage ? (
+                  {item.acfSeoData.socialThumbnail ? (
                     <GatsbyImage
-                      image={item.featuredImage.node.gatsbyImage}
+                      image={item.acfSeoData.socialThumbnail.gatsbyImage}
                       alt="Illustration"
                     />
                   ) : null}

@@ -119,18 +119,6 @@ export const query = graphql`
         excerpt
         uri
         date(formatString: "DD  MMMM, YYYY")
-        featuredImage {
-          node {
-            publicUrl
-            sourceUrl
-            gatsbyImage(
-              quality: 100
-              width: 200
-              height: 116
-              placeholder: BLURRED
-            )
-          }
-        }
         categories {
           nodes {
             name
@@ -142,6 +130,17 @@ export const query = graphql`
         }
         acfPosts {
           videoTick
+        }
+        acfSeoData {
+          seoDescription
+          socialThumbnail {
+            gatsbyImage(
+              quality: 100
+              width: 200
+              height: 116
+              placeholder: BLURRED
+            )
+          }
         }
       }
     }

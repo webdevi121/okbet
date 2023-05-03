@@ -20,9 +20,9 @@ const FeaturedPost = props => {
               className="flex h-full items-center justify-center p-5 px-4 sm:px-7"
             >
               <div className="flex h-full items-center justify-center">
-                {item.featuredImage ? (
+                {item.acfSeoData.socialThumbnail ? (
                   <GatsbyImage
-                    image={item.featuredImage.node.gatsbyImage}
+                    image={item.acfSeoData.socialThumbnail.gatsbyImage}
                     alt="Illustration"
                   />
                 ) : null}
@@ -36,7 +36,9 @@ const FeaturedPost = props => {
               </h3>
             </Link>
             <div
-              dangerouslySetInnerHTML={{ __html: item.excerpt }}
+              dangerouslySetInnerHTML={{
+                __html: item.acfSeoData.seoDescription,
+              }}
               className="text-sm line-clamp-2"
             />
             <div className="text-sm opacity-50">{item.date}</div>

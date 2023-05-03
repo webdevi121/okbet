@@ -17,18 +17,6 @@ const SearchBar = () => {
           excerpt
           uri
           date(formatString: "DD  MMMM, YYYY")
-          featuredImage {
-            node {
-              publicUrl
-              sourceUrl
-              gatsbyImage(
-                quality: 100
-                width: 200
-                height: 116
-                placeholder: BLURRED
-              )
-            }
-          }
           categories {
             nodes {
               name
@@ -40,6 +28,17 @@ const SearchBar = () => {
           }
           acfPosts {
             videoTick
+          }
+          acfSeoData {
+            seoDescription
+            socialThumbnail {
+              gatsbyImage(
+                quality: 100
+                width: 200
+                height: 116
+                placeholder: BLURRED
+              )
+            }
           }
         }
       }

@@ -60,9 +60,9 @@ const DetailPage = ({ data }) => {
                 <div className="space-y-5">
                   <div className="flex w-full items-center rounded-2xl bg-theme-primary-light200 p-4 sm:p-8">
                     <div className="flex h-full items-center justify-center">
-                      {item.featuredImage ? (
+                      {item.acfSeoData.socialThumbnail ? (
                         <GatsbyImage
-                          image={item.featuredImage.node.gatsbyImage}
+                          image={item.acfSeoData.socialThumbnail.gatsbyImage}
                           alt="Illustration"
                         />
                       ) : null}
@@ -181,18 +181,6 @@ export const query = graphql`
       content
       excerpt
       date(formatString: "DD  MMMM, YYYY")
-      featuredImage {
-        node {
-          publicUrl
-          sourceUrl
-          gatsbyImage(
-            quality: 100
-            width: 100
-            height: 58
-            placeholder: BLURRED
-          )
-        }
-      }
       terms {
         nodes {
           name
@@ -204,6 +192,12 @@ export const query = graphql`
         seoTitle
         socialThumbnail {
           sourceUrl
+          gatsbyImage(
+            quality: 100
+            width: 100
+            height: 58
+            placeholder: BLURRED
+          )
         }
       }
       categories {
@@ -236,18 +230,6 @@ export const query = graphql`
             excerpt
             uri
             date(formatString: "DD  MMMM, YYYY")
-            featuredImage {
-              node {
-                publicUrl
-                sourceUrl
-                gatsbyImage(
-                  quality: 100
-                  width: 200
-                  height: 116
-                  placeholder: BLURRED
-                )
-              }
-            }
             categories {
               nodes {
                 name
@@ -259,6 +241,17 @@ export const query = graphql`
             }
             acfPosts {
               videoTick
+            }
+            acfSeoData {
+              seoDescription
+              socialThumbnail {
+                gatsbyImage(
+                  quality: 100
+                  width: 200
+                  height: 116
+                  placeholder: BLURRED
+                )
+              }
             }
           }
         }
