@@ -19,6 +19,7 @@ const SearchBar = () => {
           date(formatString: "DD  MMMM, YYYY")
           categories {
             nodes {
+              parentDatabaseId
               name
               uri
               acfCategory {

@@ -21,6 +21,7 @@ const SearchResult = ({ location }) => {
           date(formatString: "DD  MMMM, YYYY")
           categories {
             nodes {
+              parentDatabaseId
               name
               uri
               acfCategory {

@@ -6,6 +6,7 @@ import Layout from "components/layout"
 import FeaturedPostSidebar from "../components/featuredPostSidebar"
 import ShareIcons from "../components/shareIcons"
 import { LinkIcon, ChevronRightIcon } from "@heroicons/react/24/solid"
+import CategoryBadges from "../components/categoryBadges"
 
 const DetailPage = ({ data }) => {
   const item = data.wpPost
@@ -77,21 +78,7 @@ const DetailPage = ({ data }) => {
                   <h1 className="text-primary text-4xl font-bold">
                     {item.title}
                   </h1>
-                  <ul className="flex space-x-3">
-                    {item.categories.nodes
-                      .slice(0)
-                      .reverse()
-                      .map((catItem, index) => (
-                        <li key={index}>
-                          <Link
-                            to={catItem.uri}
-                            className={`rounded-full px-4 py-1 text-sm text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
-                          >
-                            {catItem.name}
-                          </Link>
-                        </li>
-                      ))}
-                  </ul>
+                  <CategoryBadges data={item.categories.nodes} />
                   <div className="text-sm opacity-50">{item.date}</div>
                 </div>
                 <div className="layout">
@@ -99,8 +86,11 @@ const DetailPage = ({ data }) => {
                 </div>
               </div>
             </div>
-            {item.acfPosts.postRepeater?.map(node => (
-              <div className="mb-5 overflow-hidden rounded-2xl bg-white drop-shadow-sm">
+            {item.acfPosts.postRepeater?.map((node, index) => (
+              <div
+                key={index}
+                className="mb-5 overflow-hidden rounded-2xl bg-white drop-shadow-sm"
+              >
                 <div className="w-full items-center bg-theme-primary-light200 py-3 px-7 text-xl text-white sm:flex">
                   <h2 className="font-semibold">
                     {node.sectionHeadingGroup.groupSectionTitle}
@@ -128,15 +118,17 @@ const DetailPage = ({ data }) => {
                       __html: node.postSectionDescription,
                     }}
                   />
-                  <div className="mt-5 flex w-full items-center justify-center">
-                    <Link
-                      to={node.ctaButton.buttonCtaLink}
-                      target="_blank"
-                      className="m-auto inline-block rounded-lg bg-theme-primary-light200 px-5 py-2 text-lg font-semibold text-white"
-                    >
-                      {node.ctaButton.buttonCtaTitle}
-                    </Link>
-                  </div>
+                  {node.ctaButton.buttonCtaLink ? (
+                    <div className="mt-5 flex w-full items-center justify-center">
+                      <a
+                        href={node.ctaButton.buttonCtaLink}
+                        target="_blank"
+                        className="m-auto inline-block rounded-lg bg-theme-primary-light200 px-5 py-2 text-lg font-semibold text-white"
+                      >
+                        {node.ctaButton.buttonCtaTitle}
+                      </a>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             ))}
@@ -152,8 +144,9 @@ const DetailPage = ({ data }) => {
             <div className="rounded-2xl bg-white p-7 drop-shadow-sm">
               <h2 className="mb-5 text-2xl font-semibold">Categories</h2>
               <div className="flex flex-col space-y-2">
-                {data.allWpCategory.edges.map(cat => (
+                {data.allWpCategory.edges.map((cat, index) => (
                   <Link
+                    key={index}
                     to={cat.node.uri}
                     className="rounded-xl border border-theme-borderColor p-2 px-3 font-semibold"
                   >
@@ -204,6 +197,7 @@ export const query = graphql`
         nodes {
           name
           uri
+          parentDatabaseId
           acfCategory {
             categoryColor
           }
