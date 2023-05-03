@@ -16,11 +16,20 @@ const CategoryPage = ({ data }) => {
     <React.Fragment>
       <Layout>
         <Seo
-          title={category.acfSeoData.seoTitle}
-          description={category.acfSeoData.seoDescription}
+          title={
+            category.acfSeoData.seoTitle
+              ? category.acfSeoData.seoTitle
+              : category.name
+          }
+          description={
+            category.acfSeoData.seoDescription
+              ? category.acfSeoData.seoDescription
+              : category.description
+          }
           image={category.acfSeoData.socialThumbnail?.sourceUrl}
           uri={category.link}
         />
+
         <div className="mb-5 w-full">
           <ul className="flex">
             <li className="flex items-center">

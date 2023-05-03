@@ -2,17 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 
 const CategoryBadges = props => {
-  var arr = [5, 25, null, 1, null, 30]
-
-  arr.sort(function (a, b) {
-    return a - b
+  const arr = props.data.sort((a, b) => {
+    return a.parentDatabaseId - b.parentDatabaseId
   })
-
-  console.log(props.data)
   return (
     <React.Fragment>
       <ul className="flex space-x-3">
-        {props.data.map((catItem, index) => (
+        {arr.map((catItem, index) => (
           <li key={index}>
             <Link
               to={catItem.uri}

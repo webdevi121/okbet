@@ -9,8 +9,8 @@ const SubCategoryMenu = props => {
         //   display child category
         data.wpParent?.node.wpChildren ? (
           <div className="hidden w-[250px] flex-none space-y-3 lg:block">
-            {data.wpParent?.node.wpChildren.nodes.map(item => (
-              <div key={item.id}>
+            {data.wpParent?.node.wpChildren.nodes.map((item, index) => (
+              <div key={index}>
                 <div className="space-y-3">
                   <Link
                     to={`${item.link}`}
