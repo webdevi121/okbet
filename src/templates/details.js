@@ -31,7 +31,7 @@ const DetailPage = ({ data }) => {
             <div className="flex space-x-3">
               <div className="w-full space-y-5 text-left">
                 <div className="mb-5 w-full">
-                  <ul className="flex">
+                  <ul className="flex overflow-hidden">
                     <li className="flex items-center">
                       <a href="/" className="p-2">
                         Home

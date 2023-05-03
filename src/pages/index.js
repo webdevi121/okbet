@@ -116,8 +116,8 @@ export const query = graphql`
                   socialThumbnail {
                     gatsbyImage(
                       quality: 100
-                      width: 200
-                      height: 116
+                      width: 280
+                      height: 130
                       placeholder: BLURRED
                     )
                   }
