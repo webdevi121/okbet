@@ -230,6 +230,7 @@ export const query = graphql`
               nodes {
                 name
                 uri
+                parentDatabaseId
                 acfCategory {
                   categoryColor
                 }

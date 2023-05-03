@@ -2,6 +2,7 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { PlayCircleIcon } from "@heroicons/react/24/outline"
+import CategoryBadges from "../components/categoryBadges"
 
 const FeaturedPostSidebar = props => {
   return (
@@ -34,21 +35,7 @@ const FeaturedPostSidebar = props => {
                 </h3>
               </Link>
               <div className="text-sm opacity-50">{item.date}</div>
-              <ul className="flex flex-wrap">
-                {item.categories.nodes
-                  .slice(0)
-                  .reverse()
-                  .map((catItem, index) => (
-                    <li key={index} className="mr-1 mb-1">
-                      <Link
-                        to={catItem.uri}
-                        className={`rounded-full px-4 py-1 text-xs text-white hover:text-white theme-${catItem.acfCategory.categoryColor}`}
-                      >
-                        {catItem.name}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
+              <CategoryBadges data={item.categories?.nodes} />
             </div>
           </div>
         ))}
