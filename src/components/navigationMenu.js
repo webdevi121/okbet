@@ -48,7 +48,7 @@ const NavigationMenu = () => {
 
         <div className="theme-container ">
           <div
-            className={`fixed top-[55px] left-0 z-20 h-[calc(100vh-55px)] h-full w-[70%] max-w-[300px] overflow-auto bg-[#f9f9f9] pb-5 shadow transition lg:relative lg:top-0 lg:flex lg:w-full lg:max-w-[100%] lg:translate-x-0 lg:items-center lg:bg-transparent lg:shadow-none lg:transition-none ${
+            className={`fixed top-[55px] left-0 z-20 h-[calc(100vh-55px)] w-[70%] max-w-[300px] overflow-auto bg-[#f9f9f9] pb-5 shadow transition lg:relative lg:top-0 lg:flex lg:h-full lg:w-full lg:max-w-[100%] lg:translate-x-0 lg:items-center lg:bg-transparent lg:pb-0 lg:shadow-none lg:transition-none ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
@@ -96,7 +96,7 @@ const NavigationMenu = () => {
                 </li>
               ))}
             </ul>
-            <div className="mx-5 mt-5 grid h-10 grid-flow-col items-center rounded-lg bg-theme-primary-light text-center text-white">
+            <div className="mx-5 mt-5 grid h-10 grid-flow-col items-center rounded-lg bg-theme-primary-light text-center text-white lg:hidden">
               <a
                 href="https://okebet.com.au/"
                 target="_blank"

@@ -46,7 +46,7 @@ const Header = () => {
               </defs>
             </svg>
           </a>
-          <div className="-mr-5 ml-auto flex h-full items-center bg-theme-primary-light text-white lg:mr-0">
+          <div className="-mr-5 ml-auto hidden h-full items-center bg-theme-primary-light text-white lg:mr-0 lg:flex">
             <a
               href="https://okebet.com.au/"
               target="_blank"
