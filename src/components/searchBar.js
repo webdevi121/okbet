@@ -100,7 +100,7 @@ const SearchBar = () => {
 
       {searchResult.length > 0 && (
         <>
-          <div className="absolute top-10 right-0 z-10 max-h-[500px] w-full w-[390px] overflow-y-auto rounded-xl bg-white p-7">
+          <div className="absolute left-0 top-10 right-0 z-40 max-h-[500px] w-full overflow-y-auto rounded-xl bg-white p-7 lg:left-auto lg:w-[390px]">
             <FeaturedPostSidebar data={searchResult} />
             <button
               type="submit"
@@ -112,7 +112,7 @@ const SearchBar = () => {
         </>
       )}
       {searchResult.length === 0 && searchQuery.length > 2 && (
-        <div className="absolute top-10 right-0 z-10 w-full w-[390px] rounded-xl bg-white p-7">
+        <div className="absolute left-0 top-10 right-0 z-10 w-full rounded-xl bg-white p-7 lg:left-auto lg:w-[390px]">
           <p>No results found</p>
         </div>
       )}

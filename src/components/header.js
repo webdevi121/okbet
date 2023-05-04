@@ -1,5 +1,6 @@
 import React from "react"
 import NavigationMenu from "./navigationMenu"
+import SearchBar from "./searchBar"
 
 const Header = () => {
   return (
@@ -45,7 +46,6 @@ const Header = () => {
               </defs>
             </svg>
           </a>
-
           <div className="-mr-5 ml-auto flex h-full items-center bg-theme-primary-light text-white lg:mr-0">
             <a
               href="https://okebet.com.au/"
@@ -64,6 +64,11 @@ const Header = () => {
               Join
             </a>
           </div>
+        </div>
+      </div>
+      <div className="theme-container relative bg-white">
+        <div className="top-[10px] z-30 h-full lg:absolute lg:right-5 lg:w-[300px]">
+          <SearchBar />
         </div>
       </div>
 
