@@ -256,7 +256,7 @@ export const query = graphql`
     }
     allWpCategory(
       filter: { slug: { ne: "uncategorized" } }
-      sort: { databaseId: ASC }
+      sort: { databaseId: DESC }
     ) {
       edges {
         node {

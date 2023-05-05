@@ -95,5 +95,11 @@ module.exports = {
       resolve: "gatsby-plugin-exclude",
       options: { paths: ["/contact-iframe"] },
     },
+    {
+      resolve: "@mkitio/gatsby-theme-password-protect",
+      options: {
+        password: "welcome", // delete or `undefined` to disable password protection
+      },
+    },
   ],
 }
