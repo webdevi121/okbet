@@ -144,12 +144,7 @@ export const query = graphql`
         acfSeoData {
           seoDescription
           socialThumbnail {
-            gatsbyImage(
-              quality: 100
-              width: 270
-              height: 130
-              placeholder: BLURRED
-            )
+            gatsbyImage(quality: 100, width: 155, placeholder: BLURRED)
           }
         }
       }
