@@ -101,6 +101,7 @@ const DetailPage = ({ data }) => {
                       to={node.sectionHeadingGroup.suggestedLink}
                       className="ml-auto mt-2 flex items-center space-x-2 text-base underline sm:mt-0"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <LinkIcon className="h-4 w-4 text-white" />
                       <span>
@@ -125,6 +126,7 @@ const DetailPage = ({ data }) => {
                         href={node.ctaButton.buttonCtaLink}
                         target="_blank"
                         className="m-auto inline-block rounded-lg bg-theme-primary-light200 px-5 py-2 text-lg font-semibold text-white"
+                        rel="noreferrer"
                       >
                         {node.ctaButton.buttonCtaTitle}
                       </a>

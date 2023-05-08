@@ -1,8 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import NavigationMenu from "./navigationMenu"
 import SearchBar from "./searchBar"
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
 
 const Header = () => {
+  const [isCollapse, setIsCollapse] = useState(false)
+  const toggleSearchHandler = () => {
+    setIsCollapse(!isCollapse)
+  }
+
   return (
     <>
       <div className="theme-container">
@@ -67,11 +73,18 @@ const Header = () => {
         </div>
       </div>
       <div className="theme-container relative bg-white">
-        <div className="top-[10px] z-30 h-full lg:absolute lg:right-5 lg:w-[300px]">
-          <SearchBar />
-        </div>
+        <button
+          className="absolute -top-[55px] right-0 h-[55px] w-[48px] bg-theme-primary text-white lg:hidden"
+          onClick={toggleSearchHandler}
+        >
+          <MagnifyingGlassIcon className="m-auto h-5 w-5" />
+        </button>
+        {isCollapse ? (
+          <div className="top-[10px] z-30 h-full lg:absolute lg:right-5 lg:w-[300px]">
+            <SearchBar />
+          </div>
+        ) : null}
       </div>
-
       <NavigationMenu />
     </>
   )

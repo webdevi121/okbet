@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import FeaturedPostSidebar from "./featuredPostSidebar"
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("")
@@ -70,9 +69,6 @@ const SearchBar = () => {
 
   return (
     <div>
-      <button className="absolute -top-[55px] right-0 h-[55px] w-[48px] bg-theme-primary text-white lg:hidden">
-        <MagnifyingGlassIcon className="m-auto h-5 w-5" />
-      </button>
       <form onSubmit={handleSubmit} className="relative">
         <div className="flex items-center space-x-2">
           <svg
