@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import FeaturedPost from "../components/featuredPost"
 
 const SearchResult = ({ location }) => {
-  const [posts, setPosts] = useState([])
   const [searchResult, setSearchResult] = useState([])
   const searchParams = location.search ? location.search.split("=")[1] : ""
 
@@ -49,7 +48,6 @@ const SearchResult = ({ location }) => {
   `)
 
   useEffect(() => {
-    setPosts(nodes)
     let matches = []
     if (searchParams && searchParams !== "") {
       matches = nodes.filter(edge => {
@@ -58,7 +56,7 @@ const SearchResult = ({ location }) => {
       })
     }
     setSearchResult(matches)
-  }, [searchParams])
+  }, [searchParams.length])
 
   return (
     <Layout>
