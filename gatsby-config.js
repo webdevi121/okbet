@@ -22,7 +22,6 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-scroll-reveal`,
     {
       resolve: "gatsby-plugin-sass",
@@ -99,6 +98,12 @@ module.exports = {
       resolve: "@mkitio/gatsby-theme-password-protect",
       options: {
         password: "welcome", // delete or `undefined` to disable password protection
+      },
+    },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        exclude: ["/category/uncategorized", "/search-result"],
       },
     },
   ],

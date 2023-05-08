@@ -24,7 +24,7 @@
     "gatsby-plugin-react-helmet": "^5.16.0",
     "gatsby-plugin-scroll-reveal": "^0.0.7",
     "gatsby-plugin-sharp": "^5.8.1",
-    "gatsby-plugin-sitemap": "5.18.0",
+    "gatsby-plugin-sitemap": "^6.9.0",
     "gatsby-source-filesystem": "^5.3.1",
     "gatsby-source-wordpress": "^7.3.2",
     "gatsby-theme-headless-wordpress": "^0.1.13",
