@@ -62,7 +62,7 @@ const PasswordProtect = () => {
               <div className="order-1 mx-auto mt-12 flex max-w-[340px] items-center justify-center px-20 lg:order-2 lg:max-w-full">
                 <img
                   className=""
-                  src="https://admin.okbet.infusion121.com/wp-content/uploads/2023/05/welcome-logo.png"
+                  src="https://admin.tips.okebet.com.au/wp-content/uploads/2023/05/welcome-logo.png"
                   alt=""
                 />
               </div>

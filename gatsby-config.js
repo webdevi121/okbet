@@ -86,7 +86,7 @@ module.exports = {
       options: {
         url:
           process.env.WPGRAPHQL_URL ||
-          `https://admin.okbet.infusion121.com/graphql`,
+          `https://admin.tips.okebet.com.au/graphql`,
       },
     },
     {
@@ -103,6 +103,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
+        output: "/",
         exclude: ["/category/uncategorized", "/search-result"],
       },
     },
