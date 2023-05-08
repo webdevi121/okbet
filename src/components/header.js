@@ -79,11 +79,13 @@ const Header = () => {
         >
           <MagnifyingGlassIcon className="m-auto h-5 w-5" />
         </button>
-        {isCollapse ? (
-          <div className="top-[10px] z-30 h-full lg:absolute lg:right-5 lg:w-[300px]">
-            <SearchBar />
-          </div>
-        ) : null}
+        <div
+          className={`top-[10px] z-30 hidden h-full lg:absolute lg:right-5 lg:block lg:w-[300px] ${
+            isCollapse ? "!block" : null
+          }`}
+        >
+          <SearchBar />
+        </div>
       </div>
       <NavigationMenu />
     </>
