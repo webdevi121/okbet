@@ -86,7 +86,7 @@ module.exports = {
       options: {
         url:
           process.env.WPGRAPHQL_URL ||
-          `https://admin.tips.okebet.com.au/graphql`,
+          `https://8p1.c15.mywebsitetransfer.com/graphql`,
       },
     },
     {

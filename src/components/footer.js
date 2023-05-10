@@ -126,7 +126,7 @@ const Footer = () => {
                 <div className="m-auto flex justify-center space-x-3">
                   <a href="https://apps.apple.com/au/app/okebet/id1613091869">
                     <StaticImage
-                      src="https://admin.tips.okebet.com.au/wp-content/uploads/2023/04/apple-store.png"
+                      src="https://8p1.c15.mywebsitetransfer.com/wp-content/uploads/2023/04/apple-store.png"
                       alt="illustration"
                       quality={100}
                       width={130}
@@ -134,7 +134,7 @@ const Footer = () => {
                   </a>
                   <a href="https://play.google.com/store/apps/details?id=com.betmakers.okebet">
                     <StaticImage
-                      src="https://admin.tips.okebet.com.au/wp-content/uploads/2023/04/google-play.png"
+                      src="https://8p1.c15.mywebsitetransfer.com/wp-content/uploads/2023/04/google-play.png"
                       alt="illustration"
                       quality={100}
                       width={130}
@@ -193,7 +193,7 @@ const Footer = () => {
               rel="noreferrer"
             >
               <StaticImage
-                src="https://admin.tips.okebet.com.au/wp-content/uploads/2023/04/i121-footer-logo.png"
+                src="https://8p1.c15.mywebsitetransfer.com/wp-content/uploads/2023/04/i121-footer-logo.png"
                 alt="illustration"
                 quality={100}
                 width={130}
