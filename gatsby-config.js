@@ -84,9 +84,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url:
-          process.env.WPGRAPHQL_URL ||
-          `https://admin.tips.okebet.com.au/graphql`,
+        url: process.env.WPGRAPHQL_URL,
       },
     },
     {
