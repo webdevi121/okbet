@@ -32,7 +32,7 @@ const DetailPage = ({ data }) => {
           uri={item.link}
         />
         <div className="lg:flex lg:space-x-10">
-          <div>
+          <div className="w-full">
             <div className="flex space-x-3">
               <div className="w-full space-y-5 text-left">
                 <div className="mb-5 w-full">
