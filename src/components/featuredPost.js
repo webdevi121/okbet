@@ -40,7 +40,7 @@ const FeaturedPost = props => {
               dangerouslySetInnerHTML={{
                 __html: item.acfSeoData.seoDescription,
               }}
-              className="text-sm line-clamp-2"
+              className="short-desc text-sm line-clamp-2"
             />
             <div className="text-sm opacity-50">{item.date}</div>
             <CategoryBadges data={item.categories?.nodes} />
