@@ -209,6 +209,9 @@ body {
           @apply lg:pointer-events-none lg:absolute lg:top-5 lg:right-6 lg:h-10 lg:w-10 lg:text-white;
         }
       }
+      .short-desc {
+        @apply lg:line-clamp-4;
+      }
     }
   }
   > div {
