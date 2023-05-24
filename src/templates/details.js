@@ -12,7 +12,7 @@ const DetailPage = ({ data }) => {
   const item = data.wpPost
   const postUrl = data.site.siteMetadata.siteUrl + item.link
 
-  const breadCrumbsArr = item.terms.nodes.sort((a, b) => {
+  const breadCrumbsArr = item.terms?.nodes.sort((a, b) => {
     return a.databaseId - b.databaseId
   })
 
@@ -42,17 +42,19 @@ const DetailPage = ({ data }) => {
                         Home
                       </a>
                     </li>
-                    {breadCrumbsArr.map((terms, index) => (
-                      <li
-                        key={index}
-                        className="flex items-center last:opacity-50"
-                      >
-                        <ChevronRightIcon className="mx-2 w-5 flex-none" />
-                        <Link to={terms.uri} className="whitespace-pre">
-                          {terms.name}
-                        </Link>
-                      </li>
-                    ))}
+                    {breadCrumbsArr
+                      ? breadCrumbsArr.map((terms, index) => (
+                          <li
+                            key={index}
+                            className="flex items-center last:opacity-50"
+                          >
+                            <ChevronRightIcon className="mx-2 w-5 flex-none" />
+                            <Link to={terms.uri} className="whitespace-pre">
+                              {terms.name}
+                            </Link>
+                          </li>
+                        ))
+                      : null}
                     <li className="flex items-center last:opacity-50">
                       <ChevronRightIcon className="mx-2 w-5 flex-none" />
                       <div className="line-clamp-1">{item.title}</div>
