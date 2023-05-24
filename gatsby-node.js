@@ -85,6 +85,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
+            id
           }
         }
       }
@@ -94,8 +95,10 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: edge.node.slug,
       component: postTemplate,
+      ownerNodeId: edge.node.id,
       context: {
         slug: edge.node.slug,
+        id: edge.node.id,
       },
     })
   })

@@ -170,8 +170,8 @@ const DetailPage = ({ data }) => {
 export default DetailPage
 
 export const query = graphql`
-  query ($slug: String!) {
-    wpPost(slug: { eq: $slug }) {
+  query ($id: String!) {
+    wpPost(id: { eq: $id }) {
       title
       slug
       id
