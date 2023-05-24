@@ -149,13 +149,13 @@ const DetailPage = ({ data }) => {
             <div className="rounded-2xl bg-white p-7 drop-shadow-sm">
               <h2 className="mb-5 text-2xl font-semibold">Categories</h2>
               <div className="flex flex-col space-y-2">
-                {data.allWpCategory.edges.map((cat, index) => (
+                {data.allWpCategory.nodes.map(cat => (
                   <Link
-                    key={index}
-                    to={cat.node.uri}
+                    key={cat.id}
+                    to={cat.uri}
                     className="rounded-xl border border-theme-borderColor p-2 px-3 font-semibold"
                   >
-                    {cat.node.name}
+                    {cat.name}
                   </Link>
                 ))}
               </div>
@@ -262,11 +262,14 @@ export const query = graphql`
       filter: { slug: { ne: "uncategorized" } }
       sort: { databaseId: DESC }
     ) {
-      edges {
-        node {
-          uri
-          name
-        }
+      nodes {
+        uri
+        name
+        databaseId
+        id
+        isTermNode
+        isContentNode
+        nodeType
       }
     }
     site {
