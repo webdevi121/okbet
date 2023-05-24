@@ -12,11 +12,11 @@ const FeaturedPostSidebar = props => {
           <div key={index} className="flex space-x-5 bg-white">
             <div className="img-placeholder relative h-[90px] items-center justify-center rounded-xl bg-theme-primary-light200">
               {item.acfPosts.videoTick ? (
-                <PlayCircleIcon className="pointer-events-none absolute top-2 right-2 h-4 w-4 text-white" />
+                <PlayCircleIcon className="pointer-events-none absolute top-2 right-2 z-10 h-4 w-4 text-white" />
               ) : null}
               <Link
                 to={item.uri}
-                className="flex h-full w-[120px] items-center justify-center px-5"
+                className="flex h-full w-[120px] items-center justify-center px-3"
               >
                 <div className="flex h-full items-center justify-center">
                   {item.acfSeoData.socialThumbnail ? (

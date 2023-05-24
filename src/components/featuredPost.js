@@ -14,11 +14,11 @@ const FeaturedPost = props => {
         >
           <div className="img-placeholder relative order-1 items-center justify-center bg-theme-primary-light200 lg:order-2">
             {item.acfPosts.videoTick ? (
-              <PlayCircleIcon className="video-icon" />
+              <PlayCircleIcon className="video-icon z-10" />
             ) : null}
             <Link
               to={item.uri}
-              className="flex h-full items-center justify-center p-5 px-4 sm:px-7"
+              className="flex h-full items-center justify-center p-2"
             >
               <div className="flex h-full items-center justify-center">
                 {item.acfSeoData.socialThumbnail ? (
