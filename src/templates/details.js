@@ -193,8 +193,8 @@ export const query = graphql`
           sourceUrl
           gatsbyImage(
             quality: 100
-            width: 100
-            height: 58
+            width: 119
+            height: 95
             placeholder: BLURRED
           )
         }
@@ -248,8 +248,8 @@ export const query = graphql`
               socialThumbnail {
                 gatsbyImage(
                   quality: 100
-                  width: 200
-                  height: 116
+                  width: 96
+                  height: 77
                   placeholder: BLURRED
                 )
               }
