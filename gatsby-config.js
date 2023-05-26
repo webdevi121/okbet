@@ -92,12 +92,6 @@ module.exports = {
       resolve: "gatsby-plugin-exclude",
       options: { paths: ["/contact-iframe"] },
     },
-    // {
-    //   resolve: "@mkitio/gatsby-theme-password-protect",
-    //   options: {
-    //     password: "welcome", // delete or `undefined` to disable password protection
-    //   },
-    // },
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
@@ -105,5 +99,28 @@ module.exports = {
         exclude: ["/category/uncategorized", "/search-result"],
       },
     },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "3GTRM84Q1V",
+        includeInDevelopment: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "'UA-269646163-1",
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
+      },
+    },
+    // {
+    //   resolve: "@mkitio/gatsby-theme-password-protect",
+    //   options: {
+    //     password: "welcome", // delete or `undefined` to disable password protection
+    //   },
+    // },
   ],
 }
