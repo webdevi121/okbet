@@ -140,12 +140,12 @@ export const query = graphql`
         }
         acfPosts {
           videoTick
+          postThumbnail {
+            gatsbyImage(quality: 100, width: 180, placeholder: BLURRED)
+          }
         }
         acfSeoData {
           seoDescription
-          socialThumbnail {
-            gatsbyImage(quality: 100, width: 155, placeholder: BLURRED)
-          }
         }
       }
     }

@@ -111,6 +111,14 @@ export const query = graphql`
                 }
                 acfPosts {
                   videoTick
+                  postThumbnail {
+                    gatsbyImage(
+                      quality: 100
+                      width: 334
+                      height: 267
+                      placeholder: BLURRED
+                    )
+                  }
                 }
                 acfSeoData {
                   seoDescription

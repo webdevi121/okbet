@@ -30,17 +30,17 @@ const SearchResult = ({ location }) => {
           }
           acfPosts {
             videoTick
-          }
-          acfSeoData {
-            seoDescription
-            socialThumbnail {
+            postThumbnail {
               gatsbyImage(
                 quality: 100
-                width: 200
-                height: 116
+                width: 172
+                height: 138
                 placeholder: BLURRED
               )
             }
+          }
+          acfSeoData {
+            seoDescription
           }
         }
       }

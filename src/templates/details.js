@@ -64,9 +64,9 @@ const DetailPage = ({ data }) => {
                 <div className="space-y-5">
                   <div className="flex w-full items-center rounded-2xl bg-theme-primary-light200 p-4 sm:p-8">
                     <div className="flex h-full items-center justify-center">
-                      {item.acfSeoData.socialThumbnail ? (
+                      {item.acfPosts.postThumbnail ? (
                         <GatsbyImage
-                          image={item.acfSeoData.socialThumbnail.gatsbyImage}
+                          image={item.acfPosts.postThumbnail.gatsbyImage}
                           alt="Illustration"
                         />
                       ) : null}
@@ -211,6 +211,14 @@ export const query = graphql`
       }
       acfPosts {
         videoTick
+        postThumbnail {
+          gatsbyImage(
+            quality: 100
+            width: 119
+            height: 95
+            placeholder: BLURRED
+          )
+        }
         postRepeater {
           postSectionDescription
           sectionHeadingGroup {
@@ -242,17 +250,17 @@ export const query = graphql`
             }
             acfPosts {
               videoTick
-            }
-            acfSeoData {
-              seoDescription
-              socialThumbnail {
+              postThumbnail {
                 gatsbyImage(
                   quality: 100
-                  width: 96
-                  height: 77
+                  width: 119
+                  height: 95
                   placeholder: BLURRED
                 )
               }
+            }
+            acfSeoData {
+              seoDescription
             }
           }
         }
