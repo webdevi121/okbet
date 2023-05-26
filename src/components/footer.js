@@ -2,6 +2,7 @@ import React from "react"
 import FooterLogos from "./footerLogo"
 import { StaticImage } from "gatsby-plugin-image"
 import BackToTopButton from "./backToTop"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Footer = () => {
   return (
@@ -186,7 +187,7 @@ const Footer = () => {
               </div>
               <BackToTopButton />
             </div>
-            <a
+            <OutboundLink
               href="https://infusion121.com.au"
               target="_blank"
               className="bottom-5 right-5 m-auto mt-5 flex items-center justify-center lg:absolute lg:mt-0"
@@ -198,7 +199,7 @@ const Footer = () => {
                 quality={100}
                 width={130}
               />
-            </a>
+            </OutboundLink>
           </div>
         </div>
       </footer>
