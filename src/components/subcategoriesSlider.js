@@ -22,25 +22,27 @@ const SubcategoriesSlider = props => {
                   prevEl: `.swiper-button-prev-${props.id}`,
                 }}
               >
-                {props.data.map((item, index) => (
-                  <SwiperSlide key={index} className="!w-auto">
-                    <div>
-                      <Link
-                        to={item.uri}
-                        className="flex items-center justify-center space-x-2 rounded-lg bg-theme-light p-3 text-center"
-                      >
-                        {item.acfCategory.categoryIcon ? (
-                          <GatsbyImage
-                            image={item.acfCategory.categoryIcon.gatsbyImage}
-                            alt="Illustration"
-                          />
-                        ) : null}
+                {props.data.map((item, index) =>
+                  item.count !== null ? (
+                    <SwiperSlide key={index} className="!w-auto">
+                      <div>
+                        <Link
+                          to={item.uri}
+                          className="flex items-center justify-center space-x-2 rounded-lg bg-theme-light p-3 text-center"
+                        >
+                          {item.acfCategory.categoryIcon ? (
+                            <GatsbyImage
+                              image={item.acfCategory.categoryIcon.gatsbyImage}
+                              alt="Illustration"
+                            />
+                          ) : null}
 
-                        <span>{item.name}</span>
-                      </Link>
-                    </div>
-                  </SwiperSlide>
-                ))}
+                          <span>{item.name}</span>
+                        </Link>
+                      </div>
+                    </SwiperSlide>
+                  ) : null
+                )}
               </Swiper>
               <div>
                 <button

@@ -93,6 +93,7 @@ export const query = graphql`
           id
           name
           link
+          count
           acfCategory {
             categoryIcon {
               gatsbyImage(placeholder: BLURRED, height: 18, layout: FIXED)
@@ -108,6 +109,7 @@ export const query = graphql`
             nodes {
               name
               link
+              count
               acfCategory {
                 categoryIcon {
                   gatsbyImage(placeholder: BLURRED, height: 18, layout: FIXED)
@@ -140,12 +142,12 @@ export const query = graphql`
         }
         acfPosts {
           videoTick
+          postThumbnail {
+            gatsbyImage(quality: 100, width: 180, placeholder: BLURRED)
+          }
         }
         acfSeoData {
           seoDescription
-          socialThumbnail {
-            gatsbyImage(quality: 100, width: 155, placeholder: BLURRED)
-          }
         }
       }
     }

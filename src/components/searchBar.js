@@ -29,14 +29,11 @@ const SearchBar = () => {
           }
           acfPosts {
             videoTick
-          }
-          acfSeoData {
-            seoDescription
-            socialThumbnail {
+            postThumbnail {
               gatsbyImage(
                 quality: 100
-                width: 200
-                height: 116
+                width: 119
+                height: 95
                 placeholder: BLURRED
               )
             }

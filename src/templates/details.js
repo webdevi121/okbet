@@ -64,9 +64,9 @@ const DetailPage = ({ data }) => {
                 <div className="space-y-5">
                   <div className="flex w-full items-center rounded-2xl bg-theme-primary-light200 p-4 sm:p-8">
                     <div className="flex h-full items-center justify-center">
-                      {item.acfSeoData.socialThumbnail ? (
+                      {item.acfPosts.postThumbnail ? (
                         <GatsbyImage
-                          image={item.acfSeoData.socialThumbnail.gatsbyImage}
+                          image={item.acfPosts.postThumbnail.gatsbyImage}
                           alt="Illustration"
                         />
                       ) : null}
@@ -149,15 +149,17 @@ const DetailPage = ({ data }) => {
             <div className="rounded-2xl bg-white p-7 drop-shadow-sm">
               <h2 className="mb-5 text-2xl font-semibold">Categories</h2>
               <div className="flex flex-col space-y-2">
-                {data.allWpCategory.nodes.map(cat => (
-                  <Link
-                    key={cat.id}
-                    to={cat.uri}
-                    className="rounded-xl border border-theme-borderColor p-2 px-3 font-semibold"
-                  >
-                    {cat.name}
-                  </Link>
-                ))}
+                {data.allWpCategory.nodes.map(cat =>
+                  cat.count !== null ? (
+                    <Link
+                      key={cat.id}
+                      to={cat.uri}
+                      className="rounded-xl border border-theme-borderColor p-2 px-3 font-semibold"
+                    >
+                      {cat.name}
+                    </Link>
+                  ) : null
+                )}
               </div>
             </div>
           </div>
@@ -193,8 +195,8 @@ export const query = graphql`
           sourceUrl
           gatsbyImage(
             quality: 100
-            width: 100
-            height: 58
+            width: 119
+            height: 95
             placeholder: BLURRED
           )
         }
@@ -211,6 +213,14 @@ export const query = graphql`
       }
       acfPosts {
         videoTick
+        postThumbnail {
+          gatsbyImage(
+            quality: 100
+            width: 119
+            height: 95
+            placeholder: BLURRED
+          )
+        }
         postRepeater {
           postSectionDescription
           sectionHeadingGroup {
@@ -242,17 +252,17 @@ export const query = graphql`
             }
             acfPosts {
               videoTick
-            }
-            acfSeoData {
-              seoDescription
-              socialThumbnail {
+              postThumbnail {
                 gatsbyImage(
                   quality: 100
-                  width: 200
-                  height: 116
+                  width: 119
+                  height: 95
                   placeholder: BLURRED
                 )
               }
+            }
+            acfSeoData {
+              seoDescription
             }
           }
         }
@@ -270,6 +280,7 @@ export const query = graphql`
         isTermNode
         isContentNode
         nodeType
+        count
       }
     }
     site {
