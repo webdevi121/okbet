@@ -62,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             link
+            id
           }
         }
       }
@@ -71,8 +72,10 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `${edge.node.link}`,
       component: categoryTemplate,
+      ownerNodeId: edge.node.id,
       context: {
         link: edge.node.link,
+        id: edge.node.id,
       },
     })
   })

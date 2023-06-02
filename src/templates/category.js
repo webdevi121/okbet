@@ -76,8 +76,8 @@ const CategoryPage = ({ data }) => {
 export default CategoryPage
 
 export const query = graphql`
-  query ($link: String!) {
-    wpCategory(link: { eq: $link }) {
+  query ($id: String!) {
+    wpCategory(id: { eq: $id }) {
       name
       description
       link
@@ -122,7 +122,7 @@ export const query = graphql`
     }
     allWpPost(
       sort: { date: DESC }
-      filter: { categories: { nodes: { elemMatch: { link: { eq: $link } } } } }
+      filter: { categories: { nodes: { elemMatch: { id: { eq: $id } } } } }
     ) {
       nodes {
         id
