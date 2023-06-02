@@ -139,6 +139,7 @@ export const query = graphql`
                 nodes {
                   name
                   uri
+                  count
                   acfCategory {
                     categoryIcon {
                       gatsbyImage(

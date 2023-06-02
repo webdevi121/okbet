@@ -93,6 +93,7 @@ export const query = graphql`
           id
           name
           link
+          count
           acfCategory {
             categoryIcon {
               gatsbyImage(placeholder: BLURRED, height: 18, layout: FIXED)
@@ -108,6 +109,7 @@ export const query = graphql`
             nodes {
               name
               link
+              count
               acfCategory {
                 categoryIcon {
                   gatsbyImage(placeholder: BLURRED, height: 18, layout: FIXED)

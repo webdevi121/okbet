@@ -24,6 +24,7 @@ const NavigationMenu = () => {
             nodes {
               link
               name
+              count
             }
           }
         }
@@ -80,17 +81,19 @@ const NavigationMenu = () => {
                   </Link>
                   {item.wpChildren.nodes.length ? (
                     <ul className="top-13 left-0 z-10 hidden w-full px-5 drop-shadow-sm group-hover:block lg:absolute lg:w-[200px] lg:w-auto lg:rounded-xl lg:bg-white lg:px-0 lg:py-3">
-                      {item.wpChildren.nodes.map((subItem, index) => (
-                        <li key={index}>
-                          <Link
-                            to={subItem.link}
-                            className="block w-full py-3 px-5"
-                            activeClassName="bg-theme-primary-light200 text-white"
-                          >
-                            {subItem.name}
-                          </Link>
-                        </li>
-                      ))}
+                      {item.wpChildren.nodes.map((subItem, index) =>
+                        subItem.count !== null ? (
+                          <li key={index}>
+                            <Link
+                              to={subItem.link}
+                              className="block w-full py-3 px-5"
+                              activeClassName="bg-theme-primary-light200 text-white"
+                            >
+                              {subItem.name}
+                            </Link>
+                          </li>
+                        ) : null
+                      )}
                     </ul>
                   ) : null}
                 </li>
