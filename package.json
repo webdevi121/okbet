@@ -17,7 +17,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.17",
     "@mkitio/gatsby-theme-password-protect": "^2.1.2",
-    "gatsby": "~5.3.2",
+    "gatsby": "~5.10.0",
     "gatsby-plugin-exclude": "^1.0.2",
     "gatsby-plugin-google-analytics": "^5.10.0",
     "gatsby-plugin-google-tagmanager": "^5.10.0",
@@ -28,8 +28,7 @@
     "gatsby-plugin-sharp": "^5.8.1",
     "gatsby-plugin-sitemap": "^6.9.0",
     "gatsby-source-filesystem": "^5.3.1",
-    "gatsby-source-wordpress": "^7.3.2",
-    "gatsby-theme-headless-wordpress": "^0.1.13",
+    "gatsby-source-wordpress": "^7.10.1",
     "gatsby-transformer-json": "^5.8.0",
     "gatsby-transformer-sharp": "^5.8.0",
     "lodash": "^4.17.20",
