@@ -2,22 +2,17 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from "swiper/react"
-import SwiperCore, { Autoplay, Navigation } from "swiper"
+import { Navigation } from "swiper"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline"
 import "swiper/css"
 import "swiper/css/pagination"
-
-SwiperCore.use([Navigation, Autoplay])
-
 const Banner = props => {
   return (
     <React.Fragment>
       <div className="relative overflow-hidden rounded-2xl">
         <Swiper
-          loop={true}
           modules={[Navigation]}
           slidesPerView={1}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
           navigation={{
             nextEl: `.swiper-button-next-${props.id}`,
             prevEl: `.swiper-button-prev-${props.id}`,
