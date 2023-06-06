@@ -2,10 +2,13 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation } from "swiper"
+import SwiperCore, { Autoplay, Navigation } from "swiper"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline"
 import "swiper/css"
 import "swiper/css/pagination"
+
+SwiperCore.use([Autoplay])
+
 const Banner = props => {
   return (
     <React.Fragment>
@@ -16,6 +19,10 @@ const Banner = props => {
           navigation={{
             nextEl: `.swiper-button-next-${props.id}`,
             prevEl: `.swiper-button-prev-${props.id}`,
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
           }}
         >
           {props.data?.map((item, index) => (
