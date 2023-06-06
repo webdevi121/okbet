@@ -85,6 +85,16 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: process.env.WPGRAPHQL_URL,
+        type: {
+          MediaItem: {
+            localFile: {
+              requestConcurrency: 50,
+            },
+          },
+        },
+        schema: {
+          requestConcurrency: 1,
+        },
       },
     },
     {
