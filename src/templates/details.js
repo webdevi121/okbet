@@ -191,19 +191,6 @@ export const query = graphql`
         }
       }
       ...SeoPost
-      acfSeoData {
-        seoDescription
-        seoTitle
-        socialThumbnail {
-          sourceUrl
-          gatsbyImage(
-            quality: 100
-            width: 119
-            height: 95
-            placeholder: BLURRED
-          )
-        }
-      }
       categories {
         nodes {
           name
@@ -263,9 +250,6 @@ export const query = graphql`
                   placeholder: BLURRED
                 )
               }
-            }
-            acfSeoData {
-              seoDescription
             }
           }
         }

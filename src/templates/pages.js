@@ -11,18 +11,3 @@ const Pages = ({ data }) => {
 }
 
 export default Pages
-
-// export const query = graphql`
-//   query ($slug: String!) {
-//     wpPage(slug: { eq: $slug }) {
-//       uri
-//       acfSeoData {
-//         seoTitle
-//         seoDescription
-//         socialThumbnail {
-//           sourceUrl
-//         }
-//       }
-//     }
-//   }
-// `

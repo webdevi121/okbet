@@ -83,13 +83,6 @@ export const query = graphql`
       description
       link
       ...SeoCategory
-      acfSeoData {
-        seoDescription
-        seoTitle
-        socialThumbnail {
-          sourceUrl
-        }
-      }
       wpChildren {
         nodes {
           id
@@ -148,9 +141,7 @@ export const query = graphql`
             gatsbyImage(quality: 100, width: 180, placeholder: BLURRED)
           }
         }
-        acfSeoData {
-          seoDescription
-        }
+        ...SeoPost
       }
     }
   }

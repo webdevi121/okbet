@@ -67,13 +67,6 @@ export const query = graphql`
     wpPage(slug: { eq: "homepage" }) {
       uri
       ...SeoPage
-      acfSeoData {
-        seoTitle
-        seoDescription
-        socialThumbnail {
-          sourceUrl
-        }
-      }
       acfHomepage {
         homepageCategorySections {
           ... on WpPage_Acfhomepage_HomepageCategorySections_MainCategory {
@@ -130,17 +123,7 @@ export const query = graphql`
                     )
                   }
                 }
-                acfSeoData {
-                  seoDescription
-                  socialThumbnail {
-                    gatsbyImage(
-                      quality: 100
-                      width: 334
-                      height: 267
-                      placeholder: BLURRED
-                    )
-                  }
-                }
+                ...SeoPost
               }
             }
             taxCategory {

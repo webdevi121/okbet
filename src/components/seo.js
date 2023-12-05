@@ -40,8 +40,8 @@ const Seo = ({
   const defaultTitle = site.siteMetadata?.title
   const pageUrl = site.siteMetadata.siteUrl + `${url}`
   const ogTitle = `${title}`
-  const canonicalUrl = `https://thearchdrive.com${url}`
-  const socialImg = image ? image : "/images/social-img.jpg"
+  const canonicalUrl = `https://tips.okebet.com.au${url}`
+  const socialImg = image ? image : "/images/default.png"
 
   return (
     <Helmet
