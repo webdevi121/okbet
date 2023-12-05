@@ -5,14 +5,7 @@ import Layout from "../components/layout"
 const Pages = ({ data }) => {
   return (
     <React.Fragment>
-      <Layout>
-        <Seo
-          title={data.wpPage.acfSeoData?.seoTitle}
-          description={data.wpPage.acfSeoData?.seoDescription}
-          image={data.wpPage.acfSeoData.socialThumbnail?.sourceUrl}
-          uri={data.wpPage.uri}
-        />
-      </Layout>
+      <Layout></Layout>
     </React.Fragment>
   )
 }

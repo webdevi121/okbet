@@ -11,23 +11,24 @@ const CategoryPage = ({ data }) => {
 
   // Array of all post articles
   const list = data.allWpPost.nodes
+  const item = data.wpCategory
 
   return (
     <React.Fragment>
       <Layout>
         <Seo
-          title={
-            category.acfSeoData.seoTitle
-              ? category.acfSeoData.seoTitle
-              : category.name
-          }
+          title={item.seo.title}
           description={
-            category.acfSeoData.seoDescription
-              ? category.acfSeoData.seoDescription
-              : category.description
+            item.seo.metaDesc
+              ? item.seo.metaDesc
+              : item.seo.opengraphDescription
           }
-          image={category.acfSeoData.socialThumbnail?.sourceUrl}
-          uri={category.link}
+          image={item.seo.opengraphImage?.sourceUrl}
+          url={item.seo.opengraphUrl}
+          publishedTime={item.seo.opengraphPublishedTime}
+          publisher={item.seo.opengraphPublisher}
+          modifiedTime={item.seo.opengraphModifiedTime}
+          type={item.seo.opengraphType}
         />
 
         <div className="mb-5 w-full">
@@ -81,6 +82,7 @@ export const query = graphql`
       name
       description
       link
+      ...SeoCategory
       acfSeoData {
         seoDescription
         seoTitle
