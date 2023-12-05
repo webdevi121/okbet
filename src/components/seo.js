@@ -40,7 +40,7 @@ const Seo = ({
   const defaultTitle = site.siteMetadata?.title
   const pageUrl = site.siteMetadata.siteUrl + `${url}`
   const ogTitle = `${title}`
-  const canonicalUrl = `https://tips.okebet.com.au${url}`
+  const canonicalUrl = site.siteMetadata.siteUrl + `${url}`
   const socialImg = image ? image : "/images/default.png"
 
   return (
