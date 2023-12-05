@@ -7,14 +7,23 @@ import FeaturedArticle from "../components/featuredArticle"
 import MainCategories from "../components/mainCategory"
 
 const Homepage = ({ data }) => {
+  const item = data.wpPage
   return (
     <React.Fragment>
       <Layout>
         <Seo
-          title={data.wpPage.acfSeoData?.seoTitle}
-          description={data.wpPage.acfSeoData?.seoDescription}
-          image={data.wpPage.acfSeoData.socialThumbnail?.sourceUrl}
-          uri={data.wpPage.uri}
+          title={item.seo.title}
+          description={
+            item.seo.metaDesc
+              ? item.seo.metaDesc
+              : item.seo.opengraphDescription
+          }
+          image={item.seo.opengraphImage?.sourceUrl}
+          url={item.seo.opengraphUrl}
+          publishedTime={item.seo.opengraphPublishedTime}
+          publisher={item.seo.opengraphPublisher}
+          modifiedTime={item.seo.opengraphModifiedTime}
+          type={item.seo.opengraphType}
         />
         <div className="flex flex-col space-y-7 lg:space-y-10">
           {data.wpPage.acfHomepage.homepageCategorySections
@@ -57,13 +66,7 @@ export const query = graphql`
   {
     wpPage(slug: { eq: "homepage" }) {
       uri
-      acfSeoData {
-        seoTitle
-        seoDescription
-        socialThumbnail {
-          sourceUrl
-        }
-      }
+      ...SeoPage
       acfHomepage {
         homepageCategorySections {
           ... on WpPage_Acfhomepage_HomepageCategorySections_MainCategory {
@@ -120,17 +123,7 @@ export const query = graphql`
                     )
                   }
                 }
-                acfSeoData {
-                  seoDescription
-                  socialThumbnail {
-                    gatsbyImage(
-                      quality: 100
-                      width: 334
-                      height: 267
-                      placeholder: BLURRED
-                    )
-                  }
-                }
+                ...SeoPost
               }
             }
             taxCategory {

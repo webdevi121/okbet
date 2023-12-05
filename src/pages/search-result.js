@@ -39,9 +39,6 @@ const SearchResult = ({ location }) => {
               )
             }
           }
-          acfSeoData {
-            seoDescription
-          }
         }
       }
     }

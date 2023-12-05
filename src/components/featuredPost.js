@@ -38,7 +38,7 @@ const FeaturedPost = props => {
             </Link>
             <div
               dangerouslySetInnerHTML={{
-                __html: item.acfSeoData.seoDescription,
+                __html: item.seo.opengraphDescription,
               }}
               className="short-desc text-sm line-clamp-2"
             />

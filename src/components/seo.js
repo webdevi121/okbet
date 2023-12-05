@@ -10,7 +10,18 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, lang, meta, title, image, uri }) => {
+const Seo = ({
+  description,
+  lang,
+  meta,
+  title,
+  image,
+  url,
+  publishedTime,
+  publisher,
+  modifiedTime,
+  type,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -27,8 +38,10 @@ const Seo = ({ description, lang, meta, title, image, uri }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-  const pageUrl = site.siteMetadata.siteUrl + `${uri}`
-  const ogTitle = `${title} | ${defaultTitle}`
+  const pageUrl = site.siteMetadata.siteUrl + `${url}`
+  const ogTitle = `${title}`
+  const canonicalUrl = site.siteMetadata.siteUrl + `${url}`
+  const socialImg = image ? image : "/images/default.png"
 
   return (
     <Helmet
@@ -36,11 +49,37 @@ const Seo = ({ description, lang, meta, title, image, uri }) => {
         lang,
       }}
       title={title ? title : null}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={defaultTitle ? `%s` : defaultTitle}
+      link={[
+        {
+          rel: "canonical",
+          href: canonicalUrl,
+        },
+      ]}
       meta={[
+        {
+          name: `robots`,
+          content: "INDEX, FOLLOW",
+        },
+        {
+          name: `author`,
+          content: defaultTitle,
+        },
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          property: `article:publisher`,
+          content: publisher,
+        },
+        {
+          property: `article:published_time`,
+          content: publishedTime,
+        },
+        {
+          property: `article:modified_time`,
+          content: modifiedTime,
         },
         {
           property: `og:title`,
@@ -52,11 +91,11 @@ const Seo = ({ description, lang, meta, title, image, uri }) => {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: type,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: `og:LOCALE`,
+          content: "en_US",
         },
         {
           name: `og:url`,
@@ -68,7 +107,7 @@ const Seo = ({ description, lang, meta, title, image, uri }) => {
         },
         {
           name: `og:image`,
-          content: image,
+          content: socialImg,
         },
         {
           name: `twitter:creator`,

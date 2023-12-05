@@ -20,16 +20,18 @@ const DetailPage = ({ data }) => {
     <React.Fragment>
       <Layout>
         <Seo
-          title={
-            item.acfSeoData.seoTitle ? item.acfSeoData.seoTitle : item.title
-          }
+          title={item.seo.title}
           description={
-            item.acfSeoData.seoDescription
-              ? item.acfSeoData.seoDescription
-              : item.excerpt
+            item.seo.metaDesc
+              ? item.seo.metaDesc
+              : item.seo.opengraphDescription
           }
-          image={item.acfSeoData.socialThumbnail?.sourceUrl}
-          uri={item.link}
+          image={item.seo.opengraphImage?.sourceUrl}
+          url={item.seo.opengraphUrl}
+          publishedTime={item.seo.opengraphPublishedTime}
+          publisher={item.seo.opengraphPublisher}
+          modifiedTime={item.seo.opengraphModifiedTime}
+          type={item.seo.opengraphType}
         />
         <div className="lg:flex lg:space-x-10">
           <div className="w-full">
@@ -188,19 +190,7 @@ export const query = graphql`
           uri
         }
       }
-      acfSeoData {
-        seoDescription
-        seoTitle
-        socialThumbnail {
-          sourceUrl
-          gatsbyImage(
-            quality: 100
-            width: 119
-            height: 95
-            placeholder: BLURRED
-          )
-        }
-      }
+      ...SeoPost
       categories {
         nodes {
           name
@@ -260,9 +250,6 @@ export const query = graphql`
                   placeholder: BLURRED
                 )
               }
-            }
-            acfSeoData {
-              seoDescription
             }
           }
         }
