@@ -55,30 +55,30 @@ exports.createPages = async ({ graphql, actions }) => {
   // })
 
   ////////////// Category //////////////
-  const categoryTemplate = path.resolve(`src/templates/category.js`)
-  const resultCategory = await graphql(`
-    query {
-      allWpCategory {
-        edges {
-          node {
-            link
-            id
-          }
-        }
-      }
-    }
-  `)
-  resultCategory.data.allWpCategory.edges.forEach(edge => {
-    createPage({
-      path: `${edge.node.link}`,
-      component: categoryTemplate,
-      ownerNodeId: edge.node.id,
-      context: {
-        link: edge.node.link,
-        id: edge.node.id,
-      },
-    })
-  })
+  // const categoryTemplate = path.resolve(`src/templates/category.js`)
+  // const resultCategory = await graphql(`
+  //   query {
+  //     allWpCategory {
+  //       edges {
+  //         node {
+  //           link
+  //           id
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+  // resultCategory.data.allWpCategory.edges.forEach(edge => {
+  //   createPage({
+  //     path: `${edge.node.link}`,
+  //     component: categoryTemplate,
+  //     ownerNodeId: edge.node.id,
+  //     context: {
+  //       link: edge.node.link,
+  //       id: edge.node.id,
+  //     },
+  //   })
+  // })
 
   ////////////// Post Detail Page //////////////
   const postTemplate = path.resolve(`src/templates/details.js`)
