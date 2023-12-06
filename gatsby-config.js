@@ -95,8 +95,8 @@ module.exports = {
         schema: {
           // requestConcurrency: 1,
           // perPage: 20, // currently set to 100
-          requestConcurrency: 5, // currently set to 15
-          previewRequestConcurrency: 2, // currently set to 5
+          // requestConcurrency: 5, // currently set to 15
+          // previewRequestConcurrency: 2, // currently set to 5
         },
       },
     },
